@@ -1,0 +1,19 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.sidebar {
+  flex-basis: 300px;
+}
+
+.patient-table {
+  flex-grow: 1;
+  margin-left: 20px;
+}

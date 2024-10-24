@@ -1,0 +1,27 @@
+.patient-table-container{
+  width: 80%;
+}
+.patient-table {
+  width: 100%;
+  background-color: #1b2836;
+  color: white;
+  border-collapse: collapse;
+}
+
+.patient-table th, .patient-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #3b4a5a;
+}
+
+.pagination {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.page-prev, .page-next {
+  background-color: #00f5d4;
+  border: none;
+  padding: 8px 12px;
+  color: black;
+}

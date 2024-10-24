@@ -1,0 +1,32 @@
+.logo_socical {
+  display: flex;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+}
+.gap-12px {
+  gap: 12px;
+}
+.footer-crmc {
+  gap: 16px;
+  .description-footer {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  .copyright {
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #b9b8bb;
+  }
+}

@@ -1,0 +1,73 @@
+/* Set the background image */
+.login-container {
+    background-image: url('/src/assets/img/login_bg.png');;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style the login form */
+  .login-content {
+    // text-align: center;
+    color: white;
+  }
+  
+  /* Style the logo and text */
+  .logo-login {
+    // font-size: 36px;
+    // margin-bottom: 30px;
+    // font-family: 'Arial', sans-serif;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
+  
+  .logo-image {
+    // width: 40px;
+    margin-left: 10px;
+  }
+  
+  /* Style the input fields */
+  .login-input {
+    display: inline-block;
+    width: 200px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+  }
+  
+  /* Style the checkbox */
+  .remember-container {
+    margin-left: 10px;
+  }
+  
+  .remember-container input {
+    margin-left: 5px;
+  }
+  
+  /* Style the login button */
+  .login-screen-button {
+    background-color: #00c0c7;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: unset;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    clip-path: polygon(0 0, 89% 0, 100% 25%, 100% 100%, 10% 100%, 0 78%);
+  }
+  
+  .login-screen-button:hover {
+    background-color: #00a7b7;
+    
+  }
+  

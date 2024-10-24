@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import 'variables';
+@import 'mixin';
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
+.cjk-font {
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Poppins',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+}
+// @import '../../../components/togglelightmode/toggle-mode';
+#root {
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+.on-hide {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .hide-max-1024px {
+    display: none !important;
+  }
+}
+@media (max-width: 540px) {
+  .hide-max-540px {
+    display: none !important;
+  }
+}
+@media (min-width: 540px) {
+  .hide-min-540px {
+    display: none;
+  }
+}
+@media (min-width: 1025px) {
+  .hide-min-1025px {
+    display: none !important;
+  }
+}
+
+@include Mobile() {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+@include Tablet() {
+  .hidden-tablet {
+    display: none !important;
+  }
+}
+
+@include PC() {
+  .hidden-pc {
+    display: none !important;
+  }
+}
+.convert-url-link {
+  cursor: pointer;
+  color: #2f8af5;
+}
+.convert-url-link:hover {
+  cursor: pointer;
+  color: #2f8af5;
+}
+@for $i from 1 through 5 {
+  .grid-gap-#{$i * 5} {
+    grid-gap: #{$i * 5}px;
+  }
+}
+
+@for $i from 1 through 64 {
+  .grid-col-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+  .grid-span-#{$i} {
+    grid-column: 1 / span #{$i};
+  }
+  .gap-#{$i}px {
+    gap: #{$i}px;
+  }
+  .p-#{($i - 1) * 2} {
+    padding: #{($i - 1) * 2}px;
+  }
+  .m-#{($i - 1) * 2} {
+    margin: #{($i - 1) * 2}px;
+  }
+  .fs-#{$i} {
+    font-size: #{$i}px;
+  }
+  .border-radius-#{($i - 1) * 2} {
+    border-radius: #{($i - 1) * 2}px;
+  }
+  .lh-#{$i} {
+    line-height: #{$i}px;
+  }
+  @each $shortD, $dir in $directions {
+    .p-#{$shortD}-#{($i - 1) * 2} {
+      padding-#{$dir}: #{($i - 1) * 2}px;
+    }
+    .m-#{$shortD}-#{($i - 1) * 2} {
+      margin-#{$dir}: #{($i - 1) * 2}px;
+    }
+    .border-radius-#{$shortD}-#{($i - 1) * 2} {
+      border-radius-#{$dir}: #{($i - 1) * 2}px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .grid-col-xs-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr) !important;
+    }
+    .grid-span-xs-#{$i} {
+      grid-column: 1 / span #{$i} !important;
+    }
+    .gap-xs-#{$i}px {
+      gap: #{$i}px !important;
+    }
+    .p-xs-#{($i - 1) * 2} {
+      padding: #{($i - 1) * 2}px !important;
+    }
+    .m-xs-#{($i - 1) * 2} {
+      margin: #{($i - 1) * 2}px !important;
+    }
+    .fs-xs-#{$i} {
+      font-size: #{$i}px !important;
+    }
+    .border-radius-xs-#{($i - 1) * 2} {
+      border-radius: #{($i - 1) * 2}px !important;
+    }
+    .lh-xs-#{$i} {
+      line-height: #{$i}px !important;
+    }
+    @each $shortD, $dir in $directions {
+      .p-#{$shortD}-xs-#{($i - 1) * 2} {
+        padding-#{$dir}: #{($i - 1) * 2}px !important;
+      }
+      .m-#{$shortD}-xs-#{($i - 1) * 2} {
+        margin-#{$dir}: #{($i - 1) * 2}px !important;
+      }
+      .border-radius-#{$shortD}-xs-#{($i - 1) * 2} {
+        border-radius-#{$dir}: #{($i - 1) * 2}px !important;
+      }
+    }
+  }
+}
+@for $i from 1 through 9 {
+  .fw-#{$i} {
+    font-weight: #{$i * 100};
+  }
+  @media screen and (max-width: 768px) {
+    .fw-xs-#{$i} {
+      font-weight: #{$i * 100};
+    }
+  }
+}
+@for $i from 1 through 1280 {
+  .w-#{$i}px {
+    width: #{$i}px;
+  }
+  .h-#{$i}px {
+    height: #{$i}px;
+  }
+  .max-h-#{$i}px {
+    max-height: #{$i}px;
+  }
+  .max-w-#{$i}px {
+    max-width: #{$i}px;
+  }
+  .min-h-#{$i}px {
+    min-height: #{$i}px;
+  }
+  .min-w-#{$i}px {
+    min-width: #{$i}px;
+  }
+  @media screen and (max-width: 768px) {
+    .w-xs-#{$i}px {
+      width: #{$i}px !important;
+    }
+    .w-xs-100 {
+      width: 100% !important;
+    }
+    .h-xs-#{$i}px {
+      height: #{$i}px !important;
+    }
+    .max-h-xs-#{$i}px {
+      max-height: #{$i}px !important;
+    }
+    .max-w-xs-#{$i}px {
+      max-width: #{$i}px !important;
+    }
+    .min-h-xs-#{$i}px {
+      min-height: #{$i}px !important;
+    }
+    .min-w-xs-#{$i}px {
+      min-width: #{$i}px !important;
+    }
+  }
+}
+.w-full {
+  width: 100vw;
+}
+.w-auto {
+  width: auto !important;
+}
+.h-auto {
+  height: auto !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.word-break {
+  word-break: break-all;
+}
+@for $i from 1 through 10 {
+  .line-clamp-#{$i} {
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $i;
+  }
+  .opacity-#{$i} {
+    opacity: #{$i * 0.1};
+  }
+  @media screen and (max-width: 640px) {
+    .line-clamp-xs-#{$i} {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: $i;
+    }
+  }
+}
+@for $i from 1 through 100 {
+  .left-#{$i} {
+    left: #{calc(100% * $i / 100)};
+  }
+  .right-#{$i} {
+    right: #{calc(100% * $i / 100)};
+  }
+  .top-#{$i} {
+    top: #{calc(100% * $i / 100)};
+  }
+  .bottom-#{$i} {
+    bottom: #{calc(100% * $i / 100)};
+  }
+  @media screen and (max-width: 768px) {
+    .left-xs-#{$i} {
+      left: #{calc(100% * $i / 100)} !important;
+    }
+    .right-xs-#{$i} {
+      right: #{calc(100% * $i / 100)} !important;
+    }
+    .top-xs-#{$i} {
+      top: #{calc(100% * $i / 100)} !important;
+    }
+    .bottom-xs-#{$i} {
+      bottom: #{calc(100% * $i / 100)} !important;
+    }
+  }
+}
+.hover-cusor-pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.hover-opa-7 {
+  &:hover {
+    opacity: 0.7 !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .flex-xs-row {
+    flex-direction: row !important;
+  }
+  .flex-xs-column {
+    flex-direction: column !important;
+  }
+  .item-xs-end {
+    align-items: end !important;
+  }
+  .j-xs-bw {
+    justify-content: space-between;
+  }
+  //set width arrow icon react-select
+  .css-1zi56g-indicatorContainer {
+    svg {
+      width: 10px;
+    }
+  }
+  .css-fttci2-indicatorContainer {
+    svg {
+      width: 10px;
+    }
+  }
+  .css-l8g5a6-indicatorContainer {
+    svg {
+      width: 10px;
+    }
+  }
+  .css-rso1rx-indicatorContainer {
+    svg {
+      width: 10px;
+    }
+  }
+  .css-16fp3qc-indicatorContainer {
+    svg {
+      width: 10px;
+    }
+  }
+  .css-vux9er-indicatorContainer {
+    svg {
+      width: 10px;
+    }
+  }
+  .w-sale-info {
+    width: 86px;
+  }
+  .w-list-sale {
+    width: 97px;
+  }
+  .gap-0-16 {
+    gap: 0 16px;
+  }
+}
+input:focus {
+  outline: none;
+}
+.border-unset {
+  border: unset;
+}
+.grid-row-unset {
+  grid-template-rows: unset !important;
+}
+.text-over-ellip {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.object-fit-cover {
+  object-fit: cover;
+}
+// hide arrow input type number
+/* Chrome, Safari, Edge, Opera  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type='number'] {
+  appearance: none;
+}
+@media (max-width: 768px) {
+  .d-xs-grid {
+    display: grid !important;
+  }
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+.horizontal-scroll {
+  overflow: hidden;
+  overflow-x: auto;
+  clear: both;
+  width: 100%;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+.justify-items-center {
+  justify-items: center;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.color-inherit {
+  color: inherit;
+}
+.padding-left-unset {
+  padding-left: unset;
+}
+.over-flow-x-hidden {
+  overflow-x: hidden !important;
+}
+.h-fit-content {
+  height: fit-content;
+}
+.button {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
