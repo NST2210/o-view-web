@@ -17,6 +17,11 @@ const Login = () => {
           </div>
           
         </div>
+        <div className="input-container">
+          <input className="id-input" type="text" placeholder="Insert ID" />
+          <div className="top-right"></div>
+          <div className="bottom-left"></div>
+        </div>
       </div>
     </div>
   );
