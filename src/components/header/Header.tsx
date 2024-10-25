@@ -2,42 +2,11 @@ import React from 'react';
 
 export const Header = () => {
     return (
-        // <div className="header">
-        //   <div className="header-left">
-        //     <div className="profile-section">
-        //       <div className="profile-pic"></div>
-        //       <div>
-        //         <span className="greeting">Hello,</span>
-        //         <span className="doctor-name">Doctor, ADM..</span>
-        //       </div>
-        //     </div>
-
-        //   </div>
-        //   <div className="header-right">
-        //   <nav className="menu">
-        //       <a href="#">WORKLIST</a>
-        //       <a href="#">STUDYLIST</a>
-        //       <a href="#">ACQUISITION</a>
-        //     </nav>
-        //     <div className="actions">
-        //       <button className="new-study">+ NEW STUDY</button>
-        //       <button className="delete-study"><i className="icon-trash"></i> DELETE STUDY</button>
-        //       <button className="emergency"><i className="icon-ambulance"></i> EMERGENCY</button>
-        //     </div>
-        //     <div className="status-bar">
-        //       <span className="status-icon"><i className="icon-hdd"></i> HDD</span>
-        //       <div className="storage">
-        //         <div className="storage-used" style={{ width: '40%' }}></div>
-        //       </div>
-        //       <span>90GB / 218GB</span>
-        //     </div>
-        //   </div>
-        // </div>
         <div>
             <header className="header position-relative">
                 <div className="user-info">
                     <img
-                        src="/path-to-your-avatar-icon.png" // Đường dẫn tới icon avatar
+                        src="/src/assets/img/logo.png" // Đường dẫn tới icon avatar
                         alt="User Avatar"
                         className="avatar"
                     />
@@ -70,10 +39,13 @@ export const Header = () => {
                 </div>
 
             </header>
-            <div className="left-50 m-t-10 position-absolute settings top-10">
-                <button className="restore-btn">RESTORE</button>
-                <button className="edit-btn">EDIT</button>
-                <button className="delete-btn">DELETE</button>
+            <div className="left-50 position-absolute settings top-0 d-flex row">
+                <div className="h-65px"></div>
+                <div className="settings">
+                    <button className="restore-btn">RESTORE</button>
+                    <button className="edit-btn">EDIT</button>
+                    <button className="delete-btn">DELETE</button>
+                </div>
             </div>
         </div>
     );
