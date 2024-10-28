@@ -1,9 +1,9 @@
 import React from 'react';
-import { Header } from '../../components/header/Header';
-import { Sidebar } from '../../components/sidebar/Sidebar';
-import { PatientTable } from '../../components/patientTable/PatientTable';
 
-export const Dashboard = () => {
+import Sidebar from "../../components/sidebar/Sidebar";
+import PatientTable from "../../components/patientTable/PatientTable";
+
+const Dashboard = () => {
   return (
     <div className="dashboard">
       
@@ -14,3 +14,4 @@ export const Dashboard = () => {
     </div>
   );
 };
+export default Dashboard;

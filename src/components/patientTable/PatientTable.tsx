@@ -1,43 +1,293 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import TableCustom from "../tableCustom/TableCustom";
 
-export const PatientTable = () => {
-  return (
-    <div className="patient-table-container">
-      <table className="patient-table">
-        <thead>
-          <tr>
-            <th>NO.</th>
-            <th>ACC. NO.</th>
-            <th>Patient ID</th>
-            <th>Patient Name</th>
-            <th>Birthday</th>
-            <th>Age</th>
-            <th>Sex</th>
-            <th>Status</th>
-            <th>R Physician</th>
-            <th>Study Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>ACC001</td>
-            <td>PAT123</td>
-            <td>John Doe</td>
-            <td>1980-01-01</td>
-            <td>43</td>
-            <td>M</td>
-            <td>Scheduled</td>
-            <td>Dr. Smith</td>
-            <td>CT Scan</td>
-          </tr>
-        </tbody>
-      </table>
-      <div className="pagination">
-        <button className="page-prev">&lt;</button>
-        <span className="page-number">1</span>
-        <button className="page-next">&gt;</button>
-      </div>
-    </div>
-  );
+const PatientTable = () => {
+    const [data, setData] = useState([]);
+    const [page, setPage] = useState(1);
+    const [totalItems, setTotalItems] = useState(0);
+    const rowsPerPage = 5;
+    const columns = [
+        {title: 'ACC. NO.', key: 'accNo'},
+        {title: 'Patient ID', key: 'patientId'},
+        {title: 'Patient Name', key: 'patientName'},
+        {title: 'Birthday', key: 'birthday'},
+        {title: 'Age', key: 'age'},
+        {title: 'Sex', key: 'sex'},
+        {title: 'Status', key: 'status'},
+        {title: 'R Physician', key: 'rPhysician'},
+        {title: 'Study Description', key: 'studyDescription'},
+    ];
+
+    const rawListdata = [
+        {
+            accNo: '011728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '021728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '031728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '041728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '051728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '061728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '071728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '081728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '091728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '101728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '11728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '121728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '131728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '141728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '151728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '161728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '171728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '181728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '191728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '201728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '211728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+
+
+        // Add more rows as needed
+    ];
+
+    // Hàm fetchData thực hiện gọi API và cập nhật data, totalItems
+    const fetchData = async (page, rowsPerPage) => {
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        // Giả sử response trả về có dạng: { items: [...], total: ... }
+        setData(rawListdata.slice(start, end));
+        setTotalItems(rawListdata.length);
+    };
+
+    // Gọi fetchData khi page thay đổi
+    useEffect(() => {
+        fetchData(page, rowsPerPage);
+    }, [page]);
+
+    // Xử lý thay đổi trang
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+    };
+    return (
+        <div className="work-list-table-container">
+            <TableCustom
+                columns={columns}
+                data={data}
+                page={page}
+                totalItems={totalItems}
+                rowsPerPage={rowsPerPage}
+                classContainer=""
+                classTable=""
+                classPagination=""
+                onPageChange={handlePageChange}
+            />
+        </div>
+    );
 };
+
+export default PatientTable;

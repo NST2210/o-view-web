@@ -1,0 +1,81 @@
+import React, {useState} from 'react';
+import '../../design/sass/components/tableCustom.scss';
+const TableCustom = ({
+                         columns,
+                         data,
+                         page,
+                         totalItems,
+                         rowsPerPage,
+                         classTable,
+                         classPagination,
+                         classContainer,
+                         onPageChange
+                     }) => {
+    const totalPages = Math.ceil(totalItems / rowsPerPage);
+    const maxPageDisplay = 3; // Số trang tối đa hiển thị trong pagination
+
+    // Xác định các trang bắt đầu và kết thúc hiển thị
+    const startPage = Math.max(1, page - Math.floor(maxPageDisplay / 2));
+    const endPage = Math.min(totalPages, startPage + maxPageDisplay - 1);
+
+    // Điều chỉnh startPage khi đến gần cuối
+    const adjustedStartPage = Math.max(1, endPage - maxPageDisplay + 1);
+
+    // Tạo mảng các trang sẽ hiển thị
+    const pages = [];
+    for (let i = adjustedStartPage; i <= endPage; i++) {
+        pages.push(i);
+    }
+
+    const handleChangePage = (newPage) => {
+        onPageChange(newPage);
+    };
+
+    return (
+        <div className={`table-container ${classContainer}`}>
+            <table className={`base-table ${classTable}`}>
+                <thead>
+                <tr>
+                    <th>NO.</th>
+                    {columns.map((col, index) => (
+                        <th key={index}>{col.title}</th>
+                    ))}
+                </tr>
+                </thead>
+                <tbody>
+                {data.map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                        <td>{(page - 1) * rowsPerPage + rowIndex + 1}</td>
+                        {/* Số thứ tự liên tục */}
+                        {columns.map((col, colIndex) => (
+                            <td key={colIndex}>{row[col.key]}</td>
+                        ))}
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+
+            <div className={`pagination ${classPagination}`}>
+                <button onClick={() => handleChangePage(page - 1)} disabled={page === 1}>
+                    &lt;
+                </button>
+
+                {pages.map((pageNumber) => (
+                    <button
+                        key={pageNumber}
+                        onClick={() => handleChangePage(pageNumber)}
+                        className={pageNumber === page ? 'active' : ''}
+                    >
+                        {pageNumber}
+                    </button>
+                ))}
+
+                <button onClick={() => handleChangePage(page + 1)} disabled={page === totalPages}>
+                    &gt;
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export default TableCustom;
