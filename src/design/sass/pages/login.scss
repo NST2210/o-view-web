@@ -31,31 +31,6 @@
     margin-left: 10px;
   }
   
-  /* Style the input fields */
-  .login-input {
-    display: inline-block;
-    width: 200px;
-    padding: 15px;
-    margin: 10px;
-    border-radius: unset;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 16px;
-    border: solid 0.5px #1d90f2;  
-  }
-
-  .login-input::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px; /* kích thước của góc tô đậm */
-    height: 20px; 
-    background-color: #00ffff; /* màu tô đậm cho góc */
-    border-top-left-radius: 8px; /* làm tròn góc */
-  }
-  
   /* Style the checkbox */
   .remember-container {
     margin-left: 10px;
@@ -74,7 +49,6 @@
     border-radius: unset;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
     clip-path: polygon(0 0, 89% 0, 100% 25%, 100% 100%, 10% 100%, 0 78%);
   }
   
@@ -82,4 +56,72 @@
     background-color: #00a7b7;
     
   }
-  
+
+/* Input container with custom corner borders */
+.input-container {
+  position: relative;
+  padding: 5px;
+  width: 200px;
+  background-color: #1B2A3C; /* Dark input background */
+  border-radius: unset;
+  border: 1px solid #1E797D; /* Purple border */
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF; /* White text */
+  font-size: 16px;
+}
+
+.login-input::placeholder {
+  color: #8FA3B9; /* Light blue-gray placeholder */
+}
+
+.login-input:focus {
+  outline: none; /* Remove the default outline */
+}
+
+/* Custom corner styling for all 4 cyan corners */
+.input-container::before, /* Top-left */
+.input-container::after, /* Bottom-right */
+.input-container .top-right, /* Top-right */
+.input-container .bottom-left { /* Bottom-left */
+  content: '';
+  position: absolute;
+  border: 2px solid #00FFFF; /* Cyan border */
+  width: 6px;
+  height: 6px;
+}
+
+/* Top-left corner */
+.input-container::before {
+  top: -2px;
+  left: -2px;
+  border-width: 2px 0 0 2px; /* Borders on top and left */
+}
+
+/* Bottom-right corner */
+.input-container::after {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 2px 2px 0; /* Borders on right and bottom */
+}
+
+/* Top-right corner */
+.input-container .top-right {
+  top: -2px;
+  right: -2px;
+  border-width: 2px 2px 0 0; /* Borders on top and right */
+  position: absolute;
+}
+
+/* Bottom-left corner */
+.input-container .bottom-left {
+  bottom: -2px;
+  left: -2px;
+  border-width: 0 0 2px 2px; /* Borders on left and bottom */
+  position: absolute;
+}
