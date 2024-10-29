@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px 40px;
+  padding: 0px 20px 40px;
   background-color: #2b374b; /* Màu nền */
   color: white;
   position: relative; /* Để cho pseudo-element có thể sử dụng vị trí tuyệt đối */
@@ -38,12 +38,25 @@
   font-weight: bold;
 }
 
-/* Phần menu chính giữa */
 .nav-links {
   display: flex;
   gap: 20px;
   font-size: 16px;
   color: #00e7ff;
+
+  a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+
+    &:hover {
+      color: rgb(16, 232, 232);
+    }
+  }
+
+  .nav-link--selected {
+    color: rgb(16, 232, 232) !important;
+    border-top: 3px solid rgb(16, 232, 232);
+  }
 }
 
 /* Phần thông tin bên phải */
@@ -95,6 +108,63 @@
   background-color: #0077cc;
 }
 
+.work-list-function {
+
+  /* Nút bấm */
+  .all-button {
+    button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: unset;
+      cursor: pointer;
+    }
+  }
+
+  .new-study-btn {
+    background-color: rgba(30, 49, 61, 1);
+    color: rgba(143, 152, 158, 1);
+    clip-path: polygon(19% 0%, 100% 0%, 80% 100%, 0% 100%);
+
+    &:hover {
+      background-color: rgba(12, 161, 169, 1);
+      color: rgba(255, 255, 255, 1);
+
+      .icon-plus {
+        g {
+          fill: rgba(255, 255, 255, 1);
+        }
+
+      }
+    }
+
+
+  }
+
+  .delete-study-btn {
+    background-color: rgba(30, 49, 61, 1);
+    color: rgba(143, 152, 158, 1);
+    clip-path: polygon(19% 0%, 100% 0%, 80% 100%, 0% 100%);
+
+    &:hover {
+      background-color: rgba(12, 161, 169, 1);
+      color: rgba(255, 255, 255, 1);
+
+      .icon-trash {
+        fill: rgba(255, 255, 255, 1);
+
+
+      }
+    }
+  }
+
+  .emergency-btn {
+    background-color: rgba(255, 36, 113, 1);
+    color: rgba(255, 255, 255, 1);
+    clip-path: polygon(19% 0%, 100% 0%, 80% 100%, 0% 100%);
+  }
+}
 
 
 

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { ReactComponent as IcSearch} from '../../assets/svg/icSearch.svg';
+import {ReactComponent as IcSearch} from '../../assets/svg/icSearch.svg';
+import ToggleSwitch from "../toggleSwicth/ToggleSwicth";
 
 const Sidebar = () => {
     const [status, setStatus] = useState('Scheduled');
@@ -19,11 +20,16 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar">
-            <h3>Search</h3>
+            <div className="search-container">
+                <div className="title-search">Search</div>
+            </div>
 
             {/* Select Status */}
             <div className="filter-section">
-                <label>Select Status</label>
+                <div className="d-flex w-100 justify-content-space-between m-b-16">
+                    <label>Select Status</label>
+                    <ToggleSwitch Name='selectStatus'/>
+                </div>
                 <div className="toggle">
                     <button onClick={() => handleStatusChange('Scheduled')}
                             className={status === 'Scheduled' ? 'active' : ''}>
@@ -38,7 +44,10 @@ const Sidebar = () => {
 
             {/* Modality */}
             <div className="filter-section">
-                <label>Modality</label>
+                <div className="d-flex w-100 justify-content-space-between m-b-16">
+                    <label>Modality</label>
+                    <ToggleSwitch Name='modality'/>
+                </div>
                 <div className="checkbox-group">
                     {['All', 'DX', 'CR'].map((option) => (
                         <label key={option}>
@@ -55,7 +64,10 @@ const Sidebar = () => {
 
             {/* Scheduled Date */}
             <div className="filter-section">
-                <label>Scheduled Date</label>
+                <div className="d-flex w-100 justify-content-space-between m-b-16">
+                    <label>Scheduled Date</label>
+                    <ToggleSwitch Name='scheduledDate'/>
+                </div>
                 <div className="date-range">
                     <input
                         type="date"
@@ -73,7 +85,10 @@ const Sidebar = () => {
 
             {/* Birth Date */}
             <div className="filter-section">
-                <label>Birth Date</label>
+                <div className="d-flex w-100 justify-content-space-between m-b-16">
+                    <label>Birth Date</label>
+                    <ToggleSwitch Name='birthDate'/>
+                </div>
                 <div className="date-range">
                     <input
                         type="date"
@@ -87,22 +102,26 @@ const Sidebar = () => {
                         onChange={(e) => setBirthDate({...birthDate, to: e.target.value})}
                     />
                 </div>
-            </div>
 
-            {/* Search Bar */}
-            <div className="search-bar">
-                <select>
-                    <option value="all">ALL</option>
-                    {/* Add other options here */}
-                </select>
-                <input type="text" placeholder="Insert Keyword"/>
-                <button><IcSearch size={10}/></button>
-            </div>
 
-            {/* Action Buttons */}
-            <div className="action-buttons">
-                <button className="today-btn">Today</button>
-                <button className="week-btn">Week</button>
+                {/* Search Bar */}
+                <div className="search-container">
+                    <div className="search-bar">
+                        <select>
+                            <option value="all">ALL</option>
+                            {/* Add other options here */}
+                        </select>
+                        <input type="text" placeholder="Insert Keyword"/>
+                        <button><IcSearch size={10}/></button>
+                    </div>
+                </div>
+
+
+                {/* Action Buttons */}
+                <div className="action-buttons">
+                    <button className="today-btn">Today</button>
+                    <button className="week-btn">Week</button>
+                </div>
             </div>
         </div>
     );

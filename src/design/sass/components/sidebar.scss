@@ -1,121 +1,143 @@
 .sidebar {
   width: 300px;
-  background-color: #1c1e26;
   color: white;
-  padding: 20px;
-  border-radius: 8px;
-  overflow: hidden; /* Ngăn tràn ra ngoài */
-  box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước sidebar */
-}
+  overflow: hidden; // Ngăn tràn ra ngoài
+  box-sizing: border-box; // Đảm bảo padding không làm tăng kích thước sidebar
 
-.filter-section {
-  margin-bottom: 20px;
-  width: 100%; /* Đảm bảo phần tử chiếm hết chiều rộng */
-}
+  .search-container {
+    background-color: #1e2a36;
+    padding: 10px 20px;
+    clip-path: polygon(94% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
+    .title-search{
+      color: #00E7FF;
+    }
+  }
 
-.filter-section label {
-  font-size: 16px;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 8px;
-}
+  .filter-section {
+    background-color: #1e2a36;
+    padding: 30px 20px;
+    margin: 1px 0;
+    width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
 
-.toggle button {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-  margin-right: 10px;
-  background-color: #333;
-  color: white;
-  white-space: nowrap; /* Ngăn nút bị xuống dòng */
-}
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      display: block;
+    }
 
-.toggle button.active {
-  background-color: #00bcd4;
-}
 
-.checkbox-group label {
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 14px;
-  white-space: nowrap; /* Ngăn checkbox bị xuống dòng */
-}
+    .toggle {
+      button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+        margin-right: 10px;
+        background-color: #333;
+        color: white;
+        white-space: nowrap; // Ngăn nút bị xuống dòng
 
-.date-range {
-  display: flex;
-  align-items: center;
-  width: 100%; /* Đảm bảo phần tử chiếm hết chiều rộng */
-}
+        &.active {
+          background-color: #009688;
+        }
+      }
+    }
 
-.date-range input {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 4px;
-  flex: 1; /* Chia đều khoảng trống cho hai input */
-  max-width: calc(50% - 10px); /* Đảm bảo hai input không bị tràn ra */
-  box-sizing: border-box;
-}
+    .checkbox-group {
+      label {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 14px;
+        white-space: nowrap; // Ngăn checkbox bị xuống dòng
+      }
+    }
 
-.date-range span {
-  margin: 0 5px;
-  color: white;
-}
+    .date-range {
+      display: flex;
+      align-items: center;
+      width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
 
-.search-bar {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-  width: 100%; /* Đảm bảo phần tử chiếm hết chiều rộng */
-  background-color: #1e2a36;
-}
+      input {
+        background-color: #000;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 4px;
+        flex: 1; // Chia đều khoảng trống cho hai input
+        max-width: calc(50% - 10px); // Đảm bảo hai input không bị tràn ra
+        box-sizing: border-box;
+      }
 
-.search-bar select{
-  background-color: transparent;
-  color: white;
-  border: none;
-  padding: 8px;
-  width: 100%; /* Đảm bảo phần tử chiếm hết chiều rộng */
-  max-width: 80px; /* Đảm bảo input không bị tràn ra */
-  box-sizing: border-box;
-}
+      span {
+        margin: 0 5px;
+        color: white;
+      }
+    }
 
-.search-bar input {
-  background-color: transparent;
-  color: white;
-  border: none;
-  padding: 8px;
-  width: 100%; /* Đảm bảo phần tử chiếm hết chiều rộng */
-  max-width: calc(100% - 40px); /* Đảm bảo input không bị tràn ra */
-  box-sizing: border-box;
-}
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
+      background-color: #1e2a36;
 
-.search-bar button {
-  background-color: transparent;
-  border: none;
-  padding: 8px 12px;
-  border-radius: unset;
-  color: white;
-  cursor: pointer;
-  min-width: 40px; /* Đảm bảo nút có kích thước tối thiểu */
-}
+      select {
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 8px;
+        width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
+        max-width: 80px; // Đảm bảo input không bị tràn ra
+        box-sizing: border-box;
+      }
 
-.action-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
+      input {
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 8px;
+        width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
+        max-width: calc(100% - 40px); // Đảm bảo input không bị tràn ra
+        box-sizing: border-box;
+      }
 
-.action-buttons .today-btn,
-.action-buttons .week-btn {
-  background-color: #00bcd4;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  width: 48%; /* Đảm bảo mỗi nút chiếm 48% để không bị tràn */
-  box-sizing: border-box;
+      button {
+        background-color: transparent;
+        border: none;
+        padding: 8px 12px;
+        border-radius: unset;
+        color: white;
+        cursor: pointer;
+        min-width: 40px; // Đảm bảo nút có kích thước tối thiểu
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      .today-btn {
+        background-color: #009688;
+        border: none;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+        width: 48%; // Đảm bảo mỗi nút chiếm 48% để không bị tràn
+        box-sizing: border-box;
+        clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
+      }
+
+      .week-btn {
+        background-color: #00bcd4;
+        border: none;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+        width: 48%; // Đảm bảo mỗi nút chiếm 48% để không bị tràn
+        box-sizing: border-box;
+        clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
+      }
+    }
+  }
 }

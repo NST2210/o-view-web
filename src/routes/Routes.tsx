@@ -2,6 +2,7 @@ import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
 import Login from '../pages/login/Login';
 import Dashboard from "../pages/dashboard/Dashboard";
 import FullLayout from "../components/layouts/fullLayout/FullLayout";
+import StudyList from "../pages/studyList/StudyList";
 
 const Router = () => [
     {
@@ -10,6 +11,7 @@ const Router = () => [
         children: [
             {path: '/', element: <Dashboard/>},
             {path: '/work-list', element: <Dashboard/>},
+            {path: '/study-list', element: <StudyList/>},
         ],
     },
     {

@@ -29,7 +29,7 @@
   }
 
   .base-table tr:hover {
-    background-color: #009688; /* Highlight row */
+    background-color: #00E7FF; /* Highlight row */
   }
 
   .pagination {
@@ -54,6 +54,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    border-radius: 4px;
   }
 
   .pagination button:hover {

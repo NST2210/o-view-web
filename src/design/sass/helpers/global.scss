@@ -4,45 +4,51 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 
 .cjk-font {
-  font-family:
-    'Pretendard',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Poppins',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: 'Pretendard',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  'Poppins',
+  'Oxygen',
+  'Ubuntu',
+  'Cantarell',
+  'Fira Sans',
+  'Droid Sans',
+  'Helvetica Neue',
+  sans-serif;
 }
+
 // @import '../../../components/togglelightmode/toggle-mode';
 #root {
   overflow-x: hidden;
 }
+
 * {
   box-sizing: border-box;
 }
+
 .on-hide {
   display: none;
 }
+
 @media (max-width: 1024px) {
   .hide-max-1024px {
     display: none !important;
   }
 }
+
 @media (max-width: 540px) {
   .hide-max-540px {
     display: none !important;
   }
 }
+
 @media (min-width: 540px) {
   .hide-min-540px {
     display: none;
   }
 }
+
 @media (min-width: 1025px) {
   .hide-min-1025px {
     display: none !important;
@@ -54,6 +60,7 @@
     display: none !important;
   }
 }
+
 @include Tablet() {
   .hidden-tablet {
     display: none !important;
@@ -65,14 +72,17 @@
     display: none !important;
   }
 }
+
 .convert-url-link {
   cursor: pointer;
   color: #2f8af5;
 }
+
 .convert-url-link:hover {
   cursor: pointer;
   color: #2f8af5;
 }
+
 @for $i from 1 through 5 {
   .grid-gap-#{$i * 5} {
     grid-gap: #{$i * 5}px;
@@ -154,6 +164,7 @@
     }
   }
 }
+
 @for $i from 1 through 9 {
   .fw-#{$i} {
     font-weight: #{$i * 100};
@@ -164,6 +175,7 @@
     }
   }
 }
+
 @for $i from 1 through 1280 {
   .w-#{$i}px {
     width: #{$i}px;
@@ -207,27 +219,35 @@
     }
   }
 }
+
 .w-full {
   width: 100vw;
 }
+
 .w-auto {
   width: auto !important;
 }
+
 .h-auto {
   height: auto !important;
 }
+
 .text-left {
   text-align: left !important;
 }
+
 .text-right {
   text-align: right !important;
 }
+
 .text-center {
   text-align: center !important;
 }
+
 .word-break {
   word-break: break-all;
 }
+
 @for $i from 1 through 10 {
   .line-clamp-#{$i} {
     overflow: hidden;
@@ -248,7 +268,14 @@
     }
   }
 }
+
 @for $i from 1 through 100 {
+  .w-#{$i} {
+    width: #{calc(100% * $i / 100)};;
+  }
+  .h-#{$i} {
+    height: #{calc(100% * $i / 100)};;
+  }
   .left-#{$i} {
     left: #{calc(100% * $i / 100)};
   }
@@ -276,16 +303,19 @@
     }
   }
 }
+
 .hover-cusor-pointer {
   &:hover {
     cursor: pointer;
   }
 }
+
 .hover-opa-7 {
   &:hover {
     opacity: 0.7 !important;
   }
 }
+
 @media screen and (max-width: 768px) {
   .flex-xs-row {
     flex-direction: row !important;
@@ -340,23 +370,29 @@
     gap: 0 16px;
   }
 }
+
 input:focus {
   outline: none;
 }
+
 .border-unset {
   border: unset;
 }
+
 .grid-row-unset {
   grid-template-rows: unset !important;
 }
+
 .text-over-ellip {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 .object-fit-cover {
   object-fit: cover;
 }
+
 // hide arrow input type number
 /* Chrome, Safari, Edge, Opera  */
 input::-webkit-outer-spin-button,
@@ -364,10 +400,12 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 /* Firefox */
 input[type='number'] {
   appearance: none;
 }
+
 @media (max-width: 768px) {
   .d-xs-grid {
     display: grid !important;
@@ -377,50 +415,62 @@ input[type='number'] {
 .opacity-1 {
   opacity: 1;
 }
+
 .horizontal-scroll {
   overflow: hidden;
   overflow-x: auto;
   clear: both;
   width: 100%;
 }
+
 .justify-content-space-between {
   justify-content: space-between;
 }
+
 .justify-items-center {
   justify-items: center;
 }
+
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .flex-between {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .flex-start {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
+
 .flex-end {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
+
 .color-inherit {
   color: inherit;
 }
+
 .padding-left-unset {
   padding-left: unset;
 }
+
 .over-flow-x-hidden {
   overflow-x: hidden !important;
 }
+
 .h-fit-content {
   height: fit-content;
 }
+
 .button {
   color: inherit;
   font: inherit;
