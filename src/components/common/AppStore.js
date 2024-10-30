@@ -17,8 +17,8 @@ export const useOpenModal = create((set) => ({
   closeModal: () => set({ isOpen: false }),
 }));
 
-export const useOpenNewStory = create((set) => ({
-  isOpenModal: false,
+export const useOpenNewStudy = create((set) => ({
+  isOpenNewStudy: false,
   openNewStudy: () => set({ isOpenNewStudy: true }),
   closeNewStudy: () => set({ isOpenNewStudy: false }),
 }));

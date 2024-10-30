@@ -3,11 +3,11 @@ import React, {useState} from 'react';
 import Sidebar from "../../components/sidebar/Sidebar";
 import PatientTable from "../../components/patientTable/PatientTable";
 import NewStudyModal from "../../components/modal/newStudyModal/NewStudyModal";
-import {useOpenNewStory} from "../../components/common/AppStore";
+import {useOpenNewStudy} from "../../components/common/AppStore";
 
 const WorkList = () => {
 
-    const {openNewStudy, closeNewStudy} = useOpenNewStory();
+    const {openNewStudy, closeNewStudy, isOpenNewStudy} = useOpenNewStudy();
     return (
         <main className="dashboard">
 
@@ -15,19 +15,13 @@ const WorkList = () => {
                 <Sidebar/>
                 <PatientTable/>
 
-                <div className="text-white" onClick={() => {
-                    openNewStudy()
-                }}>
-                    click here
-                </div>
-
-                <NewStudyModal
+                {isOpenNewStudy && <NewStudyModal
                     selected={undefined}
                     setReload={undefined}
                     openWinningComplete={(data) => {
                         closeNewStudy();
                     }}
-                />
+                />}
             </div>
         </main>
     );

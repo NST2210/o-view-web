@@ -1,6 +1,6 @@
 import ReactModal from 'react-modal';
 import React, {useState} from 'react';
-import {useOpenNewStory} from '../../common/AppStore.js';
+import {useOpenNewStudy} from '../../common/AppStore.js';
 
 type TransferItem = {
     selected?: any;
@@ -20,7 +20,7 @@ const TransferItem: React.FC<TransferItem> = ({selected, openWinningComplete}) =
         });
     };
 
-    const {isOpenNewStudy, closeNewStudy} = useOpenNewStory();
+    const {isOpenNewStudy, closeNewStudy} = useOpenNewStudy();
 
     return (
         <ReactModal
