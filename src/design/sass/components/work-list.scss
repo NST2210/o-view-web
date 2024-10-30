@@ -1,4 +1,4 @@
-.dashboard {
+.work-list {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 120px);
@@ -17,4 +17,8 @@
 .patient-table {
   flex-grow: 1;
   margin-left: 20px;
+}
+
+.work-list-table-container {
+  width: 80%;
 }
