@@ -479,3 +479,17 @@ input[type='number'] {
   background: transparent;
   cursor: pointer;
 }
+.modal-primary {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  outline: none;
+  transition: all 0.5s;
+  background: #ffffff;
+  color: #191820;
+  border-radius: 24px;
+
+  @media (max-width: 768px) {
+    border-radius: 12px;
+  }
+}

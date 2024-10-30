@@ -17,18 +17,8 @@ export const useOpenModal = create((set) => ({
   closeModal: () => set({ isOpen: false }),
 }));
 
-export const useOpenTransferItem = create((set) => ({
+export const useOpenNewStory = create((set) => ({
   isOpenModal: false,
-  openTransferItem: () => set({ isOpenTransferItem: true }),
-  closeTransferItem: () => set({ isOpenTransferItem: false }),
-}));
-export const useOpenTransferItemOTP = create((set) => ({
-  isOpenModal: false,
-  openTransferItemOTP: () => set({ isOpenTransferItemOTP: true }),
-  closeTransferItemOTP: () => set({ isOpenTransferItemOTP: false }),
-}));
-export const useOpenTransferItemSuccess = create((set) => ({
-  isOpenModal: false,
-  openTransferItemSuccess: () => set({ isOpenTransferItemSuccess: true }),
-  closeTransferItemSuccess: () => set({ isOpenTransferItemSuccess: false }),
+  openNewStudy: () => set({ isOpenNewStudy: true }),
+  closeNewStudy: () => set({ isOpenNewStudy: false }),
 }));

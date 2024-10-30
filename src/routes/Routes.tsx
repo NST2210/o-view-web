@@ -1,6 +1,6 @@
 import PrimaryLayout from '../components/layouts/primaryLayout/PrimaryLayout';
 import Login from '../pages/login/Login';
-import Dashboard from "../pages/dashboard/Dashboard";
+import WorkList from "../pages/workList/WorkList";
 import FullLayout from "../components/layouts/fullLayout/FullLayout";
 import StudyList from "../pages/studyList/StudyList";
 
@@ -9,8 +9,8 @@ const Router = () => [
         path: '/',
         element: <PrimaryLayout/>,
         children: [
-            {path: '/', element: <Dashboard/>},
-            {path: '/work-list', element: <Dashboard/>},
+            {path: '/', element: <WorkList/>},
+            {path: '/work-list', element: <WorkList/>},
             {path: '/study-list', element: <StudyList/>},
         ],
     },
