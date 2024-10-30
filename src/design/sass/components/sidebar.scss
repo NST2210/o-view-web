@@ -33,22 +33,25 @@
         cursor: pointer;
         border-radius: 20px;
         margin-right: 10px;
-        background-color: #333;
+        background-color: transparent;
+        border: 1px solid #a1a0a0;
         color: white;
         white-space: nowrap; // Ngăn nút bị xuống dòng
 
         &.active {
           background-color: #009688;
+          border: unset;
         }
       }
     }
 
     .checkbox-group {
       label {
-        display: inline-block;
+        display: flex;
         margin-right: 10px;
         font-size: 14px;
         white-space: nowrap; // Ngăn checkbox bị xuống dòng
+        gap: 10px;
       }
     }
 
@@ -57,38 +60,108 @@
       align-items: center;
       width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
 
-      input {
-        background-color: #000;
+      &__input {
+        background-color: #1f3031;
         color: white;
         border: none;
-        padding: 8px;
-        border-radius: 4px;
+        padding: 6px 8px;
+        border-radius: unset;
         flex: 1; // Chia đều khoảng trống cho hai input
         max-width: calc(50% - 10px); // Đảm bảo hai input không bị tràn ra
         box-sizing: border-box;
+        position: relative;
+        padding-left: 30px; // Chừa khoảng cho icon ở bên trái
+        font-family: inherit;
+
+        &::-webkit-calendar-picker-indicator {
+          position: absolute;
+          left: 5px; // Đưa icon sang trái
+          color: red; // Để icon không bị ảnh hưởng bởi màu chữ
+          font-size: 18px; // Kích thước của icon
+          opacity: 1;
+          pointer-events: none;
+        }
+
+        &::placeholder {
+          color: transparent; // Ẩn placeholder nếu muốn
+        }
       }
 
-      span {
+      &__separator {
         margin: 0 5px;
         color: white;
       }
     }
+    .search-input {
+      margin-top: 20px;
+      position: relative;
+      padding: 5px;
+      //width: 200px;
+      background-color: #1B2A3C; // Dark input background
+      border-radius: unset;
+      border: 1px solid #1E797D; // Purple border
 
+      // Custom corner styling for all 4 cyan corners
+      &::before, // Top-left
+      &::after, // Bottom-right
+      .top-right, // Top-right
+      .bottom-left { // Bottom-left
+        content: '';
+        position: absolute;
+        border: 2px solid #00FFFF; // Cyan border
+        width: 6px;
+        height: 6px;
+      }
+
+      // Top-left corner
+      &::before {
+        top: -2px;
+        left: -2px;
+        border-width: 2px 0 0 2px; // Borders on top and left
+      }
+
+      // Bottom-right corner
+      &::after {
+        bottom: -2px;
+        right: -2px;
+        border-width: 0 2px 2px 0; // Borders on right and bottom
+      }
+
+      // Top-right corner
+      .top-right {
+        top: -2px;
+        right: -2px;
+        border-width: 2px 2px 0 0; // Borders on top and right
+        position: absolute;
+      }
+
+      // Bottom-left corner
+      .bottom-left {
+        bottom: -2px;
+        left: -2px;
+        border-width: 0 0 2px 2px; // Borders on left and bottom
+        position: absolute;
+      }
+    }
     .search-bar {
       display: flex;
       align-items: center;
-      margin-top: 20px;
       width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
       background-color: #1e2a36;
 
       select {
         background-color: transparent;
-        color: white;
+        color: #1E797D; // Màu chữ cho select
         border: none;
         padding: 8px;
         width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
-        max-width: 80px; // Đảm bảo input không bị tràn ra
+        max-width: 60px; // Đảm bảo input không bị tràn ra
         box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+          border-color: #1E797D;
+        }
       }
 
       input {
@@ -99,6 +172,9 @@
         width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
         max-width: calc(100% - 40px); // Đảm bảo input không bị tràn ra
         box-sizing: border-box;
+        &::placeholder {
+          color: #1E797D; // Màu placeholder
+        }
       }
 
       button {

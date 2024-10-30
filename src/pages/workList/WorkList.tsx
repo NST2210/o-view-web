@@ -281,7 +281,7 @@ const WorkList = () => {
         setPage(newPage);
     };
     return (
-        <main className="work-list">
+        <div className="work-list">
 
             <div className="main-content">
                 <Sidebar/>
@@ -299,15 +299,15 @@ const WorkList = () => {
                     />
                 </div>
 
-                {isOpenNewStudy && <NewStudyModal
-                    selected={undefined}
-                    setReload={undefined}
-                    openWinningComplete={(data) => {
-                        closeNewStudy();
-                    }}
-                />}
             </div>
-        </main>
+            {isOpenNewStudy && <NewStudyModal
+                selected={undefined}
+                setReload={undefined}
+                openWinningComplete={(data) => {
+                    closeNewStudy();
+                }}
+            />}
+        </div>
     );
 };
 export default WorkList;

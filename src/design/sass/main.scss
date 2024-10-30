@@ -1,11 +1,11 @@
 //helpers
-@import 'helpers/global.scss';
-@import 'helpers/custom.scss';
+@use 'helpers/global.scss';
+@use 'helpers/custom.scss';
 // pages
-@import 'pages/login.scss';
+@use 'pages/login.scss';
 //components
-@import 'components/footer.scss';
-@import 'components/header.scss';
-@import 'components/work-list';
-@import 'components/sidebar.scss';
-@import 'components/newStudyModal.scss';
+@use 'components/footer.scss';
+@use 'components/header.scss';
+@use 'components/work-list';
+@use 'components/sidebar.scss';
+@use 'components/newStudyModal.scss';
