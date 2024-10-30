@@ -4,6 +4,7 @@ import {ReactComponent as IcWifi} from '../../assets/svg/icWifi.svg';
 import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
 import {ReactComponent as IconTrash} from '../../assets/svg/icTrash.svg';
 import {ReactComponent as IconAmbulance} from '../../assets/svg/icAmbulance.svg';
+import {ReactComponent as IconHdd} from '../../assets/svg/icHdd.svg';
 
 const Header = () => {
     const location = useLocation();
@@ -11,7 +12,7 @@ const Header = () => {
     return (
         <div>
             <header className="header position-relative z-1">
-                <div className="user-info w-20">
+                <div className="user-info w-13">
                     <img
                         src="/src/assets/img/logo.png" // Đường dẫn tới icon avatar
                         alt="User Avatar"
@@ -22,7 +23,7 @@ const Header = () => {
                         <span className="username">Doctor, ADM..</span>
                     </div>
                 </div>
-                <div className='d-flex lh-50 w-80'>
+                <div className='d-flex lh-50 w-87'>
                     <div className='d-flex justify-content-space-between w-100'>
                         <nav className="nav-links">
                             <Link to="/work-list" className={currentPath === '/work-list' ? 'nav-link--selected' : ''}>
@@ -37,11 +38,11 @@ const Header = () => {
                             </Link>
                         </nav>
                         <div className="right-section">
-                            <span>AI SERVICE</span>
-                            <span>WORKLIST</span>
-                            <span>PACS</span>
+                            <span className='d-flex gap-1 align-items-center'><IcWifi/>AI SERVICE</span>
+                            <span className='d-flex gap-1 align-items-center'><IcWifi/>WORKLIST</span>
+                            <span className='d-flex gap-1 align-items-center'><IcWifi/>PACS</span>
                             <div className="hdd-info">
-                                <span>HDD</span>
+                                <span className='d-flex gap-1 align-items-center'><IconHdd/> HDD</span>
                                 <div className="hdd-bar">
                                     <div className="hdd-used" style={{width: '41.7%'}}></div>
                                 </div>

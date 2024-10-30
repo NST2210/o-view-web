@@ -47,6 +47,7 @@
   a {
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
+    padding: 0 30px;
 
     &:hover {
       color: rgb(16, 232, 232);
@@ -63,7 +64,7 @@
 .right-section {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 30px;
 }
 
 .hdd-info {
