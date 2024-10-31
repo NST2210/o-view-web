@@ -143,7 +143,7 @@ const NewStudyModal = () => {
             />
           </div>
           <div className='form-row-2'>
-            <label>DESCRIPTION</label>
+            <label className='pt-3'>DESCRIPTION</label>
             <input
               type='text'
               name='description'
