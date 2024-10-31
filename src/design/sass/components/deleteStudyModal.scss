@@ -1,0 +1,89 @@
+/* Container for the modal */
+.modal-container {
+  background-color: #141F28;
+  //background-color: #23272c;
+  border-radius: unset;
+  border: #444 1px solid;
+  width: 500px;
+  color: #7F8A95;
+  font-family: Arial, sans-serif;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #444;
+  position: relative; /* Để chứa phần tử tuyệt đối bên trong */
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00a7b6;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #7F8A95;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #00a7b6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 20%; // Đảm bảo mỗi nút chiếm 48% để không bị tràn
+  box-sizing: border-box;
+  clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
+}
+.cancel-button {
+  background-color: #3A4956;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 20%; // Đảm bảo mỗi nút chiếm 48% để không bị tràn
+  box-sizing: border-box;
+  clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
+}
+
+.submit-button:hover {
+  background-color: #0091a2;
+}
+
+.modal-header-divider-2 {
+  position: absolute;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  //bottom: 0; /* Canh dòng ở vị trí dưới cùng của phần header */
+  left: 0; /* Canh bên trái */
+  width: 100%; /* Kéo dài toàn bộ chiều rộng */
+  height: 1px;
+  background-color: #444;
+}
+
+/* Nội dung thông báo */
+.modal-message {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 40px;
+}

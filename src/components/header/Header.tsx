@@ -5,12 +5,13 @@ import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
 import {ReactComponent as IconTrash} from '../../assets/svg/icTrash.svg';
 import {ReactComponent as IconAmbulance} from '../../assets/svg/icAmbulance.svg';
 import {ReactComponent as IconHdd} from '../../assets/svg/icHdd.svg';
-import {useOpenNewStudy} from "../common/AppStore";
+import { useOpenDeleteStudy, useOpenNewStudy } from '../common/AppStore';
 
 const Header = () => {
     const location = useLocation();
     const currentPath = location.pathname;
     const {openNewStudy, closeNewStudy} = useOpenNewStudy();
+    const {openDeleteStudy, closeDeleteStudy} = useOpenDeleteStudy();
     return (
         <div>
             <header className="header position-relative z-1">
@@ -77,7 +78,9 @@ const Header = () => {
                         <button
                             className="delete-study-btn left-8 position-absolute d-flex align-items-center align-content-center w-auto gap-1">
                             <IconTrash
-                                className="icon-trash m-l-20"/><span className="m-r-20"> DELETE STUDY</span>
+                                className="icon-trash m-l-20"/><span className="m-r-20" onClick={() => {
+                            openDeleteStudy()
+                        }}> DELETE STUDY</span>
                         </button>
                         <button
                             className="emergency-btn left-16 position-absolute d-flex align-items-center align-content-center w-auto gap-1">

@@ -2,12 +2,14 @@ import React, {useEffect, useState} from 'react';
 
 import Sidebar from "../../components/sidebar/Sidebar";
 import NewStudyModal from "../../components/modal/newStudyModal/NewStudyModal";
-import {useOpenNewStudy} from "../../components/common/AppStore";
+import { useOpenDeleteStudy, useOpenNewStudy } from '../../components/common/AppStore';
 import TableCustom from "../../components/tableCustom/TableCustom";
+import DeleteStudyModal from '../../components/modal/deleteStudyModal/DeleteStudyModal';
 
 const WorkList = () => {
 
     const {openNewStudy, closeNewStudy, isOpenNewStudy} = useOpenNewStudy();
+    const {openDeleteStudy, closeDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
 
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
@@ -317,6 +319,13 @@ const WorkList = () => {
                 openWinningComplete={(data) => {
                     closeNewStudy();
                 }}
+            />}
+            {isOpenDeleteStudy && <DeleteStudyModal
+              selected={undefined}
+              setReload={undefined}
+              openWinningComplete={(data) => {
+                  closeDeleteStudy();
+              }}
             />}
         </div>
     );

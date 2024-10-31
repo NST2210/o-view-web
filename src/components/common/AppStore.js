@@ -22,3 +22,9 @@ export const useOpenNewStudy = create((set) => ({
   openNewStudy: () => set({ isOpenNewStudy: true }),
   closeNewStudy: () => set({ isOpenNewStudy: false }),
 }));
+
+export const useOpenDeleteStudy = create((set) => ({
+  isOpenDeleteStudy: false,
+  openDeleteStudy: () => set({ isOpenDeleteStudy: true }),
+  closeDeleteStudy: () => set({ isOpenDeleteStudy: false }),
+}));
