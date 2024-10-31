@@ -30,7 +30,7 @@ const TableCustom = ({
     const handleChangePage = (newPage) => {
         onPageChange(newPage);
     };
-
+    const emptyRows = rowsPerPage - data.length;
     return (
         <div className={`table-container ${classContainer}`}>
             <table className={`base-table ${classTable}`}>
@@ -46,10 +46,16 @@ const TableCustom = ({
                 {data.map((row, rowIndex) => (
                     <tr key={rowIndex}>
                         <td>{(page - 1) * rowsPerPage + rowIndex + 1}</td>
-                        {/* Số thứ tự liên tục */}
                         {columns.map((col, colIndex) => (
                             <td key={colIndex}>{row[col.key]}</td>
                         ))}
+                    </tr>
+                ))}
+
+                {/* Render empty rows to fill up to rowsPerPage */}
+                {Array.from({ length: emptyRows }).map((_, index) => (
+                    <tr key={`empty-${index}`} className="empty-row">
+                        <td colSpan={columns.length + 1}>&nbsp;</td>
                     </tr>
                 ))}
                 </tbody>

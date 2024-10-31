@@ -12,7 +12,7 @@ const WorkList = () => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [totalItems, setTotalItems] = useState(0);
-    const rowsPerPage = 5;
+    const rowsPerPage = 15;
     const columns = [
         {title: 'ACC. NO.', key: 'accNo'},
         {title: 'Patient ID', key: 'patientId'},
@@ -237,6 +237,17 @@ const WorkList = () => {
         },
         {
             accNo: '201728463845798',
+            patientId: '20241095798',
+            patientName: 'hhj',
+            birthday: '2024-10-09',
+            age: '0Y',
+            sex: 'M',
+            status: 'IN PROGRESS',
+            rPhysician: 'ADMIN',
+            studyDescription: 'ehhe'
+        },
+        {
+            accNo: '211728463845798',
             patientId: '20241095798',
             patientName: 'hhj',
             birthday: '2024-10-09',

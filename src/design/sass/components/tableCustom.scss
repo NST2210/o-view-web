@@ -70,6 +70,11 @@
     color: #666;
     cursor: not-allowed;
   }
+
+  .empty-row td {
+    background-color: #1a2831; /* Match background color */
+    height: 40px; /* Adjust this based on row height */
+  }
 }
 
 
