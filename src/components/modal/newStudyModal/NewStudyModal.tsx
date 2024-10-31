@@ -1,75 +1,165 @@
 import ReactModal from 'react-modal';
-import React, {useState} from 'react';
-import {useOpenNewStudy} from '../../common/AppStore.js';
+import React, { useState } from 'react';
+import { useOpenNewStudy } from '../../common/AppStore';
 
-type TransferItem = {
-    selected?: any;
-    setReload?: any;
-    openWinningComplete?: any;
-};
+const NewStudyModal = () => {
+  const [formData, setFormData] = useState({
+    accessionNumber: '',
+    patientId: '',
+    patientName: '',
+    patientSex: '',
+    patientBirth: '',
+    studySchedule: '',
+    patientAge: '',
+    patientTel: '',
+    patientAddress: '',
+    description: ''
+  });
 
-const TransferItem: React.FC<TransferItem> = ({selected, openWinningComplete}) => {
-    const [recipient, setRecipient] = useState('');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
 
-    const handleInput = (event) => {
-        setRecipient(event.target.value);
-    };
-    const handlePasteFromClipboard = () => {
-        navigator.clipboard.readText().then((text) => {
-            setRecipient(text);
-        });
-    };
-
-    const {isOpenNewStudy, closeNewStudy} = useOpenNewStudy();
-
-    return (
-        <ReactModal
-            isOpen={isOpenNewStudy}
-            onRequestClose={closeNewStudy}
-            overlayClassName="detail-nft-overlay"
-            className="Modal"
-            ariaHideApp={false}
-        >
-            <div
-                className="modal-primary w-540px w-xs-338px h-417px h-xs-310px ">
-                <div className="close-button-modal" onClick={closeNewStudy}>
-                    close
-                </div>
-                <div className="fs-24 fs-xs-16 fw-bold text-center">Transfer Item</div>
-                <div className="line-history m-t-16 m-b-24 m-t-xs-12 m-b-xs-16"></div>
-                <div className="">
-                    <div className="fs-14 fs-xs-12 p-b-8 title-input-modal mode-color-8787d6">Item</div>
-                    <div
-                        className="detail-box-modal fs-xs-12 m-b-24 m-b-xs-16  mode-color-8787d6 cjk-font"
-                    >
-                        {selected?.nftName}
-                    </div>
-                    <div className="fs-14 fs-xs-12 p-b-8 title-input-modal mode-color-8787d6">Recipient wallet address
-                    </div>
-                    <div className="wrapper-input-otp p-0">
-                        <input type="text" value={recipient} placeholder="Enter the wallet adress"
-                               onChange={handleInput}/>
-                        <button className="btn-paste-otp button" onClick={handlePasteFromClipboard}>
-                            Paste
-                        </button>
-                    </div>
-                    <div className="flex-start gap-4px p-t-8 p-b-24 p-b-xs-16 ">
-                        warning
-                        <div className="fs-14 fs-xs-10 fs-xs-10 color-secondary">
-                            Items sent to the wrong address cannot be recovered.
-                        </div>
-                    </div>
-                    <div
-                        className="btn-detail-nft button m-0 h-50px h-xs-40px"
-                        onClick={() => {
-                            openWinningComplete({...selected, recipient: recipient, txid: '0xc7027cf05...eb3bb440b'});
-                        }}
-                    >
-                        Send
-                    </div>
-                </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+  const { isOpenNewStudy, closeNewStudy } = useOpenNewStudy();
+  return (
+    <ReactModal
+      isOpen={isOpenNewStudy}
+      onRequestClose={closeNewStudy}
+      overlayClassName='detail-nft-overlay'
+      className='Modal'
+      ariaHideApp={false}
+    >
+      <div className='modal-primary h-fit-content w-50 modal-container'>
+        <div className='modal-header'>
+          <span className='modal-title'>NEW STUDY</span>
+          <button className='close-button' onClick={() => closeNewStudy()}>×</button>
+        </div>
+        <div className="modal-header-divider"></div>
+        <form onSubmit={handleSubmit} className='modal-form'>
+          <div className='form-group'>
+            <div className='form-row'>
+              <label>ACCESSION NUMBER</label>
+              <input
+                type='text'
+                name='accessionNumber'
+                value={formData.accessionNumber}
+                onChange={handleChange}
+                placeholder='Enter Accession Number'
+              />
             </div>
-        </ReactModal>
-    );
+            <div className='form-row'>
+              <label>Patient ID</label>
+              <input
+                type='text'
+                name='patientId'
+                value={formData.patientId}
+                onChange={handleChange}
+                placeholder='Enter Patient ID'
+              />
+            </div>
+          </div>
+          <div className='form-group'>
+            <div className='form-row'>
+              <label>PATIENT NAME</label>
+              <input
+                type='text'
+                name='patientName'
+                value={formData.patientName}
+                onChange={handleChange}
+                placeholder='Enter Patient Name'
+              />
+            </div>
+            <div className='form-row'>
+              <label>PATIENT SEX</label>
+              <select
+                name='patientSex'
+                value={formData.patientSex}
+                onChange={handleChange}
+              >
+                <option value=''>Select</option>
+                <option value='M'>M</option>
+                <option value='F'>F</option>
+              </select>
+            </div>
+          </div>
+          <div className='form-group'>
+            <div className='form-row'>
+              <label>PATIENT BIRTH</label>
+              <input
+                type='date'
+                name='patientBirth'
+                value={formData.patientBirth}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='form-row'>
+              <label>STUDY SCHEDULE</label>
+              <input
+                type='date'
+                name='studySchedule'
+                value={formData.studySchedule}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className='form-group'>
+            <div className='form-row'>
+              <label>PATIENT AGE</label>
+              <input
+                type='text'
+                name='patientAge'
+                value={formData.patientAge}
+                onChange={handleChange}
+                placeholder='Enter Patient Age'
+              />
+            </div>
+            <div className='form-row'>
+              <label>PATIENT TEL</label>
+              <input
+                type='text'
+                name='patientTel'
+                value={formData.patientTel}
+                onChange={handleChange}
+                placeholder='Enter Patient Tel'
+              />
+            </div>
+          </div>
+          <div className='form-row-2'>
+            <label>PATIENT ADDRESS</label>
+            <input
+              type='text'
+              name='patientAddress'
+              value={formData.patientAddress}
+              onChange={handleChange}
+              placeholder='Enter Patient Address'
+            />
+          </div>
+          <div className='form-row-2'>
+            <label>DESCRIPTION</label>
+            <input
+              type='text'
+              name='description'
+              value={formData.description}
+              onChange={handleChange}
+              placeholder='Enter Description'
+            />
+          </div>
+          <div className="d-flex w-100 justify-content-center">
+            <button type='submit' className='submit-button'>SUBMIT</button>
+          </div>
+        </form>
+      </div>
+
+    </ReactModal>
+  );
 };
-export default TransferItem;
+
+export default NewStudyModal;
