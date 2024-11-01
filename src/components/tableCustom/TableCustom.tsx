@@ -38,7 +38,7 @@ const TableCustom = ({
                 <tr>
                     <th>NO.</th>
                     {columns.map((col, index) => (
-                        <th key={index}>{col.title}</th>
+                        <th key={index} style={{ width: col.width || '' }}>{col.title}</th>
                     ))}
                 </tr>
                 </thead>
@@ -47,7 +47,7 @@ const TableCustom = ({
                     <tr key={rowIndex}>
                         <td>{(page - 1) * rowsPerPage + rowIndex + 1}</td>
                         {columns.map((col, colIndex) => (
-                            <td key={colIndex}>{row[col.key]}</td>
+                            <td key={colIndex} style={{ width: col.width || '' }}>{row[col.key]}</td>
                         ))}
                     </tr>
                 ))}

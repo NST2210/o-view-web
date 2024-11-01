@@ -13,6 +13,7 @@ import {ReactComponent as IcArrowDown} from '../../assets/svg/icDownArrow.svg';
 import EditPatientModal from "../../components/modal/editPatientModal/EditPatientModal";
 import DeletePatientModal from "../../components/modal/deletePatientModal/DeletePatientModal";
 import DeleteStudyModal from "../../components/modal/deleteStudyModal/DeleteStudyModal";
+import TableCustomNoPagination from "../../components/tableCustomNoPagination/TableCustomNoPagination";
 
 const StudyList = () => {
 
@@ -22,18 +23,26 @@ const StudyList = () => {
     const {openDeletePatient, closeDeletePatient, isOpenDeletePatient} = useOpenDeletePatient();
 
     const [data, setData] = useState([]);
+    const [dataStudy, setDataStudy] = useState([]);
     const [page, setPage] = useState(1);
     const [totalItems, setTotalItems] = useState(0);
-    const rowsPerPage = 5;
-    const columns = [
-        {title: 'ACC. NO.', key: 'accNo'},
-        {title: 'Patient ID', key: 'patientId'},
-        {title: 'Patient Name', key: 'patientName'},
-        {title: 'Birthday', key: 'birthday'},
-        {title: 'Age', key: 'age'},
-        {title: 'Sex', key: 'sex'},
-        {title: 'Telephone', key: 'telephone'},
-        {title: 'Adrress', key: 'adrres'},
+    const rowsPerPage = 6;
+    const columnsPatient = [
+
+        {title: 'Patient ID', key: 'patientId', width: ''},
+        {title: 'Patient Name', key: 'patientName', width: ''},
+        {title: 'Birthday', key: 'birthday', width: ''},
+        {title: 'Age', key: 'age', width: ''},
+        {title: 'Sex', key: 'sex', width: ''},
+        {title: 'Telephone', key: 'telephone', width: ''},
+        {title: 'Adrress', key: 'adrres', width: ''},
+    ];
+
+    const columnsStudy = [
+        {title: 'Study ID', key: 'studyId', width: ''},
+        {title: 'ACC. NO.', key: 'accNo', width: ''},
+        {title: 'Study Description', key: 'studyDescription', width: ''},
+        {title: 'StudyDate', key: 'studyDate', width: ''},
     ];
 
     const rawListdata = [
@@ -283,19 +292,34 @@ const StudyList = () => {
 
         // Add more rows as needed
     ];
+    const rawListdataStudy = [
+        {
+            studyId: '20241095798',
+            accNo: '011728463845798',
+            studyDescription: 'hhj'
+        },
+    ];
 
     // Hàm fetchData thực hiện gọi API và cập nhật data, totalItems
-    const fetchData = async (page, rowsPerPage) => {
+    const fetchDataStudy = async (page, rowsPerPage) => {
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        // Giả sử response trả về có dạng: { items: [...], total: ... }
+        setDataStudy(rawListdataStudy.slice(start, end));
+        setTotalItems(rawListdataStudy.length);
+    };
+
+    const fetchDataPatient = async (page, rowsPerPage) => {
         const start = (page - 1) * rowsPerPage;
         const end = start + rowsPerPage;
         // Giả sử response trả về có dạng: { items: [...], total: ... }
         setData(rawListdata.slice(start, end));
-        setTotalItems(rawListdata.length);
     };
 
     // Gọi fetchData khi page thay đổi
     useEffect(() => {
-        fetchData(page, rowsPerPage);
+        fetchDataPatient(1, rawListdata.length)
+        fetchDataStudy(page, rowsPerPage);
     }, [page]);
 
     // Xử lý thay đổi trang
@@ -308,16 +332,13 @@ const StudyList = () => {
             <div className="study-list-content">
                 <StudyListSearch/>
                 <div className="study-list-table-container d-flex flex-column gap-2">
-                    <TableCustom
-                        columns={columns}
+                    <TableCustomNoPagination
+                        columns={columnsPatient}
                         data={data}
-                        page={page}
-                        totalItems={totalItems}
                         rowsPerPage={rowsPerPage}
+                        totalItems={totalItems}
                         classContainer=""
                         classTable=""
-                        classPagination=""
-                        onPageChange={handlePageChange}
                     />
                     <div className="d-flex gap-2 justify-content-center study-button">
                         <button className="edit-btn" onClick={() => {
@@ -330,8 +351,8 @@ const StudyList = () => {
                         </button>
                     </div>
                     <TableCustom
-                        columns={columns}
-                        data={data}
+                        columns={columnsStudy}
+                        data={dataStudy}
                         page={page}
                         totalItems={totalItems}
                         rowsPerPage={rowsPerPage}

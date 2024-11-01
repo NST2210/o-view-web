@@ -7,29 +7,28 @@
     border-collapse: collapse;
     color: #ffffff;
     font-size: 14px;
-  }
 
-  .base-table th,
-  .base-table td {
-    padding: 12px;
-    text-align: center;
-  }
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
 
-  .base-table th {
-    background-color: #263a47;
-    font-weight: bold;
-  }
+    th {
+      background-color: #263a47;
+      font-weight: bold;
+    }
 
-  .base-table tr:nth-child(even) {
-    background-color: #263a47;
-  }
+    tr:nth-child(even) {
+      background-color: #263a47;
+    }
 
-  .base-table tr:nth-child(odd) {
-    background-color: #1e2a36;
-  }
+    tr:nth-child(odd) {
+      background-color: #1e2a36;
+    }
 
-  .base-table tr:hover {
-    background-color: #00E7FF; /* Highlight row */
+    tr:hover {
+      background-color: #00E7FF; // Highlight row
+    }
   }
 
   .pagination {
@@ -40,41 +39,71 @@
     margin-top: 1px;
     padding: 10px 0;
     background-color: #263a47;
+
+    button {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: transparent;
+      color: #ccc;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        background-color: #009688;
+        color: white;
+      }
+
+      &:disabled {
+        color: #666;
+        cursor: not-allowed;
+      }
+    }
   }
 
-  .pagination button {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    color: #ccc;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 4px;
+  .empty-row {
+    td {
+      background-color: #1a2831; // Match background color
+      height: 40px; // Adjust this based on row height
+    }
   }
 
-  .pagination button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+  // Added styles for scrolling
+  .scrollable-table {
+    height: calc(6 * 52px); // Adjust this to your row height
+    overflow-y: auto;
+    display: block;
 
-  .pagination button.active {
-    background-color: #009688;
-    color: white;
-  }
+    // Custom scrollbar
+    ::-webkit-scrollbar {
+      width: 8px; // Width of the scrollbar
+    }
 
-  .pagination button:disabled {
-    color: #666;
-    cursor: not-allowed;
-  }
+    ::-webkit-scrollbar-track {
+      background: #263a47; // Track color
+    }
 
-  .empty-row td {
-    background-color: #1a2831; /* Match background color */
-    height: 40px; /* Adjust this based on row height */
+    ::-webkit-scrollbar-thumb {
+      background-color: #009688; // Scrollbar color
+      border-radius: 10px; // Round the corners
+      border: 2px solid #263a47; // Padding around the scrollbar thumb
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00E7FF; // Scrollbar color on hover
+    }
+
+    // Additional scrollbar styles for Firefox
+    scrollbar-width: thin; // For Firefox
+    scrollbar-color: #009688 #263a47; // For Firefox
   }
 }
-
-
