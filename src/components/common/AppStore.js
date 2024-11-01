@@ -28,3 +28,15 @@ export const useOpenDeleteStudy = create((set) => ({
   openDeleteStudy: () => set({ isOpenDeleteStudy: true }),
   closeDeleteStudy: () => set({ isOpenDeleteStudy: false }),
 }));
+
+export const useOpenEditPatient = create((set) => ({
+  isOpenEditPatient: false,
+  openEditPatient: () => set({ isOpenEditPatient: true }),
+  closeEditPatient: () => set({ isOpenEditPatient: false }),
+}));
+
+export const useOpenEditStudy = create((set) => ({
+  isOpenEditStudy: false,
+  openEditStudy: () => set({ isOpenEditStudy: true }),
+  closeEditStudy: () => set({ isOpenEditStudy: false }),
+}));

@@ -5,16 +5,17 @@ import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
 import {ReactComponent as IconTrash} from '../../assets/svg/icTrash.svg';
 import {ReactComponent as IconAmbulance} from '../../assets/svg/icAmbulance.svg';
 import {ReactComponent as IconHdd} from '../../assets/svg/icHdd.svg';
-import { useOpenDeleteStudy, useOpenNewStudy } from '../common/AppStore';
+import {useOpenDeleteStudy, useOpenEditPatient, useOpenNewStudy} from '../common/AppStore';
 
 const Header = () => {
     const location = useLocation();
     const currentPath = location.pathname;
     const {openNewStudy, closeNewStudy} = useOpenNewStudy();
     const {openDeleteStudy, closeDeleteStudy} = useOpenDeleteStudy();
+    const {openEditPatient, closeEditPatient} = useOpenEditPatient();
     return (
         <div>
-            <header className="header position-relative z-1">
+            <div className="header position-relative z-1">
                 <div className="user-info w-13">
                     <img
                         src="/src/assets/img/logo.png" // Đường dẫn tới icon avatar
@@ -56,12 +57,15 @@ const Header = () => {
 
                 </div>
 
-            </header>
+            </div>
             {currentPath == "/study-list" && <div className="left-50 position-absolute settings top-0 d-flex row">
                 <div className="h-65px z-0"></div>
                 <div className="settings">
                     <button className="restore-btn">RESTORE</button>
-                    <button className="edit-btn">EDIT</button>
+                    <button className="edit-btn" onClick={() => {
+                        openEditPatient()
+                    }}>EDIT
+                    </button>
                     <button className="delete-btn">DELETE</button>
                 </div>
             </div>}

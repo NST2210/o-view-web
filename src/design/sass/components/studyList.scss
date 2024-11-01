@@ -1,0 +1,97 @@
+.study-list {
+  display: flex;
+  height: 100vh;
+}
+
+.study-list-content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.study-list-search {
+  flex-basis: 300px;
+  margin: 0 20px;
+}
+
+.study-list-table-container {
+  width: 60%;
+
+  .study-button {
+    button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: unset;
+      cursor: pointer;
+      clip-path: polygon(65% 1%, 100% 0, 100% 67%, 86% 100%, 0 100%, 0 33%, 16% 0);
+    }
+  }
+}
+
+.study-list-function {
+  width: 20%;
+  background-color: #0A1218;
+  margin: 0 10px;
+
+  .function-title {
+    color: #00e7ff;
+    background-color: #1E313D;
+    padding: 10px;
+  }
+
+  .function-content {
+    background-color: #000000;
+  }
+
+  .function-content-2 {
+    background-color: #080E12;
+  }
+
+  .action-container {
+    button {
+      margin: 0 10px;
+    }
+
+  }
+
+  .function-button {
+    button {
+      position: relative;
+      margin-left: 10px;
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: unset;
+      cursor: pointer;
+      clip-path: polygon(0 0, 95% 0, 100% 23%, 100% 100%, 4% 100%, 0 78%);
+      border: 1px solid #2A3842;
+      background-color: #141F28;
+      color: #0E8B93;
+      font-weight: bold;
+
+      &::before, // Top-left
+      &::after { // Bottom-right
+        content: '';
+        position: absolute;
+        border: 2px solid #00FFFF; // Cyan border
+        width: 6px;
+        height: 6px;
+      }
+
+      // Top-left corner
+      &::before {
+        top: -2px;
+        left: -2px;
+        border-width: 2px 0 0 2px; // Borders on top and left
+      }
+
+      // Bottom-right corner
+      &::after {
+        bottom: -2px;
+        right: -2px;
+        border-width: 0 2px 2px 0; // Borders on right and bottom
+      }
+    }
+  }
+}

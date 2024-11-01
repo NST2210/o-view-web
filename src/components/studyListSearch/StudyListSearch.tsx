@@ -3,7 +3,7 @@ import {ReactComponent as IcSearch} from '../../assets/svg/icSearch.svg';
 import {ReactComponent as IcArrowDown} from '../../assets/svg/icDownArrow.svg';
 import ToggleSwitch from "../toggleSwicth/ToggleSwicth";
 
-const Sidebar = () => {
+const StudyListSearch = () => {
     const [status, setStatus] = useState('Scheduled');
     const [modality, setModality] = useState([]);
     const [scheduledDate, setScheduledDate] = useState({from: '', to: ''});
@@ -20,26 +20,16 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="sidebar">
+        <div className="study-list-search ">
             <div className="search-container">
-                <div className="title-search">Search</div>
-            </div>
-
-            {/* Select Status */}
-            <div className="filter-section">
-                <div className="d-flex w-100 justify-content-space-between m-b-16">
-                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10"/>Select Status</label>
-                    <ToggleSwitch Name='selectStatus'/>
-                </div>
-                <div className="toggle d-flex m-b-20">
-                    <button onClick={() => handleStatusChange('Scheduled')}
-                            className={status === 'Scheduled' ? 'active' : ''}>
-                        Scheduled
-                    </button>
-                    <button onClick={() => handleStatusChange('In Progress')}
-                            className={status === 'In Progress' ? 'active' : ''}>
-                        In Progress
-                    </button>
+                <div className="w-100 flex-end"><IcArrowDown className="m-r-10"/></div>
+                <div className="info-card">
+                    <div className="info-card__avatar"></div>
+                    <div className="info-card__info">
+                        <div className="info-card__title">ER_2024092...</div>
+                        <div className="info-card__id">20240924284781</div>
+                        <div className="info-card__date">2024-09-24</div>
+                    </div>
                 </div>
             </div>
 
@@ -122,16 +112,9 @@ const Sidebar = () => {
                     <div className="top-right"></div>
                     <div className="bottom-left"></div>
                 </div>
-
-
-                {/* Action Buttons */}
-                <div className="action-buttons">
-                    <button className="today-btn">Today</button>
-                    <button className="week-btn">Week</button>
-                </div>
             </div>
         </div>
     );
 }
 
-export default Sidebar;
+export default StudyListSearch;
