@@ -1,24 +1,24 @@
 import ReactModal from 'react-modal';
 import React, {useState} from 'react';
-import {useOpenEditStudy} from '../../common/AppStore';
+import {useOpenDeletePatient} from '../../common/AppStore';
 
-const EditStudyModal = () => {
+const DeletePatientModal = () => {
 
-    const {isOpenEditStudy, closeEditStudy} = useOpenEditStudy();
+    const {isOpenDeletePatient, closeDeletePatient} = useOpenDeletePatient();
     return (
         <ReactModal
-            isOpen={isOpenEditStudy}
-            onRequestClose={closeEditStudy}
+            isOpen={isOpenDeletePatient}
+            onRequestClose={closeDeletePatient}
             overlayClassName='detail-nft-overlay'
             className='Modal'
             ariaHideApp={false}
         >
             <div className='modal-primary h-fit-content w-50 modal-container'>
-                edit study
+                delete patient
             </div>
 
         </ReactModal>
     );
 };
 
-export default EditStudyModal;
+export default DeletePatientModal;

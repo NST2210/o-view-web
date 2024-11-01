@@ -1,6 +1,6 @@
 import ReactModal from 'react-modal';
 import React, {useState} from 'react';
-import {useOpenEditPatient, useOpenEditStudy} from '../../common/AppStore';
+import {useOpenEditPatient, useOpenDeletePatient} from '../../common/AppStore';
 
 const EditPatientModal = () => {
 

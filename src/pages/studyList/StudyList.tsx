@@ -1,17 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import "../../design/sass/components/studyList.scss"
-import {useOpenEditPatient, useOpenEditStudy, useOpenNewStudy} from "../../components/common/AppStore";
+import {
+    useOpenDeleteStudy,
+    useOpenEditPatient,
+    useOpenDeletePatient,
+    useOpenNewStudy
+} from "../../components/common/AppStore";
 import TableCustom from "../../components/tableCustom/TableCustom";
 import NewStudyModal from "../../components/modal/newStudyModal/NewStudyModal";
 import StudyListSearch from "../../components/studyListSearch/StudyListSearch";
 import {ReactComponent as IcArrowDown} from '../../assets/svg/icDownArrow.svg';
-import EditStudyModal from "../../components/modal/editStudyModal/EditStudyModal";
 import EditPatientModal from "../../components/modal/editPatientModal/EditPatientModal";
+import DeletePatientModal from "../../components/modal/deletePatientModal/DeletePatientModal";
+import DeleteStudyModal from "../../components/modal/deleteStudyModal/DeleteStudyModal";
 
 const StudyList = () => {
 
-    const {openEditStudy, closeEditStudy, isOpenEditStudy} = useOpenEditStudy();
+    const {openNewStudy, closeNewStudy, isOpenNewStudy} = useOpenNewStudy();
+    const {openDeleteStudy, closeDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
     const {openEditPatient, closeEditPatient, isOpenEditPatient} = useOpenEditPatient();
+    const {openDeletePatient, closeDeletePatient, isOpenDeletePatient} = useOpenDeletePatient();
 
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
@@ -313,10 +321,13 @@ const StudyList = () => {
                     />
                     <div className="d-flex gap-2 justify-content-center study-button">
                         <button className="edit-btn" onClick={() => {
-                            openEditStudy()
+                            openNewStudy()
                         }}>EDIT
                         </button>
-                        <button className="delete-btn">DELETE</button>
+                        <button className="delete-btn" onClick={() => {
+                            openDeleteStudy()
+                        }}>DELETE
+                        </button>
                     </div>
                     <TableCustom
                         columns={columns}
@@ -350,20 +361,13 @@ const StudyList = () => {
                 </div>
 
             </div>
-            {isOpenEditStudy && <EditStudyModal
-                selected={undefined}
-                setReload={undefined}
-                openWinningComplete={(data) => {
-                    closeEditStudy();
-                }}
+            {isOpenNewStudy && <NewStudyModal
+                isEdit={true}
             />}
-            {isOpenEditPatient && <EditPatientModal
-                selected={undefined}
-                setReload={undefined}
-                openWinningComplete={(data) => {
-                    closeEditPatient();
-                }}
-            />}
+            {isOpenDeleteStudy && <DeleteStudyModal/>}
+            {isOpenEditPatient && <EditPatientModal/>}
+            {isOpenDeletePatient && <DeletePatientModal/>}
+
         </div>
     );
 };

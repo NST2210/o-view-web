@@ -5,7 +5,7 @@ import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
 import {ReactComponent as IconTrash} from '../../assets/svg/icTrash.svg';
 import {ReactComponent as IconAmbulance} from '../../assets/svg/icAmbulance.svg';
 import {ReactComponent as IconHdd} from '../../assets/svg/icHdd.svg';
-import {useOpenDeleteStudy, useOpenEditPatient, useOpenNewStudy} from '../common/AppStore';
+import {useOpenDeletePatient, useOpenDeleteStudy, useOpenEditPatient, useOpenNewStudy} from '../common/AppStore';
 
 const Header = () => {
     const location = useLocation();
@@ -13,6 +13,7 @@ const Header = () => {
     const {openNewStudy, closeNewStudy} = useOpenNewStudy();
     const {openDeleteStudy, closeDeleteStudy} = useOpenDeleteStudy();
     const {openEditPatient, closeEditPatient} = useOpenEditPatient();
+    const {openDeletePatient, closeDeletePatient} = useOpenDeletePatient();
     return (
         <div>
             <div className="header position-relative z-1">
@@ -66,7 +67,10 @@ const Header = () => {
                         openEditPatient()
                     }}>EDIT
                     </button>
-                    <button className="delete-btn">DELETE</button>
+                    <button className="delete-btn" onClick={() => {
+                        openDeletePatient()
+                    }}>DELETE
+                    </button>
                 </div>
             </div>}
             {currentPath == "/work-list" && <div className="left-12 position-absolute settings top-0 d-flex row w-100">
