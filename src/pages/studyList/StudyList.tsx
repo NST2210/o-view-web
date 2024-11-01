@@ -4,7 +4,7 @@ import {
     useOpenDeleteStudy,
     useOpenEditPatient,
     useOpenDeletePatient,
-    useOpenNewStudy
+    useOpenNewStudy, useOpenFileExport, useOpenSaveToPack, useOpenUseBackup
 } from "../../components/common/AppStore";
 import TableCustom from "../../components/tableCustom/TableCustom";
 import NewStudyModal from "../../components/modal/newStudyModal/NewStudyModal";
@@ -14,6 +14,9 @@ import EditPatientModal from "../../components/modal/editPatientModal/EditPatien
 import DeletePatientModal from "../../components/modal/deletePatientModal/DeletePatientModal";
 import DeleteStudyModal from "../../components/modal/deleteStudyModal/DeleteStudyModal";
 import TableCustomNoPagination from "../../components/tableCustomNoPagination/TableCustomNoPagination";
+import FileExportModal from "../../components/modal/fileExportModal/FileExportModal";
+import UseBackupModal from "../../components/modal/useBackupModal/UseBackupModal";
+import SaveToPackModal from "../../components/modal/saveToPackModal/SaveToPackModal";
 
 const StudyList = () => {
 
@@ -21,6 +24,9 @@ const StudyList = () => {
     const {openDeleteStudy, closeDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
     const {openEditPatient, closeEditPatient, isOpenEditPatient} = useOpenEditPatient();
     const {openDeletePatient, closeDeletePatient, isOpenDeletePatient} = useOpenDeletePatient();
+    const {openFileExport, closeFileExport, isOpenFileExport} = useOpenFileExport();
+    const {openSaveToPack, closeSaveToPack, isOpenSaveToPack} = useOpenSaveToPack();
+    const {openUseBackup, closeUseBackup, isOpenUseBackup} = useOpenUseBackup();
 
     const [data, setData] = useState([]);
     const [dataStudy, setDataStudy] = useState([]);
@@ -375,9 +381,18 @@ const StudyList = () => {
                     <div className="function-content h-400px"></div>
                     <div className="function-content-2 h-80px"></div>
                     <div className="action-container d-flex flex-column gap-2 function-button">
-                        <button>FILE EXPORT</button>
-                        <button>USE BACKUP</button>
-                        <button>SAVE TO PACK</button>
+                        <button onClick={() => {
+                            openFileExport()
+                        }}>FILE EXPORT
+                        </button>
+                        <button onClick={() => {
+                            openUseBackup()
+                        }}>USE BACKUP
+                        </button>
+                        <button onClick={() => {
+                            openSaveToPack()
+                        }}>SAVE TO PACK
+                        </button>
                     </div>
                 </div>
 
@@ -388,6 +403,9 @@ const StudyList = () => {
             {isOpenDeleteStudy && <DeleteStudyModal/>}
             {isOpenEditPatient && <EditPatientModal/>}
             {isOpenDeletePatient && <DeletePatientModal/>}
+            {isOpenFileExport && <FileExportModal/>}
+            {isOpenUseBackup && <UseBackupModal/>}
+            {isOpenSaveToPack && <SaveToPackModal/>}
 
         </div>
     );
