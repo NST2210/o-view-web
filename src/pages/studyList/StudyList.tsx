@@ -370,17 +370,17 @@ const StudyList = () => {
                 </div>
                 <div className="d-flex flex-column gap-1 study-list-function">
                     <div className="d-flex function-title justify-content-space-between">
-                        <div className="d-flex flex-center gap-10px">
-                            <IcArrowDown/>
-                            <div>ER_202409..</div>
-                            <div>/</div>
-                            <div>202409..</div>
+                        <div className="title-info d-flex flex-center gap-3px">
+                            <IcArrowDown className="m-r-10"/>
+                            <div className="title-info__name">ER_202409..</div>
+                            <div className="title-info__slash">/</div>
+                            <div className="title-info__id">202409..</div>
                         </div>
-                        <div className="d-flex flex-center h-40px w-40px">0</div>
+                        <div className="d-flex flex-center h-30px w-45px count-info">0</div>
                     </div>
                     <div className="function-content h-400px"></div>
                     <div className="function-content-2 h-80px"></div>
-                    <div className="action-container d-flex flex-column gap-2 function-button">
+                    <div className="action-container d-flex flex-column gap-2 function-button m-b-10">
                         <button onClick={() => {
                             openFileExport()
                         }}>FILE EXPORT

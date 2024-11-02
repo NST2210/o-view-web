@@ -15,7 +15,7 @@ const Header = () => {
     const {openEditPatient, closeEditPatient} = useOpenEditPatient();
     const {openDeletePatient, closeDeletePatient} = useOpenDeletePatient();
     return (
-        <div>
+        <div className="w-100  position-relative">
             <div className="header position-relative z-1">
                 <div className="user-info w-13">
                     <img
@@ -76,7 +76,7 @@ const Header = () => {
             {currentPath == "/work-list" && <div className="left-12 position-absolute settings top-0 d-flex row w-100">
                 <div className="h-60px z-0"></div>
                 <div className="work-list-function d-flex">
-                    <div className="all-button">
+                    <div className="all-button d-flex position-relative w-340px">
                         <button
                             className="new-study-btn position-absolute d-flex align-items-center align-content-center w-auto gap-1">
                             <IconPlus className="icon-plus m-l-20"/>
@@ -84,14 +84,14 @@ const Header = () => {
                                 openNewStudy()
                             }}>NEW STUDY</span></button>
                         <button
-                            className="delete-study-btn left-8 position-absolute d-flex align-items-center align-content-center w-auto gap-1">
+                            className="delete-study-btn left-134px position-absolute d-flex align-items-center align-content-center w-auto gap-1">
                             <IconTrash
                                 className="icon-trash m-l-20"/><span className="m-r-20" onClick={() => {
                             openDeleteStudy()
                         }}> DELETE STUDY</span>
                         </button>
                         <button
-                            className="emergency-btn left-16 position-absolute d-flex align-items-center align-content-center w-auto gap-1">
+                            className="emergency-btn left-278px position-absolute d-flex align-items-center align-content-center w-auto gap-1">
                             <IconAmbulance
                                 className="icon-trash m-l-20"/><span className="m-r-20">EMERGENCY</span></button>
                     </div>

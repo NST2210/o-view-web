@@ -195,6 +195,18 @@
   .min-w-#{$i}px {
     min-width: #{$i}px;
   }
+  .left-#{$i}px {
+    left: #{$i}px;
+  }
+  .right-#{$i}px {
+    right: #{$i}px;
+  }
+  .top-#{$i}px {
+    top: #{$i}px;
+  }
+  .bottom-#{$i}px {
+    bottom: #{$i}px;
+  }
   @media screen and (max-width: 768px) {
     .w-xs-#{$i}px {
       width: #{$i}px !important;
