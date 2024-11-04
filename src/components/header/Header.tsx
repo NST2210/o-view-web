@@ -3,6 +3,7 @@ import {Link, useLocation} from 'react-router-dom';
 import {ReactComponent as IcWifi} from '../../assets/svg/icWifi.svg';
 import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
 import {ReactComponent as IconTrash} from '../../assets/svg/icTrash.svg';
+import {ReactComponent as IconTrash2} from '../../assets/svg/icTrash2.svg';
 import {ReactComponent as IconAmbulance} from '../../assets/svg/icAmbulance.svg';
 import {ReactComponent as IconHdd} from '../../assets/svg/icHdd.svg';
 import {useOpenDeletePatient, useOpenDeleteStudy, useOpenEditPatient, useOpenNewStudy} from '../common/AppStore';
@@ -59,17 +60,24 @@ const Header = () => {
                 </div>
 
             </div>
-            {currentPath == "/study-list" && <div className="left-50 position-absolute settings top-0 d-flex row">
+            {currentPath == "/study-list" && <div className="left-56 position-absolute settings top-0 d-flex row">
                 <div className="h-65px z-0"></div>
-                <div className="settings">
-                    <button className="restore-btn">RESTORE</button>
-                    <button className="edit-btn" onClick={() => {
-                        openEditPatient()
-                    }}>EDIT
+                <div className="settings d-flex">
+                    <button className="restore-btn  d-flex align-items-center align-content-center w-auto gap-1">
+                        <IconTrash2 className="icon-trash m-l-20"/>
+                        <span className="m-r-20"> RESTORE</span>
                     </button>
-                    <button className="delete-btn" onClick={() => {
+                    <button className="edit-btn  d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
+                        openEditPatient()
+                    }}>
+                        <IconTrash2 className="icon-trash m-l-20"/>
+                        <span className="m-r-20"> EDIT</span>
+                    </button>
+                    <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
                         openDeletePatient()
-                    }}>DELETE
+                    }}>
+                        <IconTrash2 className="icon-trash m-l-20"/>
+                        <span className="m-r-20"> DELETE</span>
                     </button>
                 </div>
             </div>}
