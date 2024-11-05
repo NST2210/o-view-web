@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Sidebar from "../../components/sidebar/Sidebar";
-import NewStudyModal from "../../components/modal/newStudyModal/NewStudyModal";
+import Sidebar from '../../components/sidebar/Sidebar';
+import NewStudyModal from '../../components/modal/newStudyModal/NewStudyModal';
 import { useOpenDeleteStudy, useOpenNewStudy } from '../../components/common/AppStore';
-import TableCustom from "../../components/tableCustom/TableCustom";
+import TableCustom from '../../components/tableCustom/TableCustom';
 import DeleteStudyModal from '../../components/modal/deleteStudyModal/DeleteStudyModal';
 
 const WorkList = () => {

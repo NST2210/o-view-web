@@ -1,0 +1,35 @@
+.modal-send {
+  background-color: #101920;
+  border-radius: 8px;
+  padding: 20px;
+  width: 700px;
+  color: #7F8A95;
+  font-family: Arial, sans-serif;
+}
+
+.color-fff{
+  color: #ffffff;
+}
+
+.gap-120{
+  gap: 120px;
+}
+
+
+.submit-send {
+  background-color: #00a7b6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  width: 160px;
+  box-sizing: border-box;
+  clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
+}
+

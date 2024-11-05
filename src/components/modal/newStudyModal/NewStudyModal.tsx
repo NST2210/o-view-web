@@ -1,6 +1,7 @@
 import ReactModal from 'react-modal';
 import React, {useState} from 'react';
 import {useOpenNewStudy} from '../../common/AppStore';
+import {ReactComponent as Scan} from '../../../assets/svg/scan.svg';
 
 const NewStudyModal = ({data, isEdit}) => {
     const isEditModal = isEdit == true;
@@ -156,7 +157,10 @@ const NewStudyModal = ({data, isEdit}) => {
                         />
                     </div>
                     <div className="d-flex w-100 justify-content-center">
-                        <button type='submit' className='submit-button'>SUBMIT</button>
+                        <button type="submit" className="submit-send gap-2">
+                            <Scan className="icon-trash m-l-10" />
+                            <span className="m-r-16">SUBMIT</span>
+                        </button>
                     </div>
                 </form>
             </div>

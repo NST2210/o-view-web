@@ -1,24 +1,27 @@
-import React, {useEffect, useState} from 'react';
-import "../../design/sass/pages/studyList.scss"
+import React, { useEffect, useState } from 'react';
+import '../../design/sass/pages/studyList.scss';
 import {
+    useOpenDeletePatient,
     useOpenDeleteStudy,
     useOpenEditPatient,
-    useOpenDeletePatient,
-    useOpenNewStudy, useOpenFileExport, useOpenSendToPacs, useOpenUseBackup
-} from "../../components/common/AppStore";
-import TableCustom from "../../components/tableCustom/TableCustom";
-import NewStudyModal from "../../components/modal/newStudyModal/NewStudyModal";
-import StudyListSearch from "../../components/studyListSearch/StudyListSearch";
-import {ReactComponent as IcArrowDown} from '../../assets/svg/icDownArrow.svg';
-import EditPatientModal from "../../components/modal/editPatientModal/EditPatientModal";
-import DeletePatientModal from "../../components/modal/deletePatientModal/DeletePatientModal";
-import DeleteStudyModal from "../../components/modal/deleteStudyModal/DeleteStudyModal";
-import TableCustomNoPagination from "../../components/tableCustomNoPagination/TableCustomNoPagination";
-import FileExportModal from "../../components/modal/fileExportModal/FileExportModal";
-import UseBackupModal from "../../components/modal/useBackupModal/UseBackupModal";
-import SendToPacsModal from "../../components/modal/sendToPacsModal/SendToPacsModal";
-import {ReactComponent as IconCheckBox} from "../../assets/svg/icCheckbox.svg";
-import {ReactComponent as IconTrash2} from "../../assets/svg/icTrash2.svg";
+    useOpenFileExport,
+    useOpenNewStudy,
+    useOpenSendToPacs,
+    useOpenUseBackup
+} from '../../components/common/AppStore';
+import TableCustom from '../../components/tableCustom/TableCustom';
+import NewStudyModal from '../../components/modal/newStudyModal/NewStudyModal';
+import StudyListSearch from '../../components/studyListSearch/StudyListSearch';
+import { ReactComponent as IcArrowDown } from '../../assets/svg/icDownArrow.svg';
+import EditPatientModal from '../../components/modal/editPatientModal/EditPatientModal';
+import DeletePatientModal from '../../components/modal/deletePatientModal/DeletePatientModal';
+import DeleteStudyModal from '../../components/modal/deleteStudyModal/DeleteStudyModal';
+import TableCustomNoPagination from '../../components/tableCustomNoPagination/TableCustomNoPagination';
+import FileExportModal from '../../components/modal/fileExportModal/FileExportModal';
+import UseBackupModal from '../../components/modal/useBackupModal/UseBackupModal';
+import SendToPacsModal from '../../components/modal/sendToPacsModal/SendToPacsModal';
+import { ReactComponent as IconCheckBox } from '../../assets/svg/icCheckbox.svg';
+import { ReactComponent as IconTrash2 } from '../../assets/svg/icTrash2.svg';
 
 const StudyList = () => {
 

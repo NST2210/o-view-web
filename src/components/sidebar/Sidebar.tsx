@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {ReactComponent as IcSearch} from '../../assets/svg/icSearch.svg';
-import {ReactComponent as IcArrowDown} from '../../assets/svg/icDownArrow.svg';
-import ToggleSwitch from "../toggleSwicth/ToggleSwicth";
+import React, { useState } from 'react';
+import { ReactComponent as IcSearch } from '../../assets/svg/icSearch.svg';
+import { ReactComponent as IcArrowDown } from '../../assets/svg/icDownArrow.svg';
+import ToggleSwitch from '../toggleSwicth/ToggleSwicth';
 
 const Sidebar = () => {
     const [status, setStatus] = useState('Scheduled');

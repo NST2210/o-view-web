@@ -1,0 +1,63 @@
+/* Container for the modal */
+.modal-file {
+  background-color: #101920;
+  border-radius: 8px;
+  padding: 20px;
+  width: 700px;
+  color: #7F8A95;
+  font-family: Arial, sans-serif;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #00a7b6;
+  font-size: 16px;
+  color: #fff;
+  width: 120px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select option {
+  border: 1px solid #00a7b6 !important;
+  background-color: #fff;
+  color: #000;
+}
+
+select option:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.gap-155{
+  gap: 155px;
+}
+
+.ml-54{
+  margin-left: 54px;
+}
+
+.color-fff{
+  color: #ffffff;
+}
+
+.submit-file {
+  background-color: #00a7b6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  width: 160px;
+  box-sizing: border-box;
+  clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
+}
+
+
+

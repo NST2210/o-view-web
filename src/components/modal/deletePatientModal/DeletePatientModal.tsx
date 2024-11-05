@@ -1,6 +1,6 @@
 import ReactModal from 'react-modal';
-import React, {useState} from 'react';
-import {useOpenDeletePatient} from '../../common/AppStore';
+import React from 'react';
+import { useOpenDeletePatient } from '../../common/AppStore';
 
 const DeletePatientModal = () => {
 

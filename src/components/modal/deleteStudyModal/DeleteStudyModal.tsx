@@ -1,9 +1,6 @@
 import ReactModal from 'react-modal';
-import React, { useState } from 'react';
-import { useOpenDeleteStudy, useOpenNewStudy } from '../../common/AppStore';
-import { ReactComponent as IcArrowDown } from '../../../assets/svg/icDownArrow.svg';
-import ToggleSwitch from '../../toggleSwicth/ToggleSwicth';
-import { ReactComponent as IcSearch } from '../../../assets/svg/icSearch.svg';
+import React from 'react';
+import { useOpenDeleteStudy } from '../../common/AppStore';
 
 const DeleteStudyModal = () => {
 

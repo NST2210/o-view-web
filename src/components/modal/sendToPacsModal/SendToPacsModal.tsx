@@ -1,35 +1,44 @@
 import ReactModal from 'react-modal';
-import React, {useState} from 'react';
-import {useOpenSendToPacs} from '../../common/AppStore';
+import React from 'react';
+import { useOpenSendToPacs } from '../../common/AppStore';
+import logo from '../../../assets/img/login_bg.png';
+import { ReactComponent as Scan } from '../../../assets/svg/scan.svg';
 
 const SendToPacsModal = () => {
 
-    const {isOpenSendToPacs, closeSendToPacs} = useOpenSendToPacs();
-    return (
-        <ReactModal
-            isOpen={isOpenSendToPacs}
-            onRequestClose={closeSendToPacs}
-            overlayClassName='detail-nft-overlay'
-            className='Modal'
-            ariaHideApp={false}
-        >
-            <div className='modal-primary h-fit-content w-40 modal-container'>
-                <div className='modal-header'>
-                    <span className='modal-title'>Save to pack</span>
-                    <button className='close-button' onClick={() => closeSendToPacs()}>×</button>
-                </div>
-                <div className="modal-header-divider-2"></div>
-                <div className="modal-message">
+  const { isOpenSendToPacs, closeSendToPacs } = useOpenSendToPacs();
+  return (
+    <ReactModal
+      isOpen={isOpenSendToPacs}
+      onRequestClose={closeSendToPacs}
+      overlayClassName="detail-nft-overlay"
+      className="Modal"
+      ariaHideApp={false}
+    >
+      <div className="modal-primary h-fit-content w-40 modal-send">
+        <div className="modal-header">
+          <span className="modal-title">SEND TO PACS</span>
+          <button className="close-button" onClick={() => closeSendToPacs()}>×</button>
+        </div>
+        <div className="modal-header-divider-2"></div>
+        <div className="d-block mt-3 align-items-center">
+          <img src={logo} width={145} height={120} alt="Logo" />
+          <div className="ml-54 mt-1 color-fff">AHIHI</div>
+        </div>
+        <div className="d-flex gap-120 w-100 m-t-100">
+          <div className="d-flex align-items-center color-fff fs-14 mt-3">
+            <input className="m-r-4" type="checkbox" />
+            <span>ADD ANNOTATIONS</span>
+          </div>
+          <button type="submit" className="submit-send gap-2">
+            <Scan className="icon-trash m-l-10" />
+            <span className="m-r-16">SUBMIT</span>
+          </button>
+        </div>
+      </div>
 
-                </div>
-                <div className="d-flex gap-20px m-b-30 w-100 justify-content-center">
-                    <button type='submit' className='submit-button'>OK</button>
-                    <button type='submit' className='cancel-button'>CANCEL</button>
-                </div>
-            </div>
-
-        </ReactModal>
-    );
+    </ReactModal>
+  );
 };
 
 export default SendToPacsModal;
