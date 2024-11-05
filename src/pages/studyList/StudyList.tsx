@@ -22,13 +22,13 @@ import {ReactComponent as IconTrash2} from "../../assets/svg/icTrash2.svg";
 
 const StudyList = () => {
 
-    const {openNewStudy, closeNewStudy, isOpenNewStudy} = useOpenNewStudy();
-    const {openDeleteStudy, closeDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
-    const {openEditPatient, closeEditPatient, isOpenEditPatient} = useOpenEditPatient();
-    const {openDeletePatient, closeDeletePatient, isOpenDeletePatient} = useOpenDeletePatient();
-    const {openFileExport, closeFileExport, isOpenFileExport} = useOpenFileExport();
-    const {openSaveToPack, closeSaveToPack, isOpenSaveToPack} = useOpenSaveToPack();
-    const {openUseBackup, closeUseBackup, isOpenUseBackup} = useOpenUseBackup();
+    const {openNewStudy,isOpenNewStudy} = useOpenNewStudy();
+    const {openDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
+    const {isOpenEditPatient} = useOpenEditPatient();
+    const { isOpenDeletePatient} = useOpenDeletePatient();
+    const {openFileExport, isOpenFileExport} = useOpenFileExport();
+    const {openSaveToPack, isOpenSaveToPack} = useOpenSaveToPack();
+    const {openUseBackup, isOpenUseBackup} = useOpenUseBackup();
 
     const [data, setData] = useState([]);
     const [dataStudy, setDataStudy] = useState([]);
@@ -309,7 +309,7 @@ const StudyList = () => {
     ];
 
     // Hàm fetchData thực hiện gọi API và cập nhật data, totalItems
-    const fetchDataStudy = async (page, rowsPerPage) => {
+    const fetchDataStudy = async (page: any, rowsPerPage: any) => {
         const start = (page - 1) * rowsPerPage;
         const end = start + rowsPerPage;
         // Giả sử response trả về có dạng: { items: [...], total: ... }
@@ -317,7 +317,7 @@ const StudyList = () => {
         setTotalItems(rawListdataStudy.length);
     };
 
-    const fetchDataPatient = async (page, rowsPerPage) => {
+    const fetchDataPatient = async (page: any, rowsPerPage: any) => {
         const start = (page - 1) * rowsPerPage;
         const end = start + rowsPerPage;
         // Giả sử response trả về có dạng: { items: [...], total: ... }
@@ -331,7 +331,7 @@ const StudyList = () => {
     }, [page]);
 
     // Xử lý thay đổi trang
-    const handlePageChange = (newPage) => {
+    const handlePageChange = (newPage: any) => {
         setPage(newPage);
     };
 
@@ -344,7 +344,6 @@ const StudyList = () => {
                         columns={columnsPatient}
                         data={data}
                         rowsPerPage={rowsPerPage}
-                        totalItems={totalItems}
                         classContainer=""
                         classTable=""
                     />
@@ -402,7 +401,7 @@ const StudyList = () => {
 
             </div>
             {isOpenNewStudy && <NewStudyModal
-                isEdit={true}
+                isEdit={true} data={undefined}
             />}
             {isOpenDeleteStudy && <DeleteStudyModal/>}
             {isOpenEditPatient && <EditPatientModal/>}

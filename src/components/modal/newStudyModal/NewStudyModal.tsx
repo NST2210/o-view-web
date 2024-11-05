@@ -23,6 +23,8 @@ const NewStudyModal = ({data, isEdit}) => {
             ...prevData,
             [name]: value
         }));
+
+        console.log("DATA",data)
     };
 
     const handleSubmit = (e) => {

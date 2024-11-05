@@ -107,7 +107,7 @@ const StudyListSearch = () => {
                             {/* Add other options here */}
                         </select>
                         <input type="text" placeholder="Insert Keyword"/>
-                        <button><IcSearch size={10}/></button>
+                        <button><IcSearch /></button>
                     </div>
                     <div className="top-right"></div>
                     <div className="bottom-left"></div>

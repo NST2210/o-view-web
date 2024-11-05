@@ -8,8 +8,8 @@ import DeleteStudyModal from '../../components/modal/deleteStudyModal/DeleteStud
 
 const WorkList = () => {
 
-    const {openNewStudy, closeNewStudy, isOpenNewStudy} = useOpenNewStudy();
-    const {openDeleteStudy, closeDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
+    const {isOpenNewStudy} = useOpenNewStudy();
+    const {isOpenDeleteStudy} = useOpenDeleteStudy();
 
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
@@ -276,7 +276,7 @@ const WorkList = () => {
     ];
 
     // Hàm fetchData thực hiện gọi API và cập nhật data, totalItems
-    const fetchData = async (page, rowsPerPage) => {
+    const fetchData = async (page: any, rowsPerPage: any) => {
         const start = (page - 1) * rowsPerPage;
         const end = start + rowsPerPage;
         // Giả sử response trả về có dạng: { items: [...], total: ... }
@@ -290,7 +290,7 @@ const WorkList = () => {
     }, [page]);
 
     // Xử lý thay đổi trang
-    const handlePageChange = (newPage) => {
+    const handlePageChange = (newPage: any) => {
         setPage(newPage);
     };
     return (
@@ -313,20 +313,8 @@ const WorkList = () => {
                 </div>
 
             </div>
-            {isOpenNewStudy && <NewStudyModal
-                selected={undefined}
-                setReload={undefined}
-                openWinningComplete={(data) => {
-                    closeNewStudy();
-                }}
-            />}
-            {isOpenDeleteStudy && <DeleteStudyModal
-              selected={undefined}
-              setReload={undefined}
-              openWinningComplete={(data) => {
-                  closeDeleteStudy();
-              }}
-            />}
+            {isOpenNewStudy && <NewStudyModal isEdit={false} data={undefined}/>}
+            {isOpenDeleteStudy && <DeleteStudyModal />}
         </div>
     );
 };

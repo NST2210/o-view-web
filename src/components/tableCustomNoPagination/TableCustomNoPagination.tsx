@@ -9,7 +9,7 @@ const TableCustomNoPagination = ({ columns, data, rowsPerPage, classTable, class
         <thead>
           <tr>
             <th>NO.</th>
-            {columns.map((col, index) => (
+            {columns.map((col: any, index: any) => (
               <th key={index} style={{ width: col.width || '' }}>
                 {col.title}
               </th>
@@ -20,10 +20,10 @@ const TableCustomNoPagination = ({ columns, data, rowsPerPage, classTable, class
       <div className="scrollable-table" style={{ height: `${heightScroll}px` }}>
         <table className={`base-table ${classTable}`}>
           <tbody>
-            {data.map((row, rowIndex) => (
+            {data.map((row: any, rowIndex: any) => (
               <tr key={rowIndex}>
                 <td>{rowIndex + 1}</td>
-                {columns.map((col, colIndex) => (
+                {columns.map((col: any, colIndex: any) => (
                   <td key={colIndex} style={{ width: col.width || '' }}>
                     {row[col.key]}
                   </td>

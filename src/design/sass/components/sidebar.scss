@@ -79,7 +79,9 @@
           color: red; // Để icon không bị ảnh hưởng bởi màu chữ
           font-size: 18px; // Kích thước của icon
           opacity: 1;
-          pointer-events: none;
+          &:hover{
+            cursor: pointer;
+          }
         }
 
         &::placeholder {
