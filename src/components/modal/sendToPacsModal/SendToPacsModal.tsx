@@ -1,14 +1,14 @@
 import ReactModal from 'react-modal';
 import React, {useState} from 'react';
-import {useOpenSaveToPack} from '../../common/AppStore';
+import {useOpenSendToPacs} from '../../common/AppStore';
 
-const SaveToPackModal = () => {
+const SendToPacsModal = () => {
 
-    const {isOpenSaveToPack, closeSaveToPack} = useOpenSaveToPack();
+    const {isOpenSendToPacs, closeSendToPacs} = useOpenSendToPacs();
     return (
         <ReactModal
-            isOpen={isOpenSaveToPack}
-            onRequestClose={closeSaveToPack}
+            isOpen={isOpenSendToPacs}
+            onRequestClose={closeSendToPacs}
             overlayClassName='detail-nft-overlay'
             className='Modal'
             ariaHideApp={false}
@@ -16,7 +16,7 @@ const SaveToPackModal = () => {
             <div className='modal-primary h-fit-content w-40 modal-container'>
                 <div className='modal-header'>
                     <span className='modal-title'>Save to pack</span>
-                    <button className='close-button' onClick={() => closeSaveToPack()}>×</button>
+                    <button className='close-button' onClick={() => closeSendToPacs()}>×</button>
                 </div>
                 <div className="modal-header-divider-2"></div>
                 <div className="modal-message">
@@ -32,4 +32,4 @@ const SaveToPackModal = () => {
     );
 };
 
-export default SaveToPackModal;
+export default SendToPacsModal;

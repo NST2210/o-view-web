@@ -36,8 +36,8 @@ export const useOpenUseBackup = create((set) => ({
     closeUseBackup: () => set({isOpenUseBackup: false}),
 }));
 
-export const useOpenSaveToPack = create((set) => ({
-    isOpenSaveToPack: false,
-    openSaveToPack: () => set({isOpenSaveToPack: true}),
-    closeSaveToPack: () => set({isOpenSaveToPack: false}),
+export const useOpenSendToPacs = create((set) => ({
+    isOpenSendToPacs: false,
+    openSendToPacs: () => set({isOpenSendToPacs: true}),
+    closeSendToPacs: () => set({isOpenSendToPacs: false}),
 }));

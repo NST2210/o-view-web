@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../../assets/img/login_logo.png';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -7,7 +8,7 @@ const Login = () => {
         <div className="login-container">
             <div className="login-content">
                 <h1 className="logo-login">
-                    <img src="/src/assets/img/login_logo.png" alt="Logo" className="logo-image"/>
+                    <img src={Logo} alt="Logo" className="logo-image"/>
                 </h1>
                 <div className="login-form">
                     <div className="d-flex gap-4 m-b-10 m-l-16 w-100">

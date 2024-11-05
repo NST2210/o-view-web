@@ -4,7 +4,7 @@ import {
     useOpenDeleteStudy,
     useOpenEditPatient,
     useOpenDeletePatient,
-    useOpenNewStudy, useOpenFileExport, useOpenSaveToPack, useOpenUseBackup
+    useOpenNewStudy, useOpenFileExport, useOpenSendToPacs, useOpenUseBackup
 } from "../../components/common/AppStore";
 import TableCustom from "../../components/tableCustom/TableCustom";
 import NewStudyModal from "../../components/modal/newStudyModal/NewStudyModal";
@@ -16,7 +16,7 @@ import DeleteStudyModal from "../../components/modal/deleteStudyModal/DeleteStud
 import TableCustomNoPagination from "../../components/tableCustomNoPagination/TableCustomNoPagination";
 import FileExportModal from "../../components/modal/fileExportModal/FileExportModal";
 import UseBackupModal from "../../components/modal/useBackupModal/UseBackupModal";
-import SaveToPackModal from "../../components/modal/saveToPackModal/SaveToPackModal";
+import SendToPacsModal from "../../components/modal/sendToPacsModal/SendToPacsModal";
 import {ReactComponent as IconCheckBox} from "../../assets/svg/icCheckbox.svg";
 import {ReactComponent as IconTrash2} from "../../assets/svg/icTrash2.svg";
 
@@ -27,7 +27,7 @@ const StudyList = () => {
     const {isOpenEditPatient} = useOpenEditPatient();
     const { isOpenDeletePatient} = useOpenDeletePatient();
     const {openFileExport, isOpenFileExport} = useOpenFileExport();
-    const {openSaveToPack, isOpenSaveToPack} = useOpenSaveToPack();
+    const {openSendToPacs, isOpenSendToPacs} = useOpenSendToPacs();
     const {openUseBackup, isOpenUseBackup} = useOpenUseBackup();
 
     const [data, setData] = useState([]);
@@ -393,7 +393,7 @@ const StudyList = () => {
                         }}>USE BACKUP
                         </button>
                         <button onClick={() => {
-                            openSaveToPack()
+                            openSendToPacs()
                         }}>SAVE TO PACK
                         </button>
                     </div>
@@ -408,7 +408,7 @@ const StudyList = () => {
             {isOpenDeletePatient && <DeletePatientModal/>}
             {isOpenFileExport && <FileExportModal/>}
             {isOpenUseBackup && <UseBackupModal/>}
-            {isOpenSaveToPack && <SaveToPackModal/>}
+            {isOpenSendToPacs && <SendToPacsModal/>}
 
         </div>
     );

@@ -3,14 +3,15 @@
 @use 'helpers/custom.scss';
 // pages
 @use 'pages/login.scss';
+@use 'pages/work-list';
+@use 'pages/review';
 //components
 @use 'components/footer.scss';
 @use 'components/header.scss';
-@use 'pages/work-list';
 @use 'components/sidebar.scss';
 @use 'components/studyListSearch.scss';
 @use 'components/newStudyModal.scss';
 @use 'components/deleteStudyModal.scss';
 @use 'components/useBackupModal.scss';
-@use 'components/saveToPackModal.scss';
+@use 'components/sendToPacsModal';
 @use 'components/fileExportModal.scss';

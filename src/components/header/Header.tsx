@@ -8,6 +8,7 @@ import {ReactComponent as IconCheckBox} from '../../assets/svg/icCheckbox.svg';
 import {ReactComponent as IconRestore} from '../../assets/svg/icRestore.svg';
 import {ReactComponent as IconAmbulance} from '../../assets/svg/icAmbulance.svg';
 import {ReactComponent as IconHdd} from '../../assets/svg/icHdd.svg';
+import LogoOView from '../../assets/img/logo.png'
 import {useOpenDeletePatient, useOpenDeleteStudy, useOpenEditPatient, useOpenNewStudy} from '../common/AppStore';
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
             <div className="header position-relative z-1">
                 <div className="user-info w-13">
                     <img
-                        src="/src/assets/img/logo.png" // Đường dẫn tới icon avatar
+                        src={LogoOView} // Đường dẫn tới icon avatar
                         alt="User Avatar"
                         className="avatar"
                     />
