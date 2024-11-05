@@ -18,6 +18,7 @@ const Router = () => [
             {path: 'work-list', element: <WorkList/>},
             {path: 'study-list', element: <StudyList/>},
             {path: 'review', element: <Review/>},
+            {path: 'acquisition', element: <Review/>},
         ],
     },
     {

@@ -397,7 +397,7 @@ const StudyList = () => {
                         </button>
                         <button onClick={() => {
                             openSendToPacs()
-                        }}>SAVE TO PACK
+                        }}>SAVE TO PACS
                         </button>
                     </div>
                 </div>

@@ -42,9 +42,15 @@ const Header = () => {
                                   className={currentPath === '/study-list' ? 'nav-link--selected' : ''}>
                                 <span>STUDYLIST</span>
                             </Link>
-                            <Link to="/review" className={currentPath === '/review' ? 'nav-link--selected' : ''}>
-                                <span>REVIEW</span>
-                            </Link>
+                            {(currentPath == "/study-list" || currentPath == "/review") &&
+                                <Link to="/review" className={currentPath === '/review' ? 'nav-link--selected' : ''}>
+                                    <span>REVIEW</span>
+                                </Link>}
+                            {(currentPath == "/work-list" || currentPath == "/acquisition") &&
+                                <Link to="/acquisition"
+                                      className={currentPath === '/acquisition' ? 'nav-link--selected' : ''}>
+                                    <span>ACQUISITION</span>
+                                </Link>}
                         </nav>
                         <div className="right-section">
                             <span className='d-flex gap-1 align-items-center'><IcWifi/>AI SERVICE</span>
@@ -70,15 +76,17 @@ const Header = () => {
                         <IconRestore className="icon-trash m-l-10"/>
                         <span className="m-r-16"> RESTORE</span>
                     </button>
-                    <button className="edit-btn d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
-                        openEditPatient()
-                    }}>
+                    <button className="edit-btn d-flex align-items-center align-content-center w-auto gap-1"
+                            onClick={() => {
+                                openEditPatient()
+                            }}>
                         <IconCheckBox className="m-l-10"/>
                         <span className="m-r-16"> EDIT</span>
                     </button>
-                    <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
-                        openDeletePatient()
-                    }}>
+                    <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1"
+                            onClick={() => {
+                                openDeletePatient()
+                            }}>
                         <IconTrash2 className="icon-trash m-l-10"/>
                         <span className="m-r-16"> DELETE</span>
                     </button>
