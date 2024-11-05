@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import "../../design/sass/components/studyList.scss"
+import "../../design/sass/pages/studyList.scss"
 import {
     useOpenDeleteStudy,
     useOpenEditPatient,
@@ -17,6 +17,8 @@ import TableCustomNoPagination from "../../components/tableCustomNoPagination/Ta
 import FileExportModal from "../../components/modal/fileExportModal/FileExportModal";
 import UseBackupModal from "../../components/modal/useBackupModal/UseBackupModal";
 import SaveToPackModal from "../../components/modal/saveToPackModal/SaveToPackModal";
+import {ReactComponent as IconCheckBox} from "../../assets/svg/icCheckbox.svg";
+import {ReactComponent as IconTrash2} from "../../assets/svg/icTrash2.svg";
 
 const StudyList = () => {
 
@@ -347,13 +349,15 @@ const StudyList = () => {
                         classTable=""
                     />
                     <div className="d-flex gap-2 justify-content-center study-button">
-                        <button className="edit-btn" onClick={() => {
+                        <button className="edit-btn  d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
                             openNewStudy()
-                        }}>EDIT
+                        }}><IconCheckBox className="m-l-10"/>
+                            <span className="m-r-16"> EDIT</span>
                         </button>
-                        <button className="delete-btn" onClick={() => {
+                        <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
                             openDeleteStudy()
-                        }}>DELETE
+                        }}><IconTrash2 className="icon-trash m-l-10"/>
+                            <span className="m-r-16"> DELETE</span>
                         </button>
                     </div>
                     <TableCustom

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
     return (
         <div className="login-container">
             <div className="login-content">
@@ -19,7 +21,9 @@ const Login = () => {
                             <div className="top-right"></div>
                             <div className="bottom-left"></div>
                         </div>
-                        <button className="login-screen-button">LOGIN</button>
+                        <button className="login-screen-button" onClick={()=>{
+                            navigate('/work-list');
+                        }}>LOGIN</button>
                     </div>
                     <div className="remember-container d-flex gap-6px">
                         <input type="checkbox" id="remember"/>

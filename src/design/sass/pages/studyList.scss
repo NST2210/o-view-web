@@ -18,13 +18,24 @@
 
   .study-button {
     button {
+      color: #E5EFFB;
       margin-left: 10px;
       padding: 5px 10px;
       font-size: 14px;
       border: none;
       border-radius: unset;
       cursor: pointer;
+    }
+    .restore-btn {
       clip-path: polygon(65% 1%, 100% 0, 100% 67%, 86% 100%, 0 100%, 0 33%, 16% 0);
+    }
+
+    .edit-btn {
+      clip-path: polygon(65% 1%, 100% 0, 100% 67%, 86% 100%, 0 100%, 0 33%, 16% 0);
+    }
+
+    .delete-btn {
+      clip-path: polygon(10% 0, 100% 0, 100% 64%, 89% 100%, 0 100%, 0 33%);
     }
   }
 }
