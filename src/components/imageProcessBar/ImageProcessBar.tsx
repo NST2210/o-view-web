@@ -44,5 +44,4 @@ const ImageProcessBar = ({selecttab}) => {
     );
 }
 
-export default ImageProcessBar
-;
+export default ImageProcessBar;

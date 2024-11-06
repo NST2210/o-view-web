@@ -41,3 +41,9 @@ export const useOpenSendToPacs = create((set) => ({
     openSendToPacs: () => set({isOpenSendToPacs: true}),
     closeSendToPacs: () => set({isOpenSendToPacs: false}),
 }));
+
+export const useOpenProcessModal = create((set) => ({
+    isOpenProcess: false,
+    openProcess: () => set({isOpenProcess: true}),
+    closeProcess: () => set({isOpenProcess: false}),
+}));

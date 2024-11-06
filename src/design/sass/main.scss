@@ -10,9 +10,11 @@
 @use 'components/header.scss';
 @use 'components/sidebar.scss';
 @use 'components/studyListSearch.scss';
-@use 'components/newStudyModal.scss';
-@use 'components/deleteStudyModal.scss';
-@use 'components/useBackupModal.scss';
-@use 'components/sendToPacsModal';
-@use 'components/fileExportModal.scss';
 @use 'components/imageProcessBar.scss';
+//modal
+@use 'components/modal/newStudyModal';
+@use 'components/modal/deleteStudyModal';
+@use 'components/modal/useBackupModal';
+@use 'components/modal/sendToPacsModal';
+@use 'components/modal/fileExportModal';
+@use 'components/modal/processModal';
