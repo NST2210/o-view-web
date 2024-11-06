@@ -5,39 +5,39 @@
   width: 700px;
   color: #7F8A95;
   font-family: Arial, sans-serif;
+
+  select {
+    padding: 10px;
+    border: 1px solid #00a7b6;
+    font-size: 16px;
+    color: #fff;
+    width: 120px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  select option {
+    border: 1px solid #00a7b6 !important;
+    background-color: #fff;
+    color: #000;
+  }
+
+  select option:hover {
+    background-color: #333;
+    color: #fff;
+  }
 }
 
-select {
-  padding: 10px;
-  border: 1px solid #00a7b6;
-  font-size: 16px;
-  color: #fff;
-  width: 120px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-select option {
-  border: 1px solid #00a7b6 !important;
-  background-color: #fff;
-  color: #000;
-}
-
-select option:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-.ml-54{
+.ml-54 {
   margin-left: 54px;
 }
 
-.color-fff{
+.color-fff {
   color: #ffffff;
 }
 
-.gap-20{
+.gap-20 {
   gap: 20px;
 }
 
@@ -70,7 +70,7 @@ select option:hover {
   border-radius: 2px;
 }
 
-.stand-by{
+.stand-by {
   background-color: #0d363d;
   padding: 10px 0;
 }

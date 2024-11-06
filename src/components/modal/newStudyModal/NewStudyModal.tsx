@@ -41,7 +41,7 @@ const NewStudyModal = ({data, isEdit}) => {
             className='Modal'
             ariaHideApp={false}
         >
-            <div className='modal-primary h-fit-content w-50 modal-container'>
+            <div className='modal-primary h-fit-content w-50 modal-container modal-new-study'>
                 <div className='modal-header'>
                     <span className='modal-title'>{isEditModal ? 'EDIT STUDY' : 'NEW STUDY'}</span>
                     <button className='close-button' onClick={() => closeNewStudy()}>×</button>

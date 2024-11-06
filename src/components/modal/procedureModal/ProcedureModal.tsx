@@ -22,7 +22,12 @@ const ProcedureModal = () => {
                 <div className="modal-message">
                     Are you sure you want to delete the selected patient (20240924418363)?.
                 </div>
-                <img src={bodyParts}/>
+                <div className="d-flex">
+                    <img src={bodyParts}/>
+                    <div className="m-r-10">
+
+                    </div>
+                </div>
                 <div className="d-flex gap-20px m-b-30 w-100 justify-content-center">
                     <button type='submit' className='submit-button'>OK</button>
                     <button type='submit' className='cancel-button'>CANCEL</button>

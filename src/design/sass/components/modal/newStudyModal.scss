@@ -8,6 +8,16 @@
   color: #7F8A95;
   font-family: Arial, sans-serif;
 }
+.modal-new-study {
+  input, select, textarea {
+    background-color: #0D141A;
+    border: solid 1px #000000;
+    border-radius: 2px;
+    padding: 10px;
+    color: #7F8A95;
+    font-size: 14px;
+  }
+}
 
 /* Modal header */
 .modal-header {
@@ -62,15 +72,6 @@ label {
   font-size: 14px;
   margin-bottom: 5px;
   color: #7F8A95;
-}
-
-input, select, textarea {
-  background-color: #0D141A;
-  border: solid 1px #000000;
-  border-radius: 2px;
-  padding: 10px;
-  color: #7F8A95;
-  font-size: 14px;
 }
 
 input[type="date"] {
