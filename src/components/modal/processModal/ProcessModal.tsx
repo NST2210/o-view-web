@@ -1,12 +1,18 @@
 import ReactModal from 'react-modal';
-import React from 'react';
-import {useOpenProcessModal} from '../../common/AppStore';
-import logo from '../../../assets/img/login_bg.png';
-import { ReactComponent as Scan } from '../../../assets/svg/scan.svg';
+import React, { useEffect, useState } from 'react';
+import { useOpenProcessModal } from '../../common/AppStore';
 
 const ProcessModal = () => {
 
-    const { isOpenProcess, closeProcess } = useOpenProcessModal();
+    const { isOpenProcess, closeProcess } = useOpenProcessModal();  const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setProgress((prev) => (prev < 18 ? prev + 1 : 18));
+        }, 500);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <ReactModal
             isOpen={isOpenProcess}
@@ -15,30 +21,49 @@ const ProcessModal = () => {
             className="Modal"
             ariaHideApp={false}
         >
-            <div className="modal-primary h-fit-content w-40 modal-send">
-                <div className="modal-header">
+            <div className="modal-primary h-fit-content w-40 modal-process">
+                <div className="modal-header d-flex align-items-center justify-content-center">
                     <span className="modal-title">PROCESS</span>
-                    <button className="close-button" onClick={() => closeProcess()}>×</button>
                 </div>
                 <div className="modal-header-divider-2"></div>
-                <div className="d-block mt-3 align-items-center">
-                    <img src={logo} width={145} height={120} alt="Logo" />
-                    <div className="ml-54 mt-1 color-fff">AHIHI</div>
+                <div className="d-flex justify-content-center m-t-60 color-text">
+                    Please Short  X-Ray
                 </div>
-                <div className="d-flex gap-120 w-100 m-t-100">
-                    <div className="d-flex align-items-center color-fff fs-14 mt-3">
-                        <input className="m-r-4" type="checkbox" />
-                        <span>ADD ANNOTATIONS</span>
+                <div className="d-flex justify-content-center m-t-30">
+                    <div style={styles.progressContainer}>
+                        {Array.from({ length: 18 }).map((_, index) => (
+                          <div
+                            key={index}
+                            style={{
+                                ...styles.square,
+                                backgroundColor: index < progress ? '#13D0CA' : '#0D6B70'
+                            }}
+                          />
+                        ))}
                     </div>
-                    <button type="submit" className="submit-send gap-2">
-                        <Scan className="icon-trash m-l-10" />
-                        <span className="m-r-16">SUBMIT</span>
-                    </button>
+                </div>
+                <div className="d-flex gap-20px w-100 justify-content-center">
+                    <button type="submit" className="abort-button">ABORT</button>
                 </div>
             </div>
 
         </ReactModal>
     );
+};
+
+const styles = {
+    progressContainer: {
+        display: 'flex',
+        margin: '10px 0',
+        justifyContent: 'center',
+        backgroundColor: '#0D363D'
+    },
+    square: {
+        width: '12px',
+        height: '12px',
+        transition: 'background-color 0.3s ease',
+        margin: "4px 2px",
+    },
 };
 
 export default ProcessModal;

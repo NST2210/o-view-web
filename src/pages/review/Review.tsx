@@ -8,10 +8,10 @@ const Review = () => {
     const {isOpenProcess, openProcess, closeProcess} = useOpenProcessModal();
     useEffect(() => {
         openProcess();
-        // const interval = setInterval(() => {
-        //     closeProcess()
-        // }, 5000);
-        // return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            closeProcess()
+        }, 10000);
+        return () => clearInterval(interval);
     }, []);
     return (
         <div className="review">

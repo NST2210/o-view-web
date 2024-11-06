@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {ReactComponent as IcWifi} from '../../assets/svg/icWifi.svg';
 import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
@@ -18,6 +18,17 @@ const Header = () => {
     const {openDeleteStudy, closeDeleteStudy} = useOpenDeleteStudy();
     const {openEditPatient, closeEditPatient} = useOpenEditPatient();
     const {openDeletePatient, closeDeletePatient} = useOpenDeletePatient();
+    const [progress, setProgress] = useState(0);
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setProgress((prev) => (prev < 7 ? prev + 1 : 7));
+    //     }, 500);
+    //     return () => clearInterval(interval);
+    // }, []);
+    useEffect(() => {
+        setProgress(7);
+    }, []);
     return (
         <div className="w-100  position-relative">
             <div className="header position-relative z-1">
@@ -114,11 +125,40 @@ const Header = () => {
                             <IconAmbulance
                                 className="icon-trash m-l-20"/><span className="m-r-20">EMERGENCY</span></button>
                     </div>
-                    <div className="left-75 loading-bar position-absolute text-white">Worklist stanby</div>
+                    <div className="d-flex left-70 loading-bar position-absolute text-white justify-content-center align-items-center gap-2">
+                        Worklist stanby
+
+                        <div style={styles.progressContainer}>
+                            {Array.from({ length: 14 }).map((_, index) => (
+                              <div
+                                key={index}
+                                style={{
+                                    ...styles.square,
+                                    backgroundColor: index < progress ? '#13D0CA' : '#0D6B70'
+                                }}
+                              />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>}
 
         </div>
     );
+};
+
+const styles = {
+    progressContainer: {
+        display: "flex",
+        margin: "10px 0",
+        justifyContent: "center",
+        backgroundColor: "#0D363D",
+    },
+    square: {
+        width: "8px",
+        height: "8px",
+        transition: "background-color 0.3s ease",
+        margin: "4px 2px",
+    },
 };
 export default Header;

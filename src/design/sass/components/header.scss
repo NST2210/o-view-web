@@ -89,26 +89,27 @@
 /* Nút bấm */
 .settings {
   button {
-      color: #E5EFFB;
-      margin-left: 10px;
-      padding: 5px 10px;
-      font-size: 14px;
-      border: none;
-      border-radius: unset;
-      cursor: pointer;
-    }
-    .restore-btn {
-      clip-path: polygon(10% 0, 100% 0, 100% 64%, 89% 100%, 0 100%, 0 33%);
-    }
-    
-    .edit-btn {
-      clip-path: polygon(65% 1%, 100% 0, 100% 67%, 86% 100%, 0 100%, 0 33%, 16% 0);
-    }
-    
-    .delete-btn {
-      clip-path: polygon(10% 0, 100% 0, 100% 64%, 89% 100%, 0 100%, 0 33%);
-    }
+    color: #E5EFFB;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: unset;
+    cursor: pointer;
   }
+
+  .restore-btn {
+    clip-path: polygon(10% 0, 100% 0, 100% 64%, 89% 100%, 0 100%, 0 33%);
+  }
+
+  .edit-btn {
+    clip-path: polygon(65% 1%, 100% 0, 100% 67%, 86% 100%, 0 100%, 0 33%, 16% 0);
+  }
+
+  .delete-btn {
+    clip-path: polygon(10% 0, 100% 0, 100% 64%, 89% 100%, 0 100%, 0 33%);
+  }
+}
 
 .restore-btn {
   background-color: #00c0c7;
@@ -175,11 +176,41 @@
     background-color: rgba(255, 36, 113, 1);
     color: rgba(255, 255, 255, 1);
     clip-path: polygon(21% 0%, 100% 0%, 80% 100%, 0% 100%);
-    &:hover{
-      opacity: 0.7  ;
+
+    &:hover {
+      opacity: 0.7;
     }
   }
 }
 
+.abort-button {
+  background-color: #00a7b6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 20%;
+  box-sizing: border-box;
+  clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
+}
 
+.color-text {
+  color: #989395;
+}
 
+.modal-process {
+  background-color: #101920;
+  border-radius: 2px;
+  border: 1px solid #283640;
+  padding: 20px;
+  width: 500px;
+  color: #7F8A95;
+  font-family: Arial, sans-serif;
+}
