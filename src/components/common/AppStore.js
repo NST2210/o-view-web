@@ -47,3 +47,9 @@ export const useOpenProcessModal = create((set) => ({
     openProcess: () => set({isOpenProcess: true}),
     closeProcess: () => set({isOpenProcess: false}),
 }));
+
+export const useOpenProcedureModal = create((set) => ({
+    isOpenProcedure: false,
+    openProcedure: () => set({isOpenProcedure: true}),
+    closeProcedure: () => set({isOpenProcedure: false}),
+}));

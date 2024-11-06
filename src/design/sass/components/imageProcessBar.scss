@@ -1,5 +1,5 @@
 .image-process-bar {
-  width: 300px;
+  width: 260px;
   color: white;
   overflow: hidden; // Ngăn tràn ra ngoài
   box-sizing: border-box; // Đảm bảo padding không làm tăng kích thước sidebar
@@ -10,15 +10,19 @@
     border: 2px solid #192026;
     clip-path: polygon(0 0, 53% 0, 89% 0, 100% 35%, 100% 100%, 0 100%);
     outline: 2px solid #192026;
+
     .title-tab {
       font-weight: 600;
       font-size: 16px;
+      line-height: 16px;
       color: #5F6264;
       padding: 10px 20px;
       clip-path: polygon(0 0, 86% 0, 100% 24%, 100% 100%, 0 100%);
-      &:hover{
+
+      &:hover {
         cursor: pointer;
       }
+
       &__selected {
         background-color: #0CA1A9;
         color: #fff;
@@ -28,8 +32,9 @@
 
   .info-container {
     background-color: #0B2C31;
-    border: solid 2px #0ED5D5;
+    border: solid 1px #0ED5D5;
     padding: 10px;
+
     .info-card {
       display: flex;
       align-items: center;
@@ -71,6 +76,11 @@
     background-color: #05090C;
     height: 300px;
     border: 2px solid #192026;
+
+    .quick-btn {
+      border: 0;
+      cursor: pointer;
+    }
   }
 
 }

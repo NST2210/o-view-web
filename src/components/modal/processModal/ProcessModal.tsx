@@ -9,7 +9,7 @@ const ProcessModal = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setProgress((prev) => (prev < 18 ? prev + 1 : 18));
-        }, 500);
+        }, 100);
         return () => clearInterval(interval);
     }, []);
 
