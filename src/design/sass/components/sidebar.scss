@@ -95,11 +95,11 @@
         left: 5px;
         top: 50%;
         transform: translateY(-50%);
-        width: 18px;
-        height: 18px;
-        background-color: red; /* Customize color here */
-        mask: url('./src/assets/svg/arrow_accordion.svg') no-repeat center / contain;
-        -webkit-mask: url('./src/assets/svg/arrow_accordion.svg') no-repeat center / contain;
+        width: 14px;
+        height: 14px;
+        background-color: white; /* Customize color here */
+        mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
+        -webkit-mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
         pointer-events: none; /* Allow clicks to go through to the input */
       }
 

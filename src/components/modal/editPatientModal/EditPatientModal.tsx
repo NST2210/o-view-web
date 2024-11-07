@@ -64,38 +64,39 @@ const EditPatientModal = () => {
                             />
                         </div>
                     </div>
-                    <div className='form-group'>
-                        <div className='form-row'>
-                        <label>PATIENT SEX</label>
-                        <select
-                          name='patientSex'
-                          value={formData.patientSex}
-                          onChange={handleChange}
-                        >
-                            <option value=''>Select</option>
-                            <option value='M'>M</option>
-                            <option value='F'>F</option>
-                        </select>
+                    <div className="form-group">
+                        <div className="form-row">
+                            <label>PATIENT SEX</label>
+                            <select
+                              name="patientSex"
+                              value={formData.patientSex}
+                              onChange={handleChange}
+                            >
+                                <option value="">Select</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
                         </div>
-                        <div className='form-row'>
-                            <label>PATIENT BIRTH</label>
+                        <div className="form-row date-range w-100">
+                            <label className="w-100">PATIENT BIRTH</label>
                             <input
-                              type='date'
-                              name='patientBirth'
+                              type="date"
+                              name="patientBirth"
+                              className="date-range__input w-100"
                               value={formData.patientBirth}
                               onChange={handleChange}
                             />
                         </div>
                     </div>
-                    <div className='form-group'>
-                        <div className='form-row'>
+                    <div className="form-group">
+                        <div className="form-row">
                             <label>PATIENT AGE</label>
                             <input
-                              type='text'
-                              name='patientAge'
+                              type="text"
+                              name="patientAge"
                               value={formData.patientAge}
                               onChange={handleChange}
-                              placeholder='Enter Patient Age'
+                              placeholder="Enter Patient Age"
                             />
                         </div>
                         <div className='form-row'>

@@ -17,6 +17,54 @@
     color: #7F8A95;
     font-size: 14px;
   }
+  .date-range {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .date-range__input {
+    padding: 7px 7px 4px 30px;
+    border-radius: unset;
+    flex: 1;
+    box-sizing: border-box;
+    font-family: inherit;
+    position: relative;
+
+    /* Display the default calendar icon */
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0; /* Hide the default icon but keep it clickable */
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    /* Add a custom icon using a pseudo-element */
+    &::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      background-color: #7F8A95; /* Customize color here */
+      mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
+      -webkit-mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
+      pointer-events: none; /* Allow clicks to go through to the input */
+    }
+
+    &:hover::before {
+      cursor: pointer;
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
 }
 
 /* Modal header */

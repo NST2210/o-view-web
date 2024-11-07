@@ -95,22 +95,24 @@ const NewStudyModal = ({data, isEdit}) => {
                         </div>
                     </div>
                     <div className='form-group'>
-                        <div className='form-row'>
-                            <label>PATIENT BIRTH</label>
+                        <div className='form-row date-range w-100'>
+                            <label className="w-100">PATIENT BIRTH</label>
                             <input
                                 type='date'
                                 name='patientBirth'
+                                className="date-range__input w-100"
                                 value={formData.patientBirth}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className='form-row'>
-                            <label>STUDY SCHEDULE</label>
+                        <div className="form-row date-range w-100">
+                            <label className="w-100">STUDY SCHEDULE</label>
                             <input
-                                type='date'
-                                name='studySchedule'
-                                value={formData.studySchedule}
-                                onChange={handleChange}
+                              type="date"
+                              name="studySchedule"
+                              className="date-range__input w-100"
+                              value={formData.studySchedule}
+                              onChange={handleChange}
                             />
                         </div>
                     </div>
