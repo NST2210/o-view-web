@@ -80,7 +80,7 @@ const Header = () => {
                 </div>
 
             </div>
-            {currentPath == "/study-list" && <div className="left-56 position-absolute settings top-0 d-flex row">
+            {currentPath == "/study-list" && <div className="left-59 position-absolute settings top-0 d-flex row">
                 <div className="h-65px z-0"></div>
                 <div className="settings d-flex">
                     <button className="restore-btn  d-flex align-items-center align-content-center w-auto gap-1">

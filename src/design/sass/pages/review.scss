@@ -1,4 +1,27 @@
 .review {
   display: flex;
   height: calc(100vh - 113px);
+
+  .review-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .image-content-container {
+      width: 73%;
+    }
+
+    .image-function {
+      width: 182px;
+      background-color: #12181D;
+      margin: 0 10px;
+      clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%, 0 3%);
+      .image-function-container {
+        width: 180px;
+        background-color: #05090C;
+        border: unset;
+        clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%, 0 3%);
+      }
+    }
+  }
 }

@@ -13,6 +13,9 @@ import circbtn06 from '../../assets/img/acquisition/circBtn_06_default.png';
 import circbtn06hover from '../../assets/img/acquisition/circBtn_06_over.png';
 import {useOpenProcedureModal} from "../common/AppStore";
 import ProcedureModal from "../modal/procedureModal/ProcedureModal";
+import {Tooltip} from "react-tooltip";
+import {Button} from "react-bootstrap";
+import {ReactComponent as IconTrash} from "../../assets/svg/icTrash.svg";
 
 const ImageProcessBar = ({isReview}) => {
 
@@ -75,49 +78,97 @@ const ImageProcessBar = ({isReview}) => {
                         </div>
                     </div>
                 </div>
-                <div className="content-container min-h-500px"></div>
+                <div className="content-container min-h-500px">
+                    {!isReview && <div className="w-100 d-flex flex-center">
+                        <div className="ready-btn-container text-center">
+                            <Button className="ready-btn">
+                                <IconTrash className="icon-trash m-l-20"/>
+                                <span className="m-r-20"> Ready</span>
+                            </Button>
+                        </div>
+                    </div>}
+                </div>
             </>}
             {tabSelected == 1 && <>
-                <div className="content-container min-h-200px border-top-none"></div>
+                <div className="content-container min-h-200px border-top-none">
+                    {!isReview && <div className="w-100 text-center">
+                        <Button>Ready</Button>
+                    </div>}
+                </div>
                 <div className="content-container min-h-200px border-top-none"></div>
             </>}
-            <div className="content-container h-100 border-top-none">
+            <div className="content-container border-top-none">
                 <div className=" d-grid grid-col-3 h-100 w-100 m-b-30">
-                    <img id="btnCrop" className="quick-btn"
-                         src={getImageSrc('btnCrop', circbtn01, circbtn01hover, circbtn01hover)}
-                         onMouseEnter={() => handleMouseEnter('btnCrop')} onMouseLeave={handleMouseLeave}
-                         onClick={() => handleClick('btnCrop')}
-                         title="Crop"
+                    <img
+                        id="btnCrop"
+                        className="quick-btn"
+                        src={getImageSrc('btnCrop', circbtn01, circbtn01hover, circbtn01hover)}
+                        onMouseEnter={() => handleMouseEnter('btnCrop')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('btnCrop')}
+                        data-tooltip-id="tooltip-img"
+                        data-tooltip-content="Crop"
                     />
 
-                    <img id="btnAddBodypart" className="quick-btn"
-                         src={getImageSrc('btnAddBodypart', circbtn02, circbtn02hover, circbtn02hover)}
-                         onMouseEnter={() => handleMouseEnter('btnAddBodypart')} onMouseLeave={handleMouseLeave}
-                         onClick={() => {
-                             openProcedure();
-                         }}/>
+                    <img
+                        id="btnAddBodypart"
+                        className="quick-btn"
+                        src={getImageSrc('btnAddBodypart', circbtn02, circbtn02hover, circbtn02hover)}
+                        onMouseEnter={() => handleMouseEnter('btnAddBodypart')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => {
+                            openProcedure();
+                        }}
+                        data-tooltip-id="tooltip-img"
+                        data-tooltip-content="Add body part"
+                    />
 
-                    <img id="btnSuspend" className="quick-btn"
-                         src={getImageSrc('btnSuspend', circbtn03, circbtn03hover, circbtn03hover)}
-                         onMouseEnter={() => handleMouseEnter('btnSuspend')} onMouseLeave={handleMouseLeave}
-                         onClick={() => handleClick('btnSuspend')}/>
+                    <img
+                        id="btnSuspend"
+                        className="quick-btn"
+                        src={getImageSrc('btnSuspend', circbtn03, circbtn03hover, circbtn03hover)}
+                        onMouseEnter={() => handleMouseEnter('btnSuspend')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('btnSuspend')}
+                        data-tooltip-id="tooltip-img"
+                        data-tooltip-content="Suspend"
+                    />
 
-                    <img id="btnRetake" className="quick-btn"
-                         src={getImageSrc('btnRetake', circbtn04, circbtn04hover, circbtn04hover)}
-                         onMouseEnter={() => handleMouseEnter('btnRetake')} onMouseLeave={handleMouseLeave}
-                         onClick={() => handleClick('btnRetake')}/>
+                    <img
+                        id="btnRetake"
+                        className="quick-btn"
+                        src={getImageSrc('btnRetake', circbtn04, circbtn04hover, circbtn04hover)}
+                        onMouseEnter={() => handleMouseEnter('btnRetake')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('btnRetake')}
+                        data-tooltip-id="tooltip-img"
+                        data-tooltip-content="Retake"
+                    />
 
-                    <img id="btnReject" className="quick-btn"
-                         src={getImageSrc('btnReject', circbtn05, circbtn05hover, circbtn05hover)}
-                         onMouseEnter={() => handleMouseEnter('btnReject')} onMouseLeave={handleMouseLeave}
-                         onClick={() => handleClick('btnReject')}/>
+                    <img
+                        id="btnReject"
+                        className="quick-btn"
+                        src={getImageSrc('btnReject', circbtn05, circbtn05hover, circbtn05hover)}
+                        onMouseEnter={() => handleMouseEnter('btnReject')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('btnReject')}
+                        data-tooltip-id="tooltip-img"
+                        data-tooltip-content="Reject"
+                    />
 
-                    <img id="btnAccept" className="quick-btn"
-                         src={getImageSrc('btnAccept', circbtn06, circbtn06hover, circbtn06hover)}
-                         onMouseEnter={() => handleMouseEnter('btnAccept')} onMouseLeave={handleMouseLeave}
-                         onClick={() => handleClick('btnAccept')}/>
+                    <img
+                        id="btnAccept"
+                        className="quick-btn"
+                        src={getImageSrc('btnAccept', circbtn06, circbtn06hover, circbtn06hover)}
+                        onMouseEnter={() => handleMouseEnter('btnAccept')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('btnAccept')}
+                        data-tooltip-id="tooltip-img"
+                        data-tooltip-content="Accept"
+                    />
                 </div>
             </div>
+            <Tooltip id="tooltip-img" className="img-tooltip" place={"bottom"}/>
             {isOpenProcedure && <ProcedureModal/>}
         </div>
     );

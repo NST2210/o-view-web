@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../design/sass/pages/studyList.scss';
 import {
     useOpenDeletePatient,
@@ -12,7 +12,7 @@ import {
 import TableCustom from '../../components/tableCustom/TableCustom';
 import NewStudyModal from '../../components/modal/newStudyModal/NewStudyModal';
 import StudyListSearch from '../../components/studyListSearch/StudyListSearch';
-import { ReactComponent as IcArrowDown } from '../../assets/svg/icDownArrow.svg';
+import {ReactComponent as IcArrowDown} from '../../assets/svg/icDownArrow.svg';
 import EditPatientModal from '../../components/modal/editPatientModal/EditPatientModal';
 import DeletePatientModal from '../../components/modal/deletePatientModal/DeletePatientModal';
 import DeleteStudyModal from '../../components/modal/deleteStudyModal/DeleteStudyModal';
@@ -20,15 +20,15 @@ import TableCustomNoPagination from '../../components/tableCustomNoPagination/Ta
 import FileExportModal from '../../components/modal/fileExportModal/FileExportModal';
 import UseBackupModal from '../../components/modal/useBackupModal/UseBackupModal';
 import SendToPacsModal from '../../components/modal/sendToPacsModal/SendToPacsModal';
-import { ReactComponent as IconCheckBox } from '../../assets/svg/icCheckbox.svg';
-import { ReactComponent as IconTrash2 } from '../../assets/svg/icTrash2.svg';
+import {ReactComponent as IconCheckBox} from '../../assets/svg/icCheckbox.svg';
+import {ReactComponent as IconTrash2} from '../../assets/svg/icTrash2.svg';
 
 const StudyList = () => {
 
-    const {openNewStudy,isOpenNewStudy} = useOpenNewStudy();
+    const {openNewStudy, isOpenNewStudy} = useOpenNewStudy();
     const {openDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
     const {isOpenEditPatient} = useOpenEditPatient();
-    const { isOpenDeletePatient} = useOpenDeletePatient();
+    const {isOpenDeletePatient} = useOpenDeletePatient();
     const {openFileExport, isOpenFileExport} = useOpenFileExport();
     const {openSendToPacs, isOpenSendToPacs} = useOpenSendToPacs();
     const {openUseBackup, isOpenUseBackup} = useOpenUseBackup();
@@ -350,17 +350,21 @@ const StudyList = () => {
                         classContainer=""
                         classTable=""
                     />
-                    <div className="d-flex gap-2 justify-content-center study-button">
-                        <button className="edit-btn  d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
-                            openNewStudy()
-                        }}><IconCheckBox className="m-l-10"/>
-                            <span className="m-r-16"> EDIT</span>
-                        </button>
-                        <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1" onClick={() => {
-                            openDeleteStudy()
-                        }}><IconTrash2 className="icon-trash m-l-10"/>
-                            <span className="m-r-16"> DELETE</span>
-                        </button>
+                    <div className="w-100 d-flex flex-end p-t-6 p-b-6">
+                        <div className="d-flex gap-2 justify-content-center study-button">
+                            <button className="edit-btn  d-flex align-items-center align-content-center w-auto gap-1"
+                                    onClick={() => {
+                                        openNewStudy()
+                                    }}><IconCheckBox className="m-l-10"/>
+                                <span className="m-r-16"> EDIT</span>
+                            </button>
+                            <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1"
+                                    onClick={() => {
+                                        openDeleteStudy()
+                                    }}><IconTrash2 className="icon-trash m-l-10"/>
+                                <span className="m-r-16"> DELETE</span>
+                            </button>
+                        </div>
                     </div>
                     <TableCustom
                         columns={columnsStudy}
