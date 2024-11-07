@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useOpenFileExport } from '../../common/AppStore';
 import logo from '../../../../src/assets/img/login_bg.png';
 import {ReactComponent as Scan} from '../../../assets/svg/scan.svg';
+import { ReactComponent as Arrow } from '../../../assets/svg/arrow_accordion.svg';
 
 const FileExportModal = () => {
   const [formData, setFormData] = useState({ DCM: '' });
@@ -35,7 +36,7 @@ const FileExportModal = () => {
           <div className="ml-54 mt-1 color-fff">AHIHI</div>
         </div>
         <div className="d-flex gap-155 w-100 m-t-100">
-          <span className="m-t-20">
+          <div className="m-t-20 select-container">
             <select name="DCM" value={formData.DCM} onChange={handleChange}>
               <option value="">Select</option><option value="DCM">DCM</option>
               <option value="BMP">BMP</option>
@@ -43,7 +44,8 @@ const FileExportModal = () => {
               <option value="JPG">JPG</option>
               <option value="PNG">PNG</option>
             </select>
-          </span>
+            <Arrow className="arrow-icon" />
+          </div>
           <button type="submit" className="submit-file gap-2">
             <Scan className="icon-trash m-l-10"/>
             <span className="m-r-16">SUBMIT</span>

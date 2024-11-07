@@ -1,7 +1,8 @@
 import ReactModal from 'react-modal';
 import React, { useState } from 'react';
-import { useOpenFileExport, useOpenUseBackup } from '../../common/AppStore';
+import { useOpenUseBackup } from '../../common/AppStore';
 import logo from '../../../assets/img/login_bg.png';
+import { ReactComponent as Arrow } from '../../../assets/svg/arrow_accordion.svg';
 
 const UseBackupModal = () => {
 
@@ -25,7 +26,7 @@ const UseBackupModal = () => {
     >
       <div className="modal-primary h-fit-content w-40 modal-use-backup">
         <div className="modal-header">
-          <span className="modal-title">USP BACK UP</span>
+          <span className="modal-title">USB BACK UP</span>
           <button className="close-button" onClick={() => closeUseBackup()}>×</button>
         </div>
         <div className="modal-header-divider-2"></div>
@@ -33,13 +34,17 @@ const UseBackupModal = () => {
           <img src={logo} width={145} height={120} alt="Logo" />
           <div className="ml-54 mt-1 color-fff">AHIHI</div>
         </div>
-        <div className="w-100 m-t-110 d-flex align-items-center justify-content-center fw-bold fs-13 stand-by">STAND BY (0%)</div>
-        <div className="d-flex gap-20 w-100 m-t-10">
-          <span className="m-t-20">
+        <div className="w-100 m-t-110 d-flex align-items-center justify-content-center fw-bold fs-13 stand-by">STAND BY
+          (0%)
+        </div>
+        <div className="d-flex gap-10px w-100 m-t-10">
+          <div className="m-t-20 select-container">
             <select name="NONE" value={formData.NONE} onChange={handleChange}>
-              <option value="">Select</option><option value="NONE">None</option>
+              <option value="">Select</option>
+              <option value="NONE">None</option>
             </select>
-          </span>
+            <Arrow className="arrow-icon" />
+          </div>
           <button type="submit" className="button-01">EJECT</button>
           <button type="submit" className="button-01">ERASE</button>
           <button type="submit" className="button-01">WRITE</button>

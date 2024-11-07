@@ -1,7 +1,7 @@
 /* Container for the modal */
 .modal-file {
   background-color: #101920;
-  border-radius: 8px;
+  border-radius: unset;
   padding: 20px;
   width: 700px;
   color: #7F8A95;
@@ -13,6 +13,7 @@
     font-size: 16px;
     color: #fff;
     width: 120px;
+    background-color: #0D141A;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -27,6 +28,25 @@
   select option:hover {
     background-color: #333;
     color: #fff;
+  }
+
+  .select-container {
+    position: relative;
+    width: 120px;
+  }
+
+  .select-container select {
+    width: 120px;
+    padding-right: 30px;
+    appearance: none;
+  }
+
+  .select-container .arrow-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
   }
 }
 

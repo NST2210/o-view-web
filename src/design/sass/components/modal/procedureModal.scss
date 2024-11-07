@@ -1,18 +1,23 @@
-.modal-use-backup {
-  background-color: #101920;
+.modal-procedure {
+  background-color: #141F28;
   border-radius: unset;
-  padding: 20px;
-  width: 700px;
+  border: #444 1px solid;
+  width: 60%;
   color: #7F8A95;
   font-family: Arial, sans-serif;
+  padding: 10px 20px;
+
+  .color-text {
+    color: #0C8F97;
+  }
 
   select {
     padding: 10px;
     border: 1px solid #00a7b6;
     font-size: 16px;
-    color: #fff;
-    width: 120px;
-    background-color: #0D141A;
+    color: #0B6E70;
+    background: #0A0F14;
+    width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -29,14 +34,13 @@
     color: #fff;
   }
 
-
   .select-container {
     position: relative;
-    width: 120px;
+    width: 100%;
   }
 
   .select-container select {
-    width: 120px;
+    width: 100%;
     padding-right: 30px;
     appearance: none;
   }
@@ -47,54 +51,42 @@
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
+    border: 1px solid #26333D;
   }
 }
 
-.ml-54 {
-  margin-left: 54px;
-}
 
-.color-fff {
-  color: #ffffff;
-}
-
-.gap-20 {
-  gap: 20px;
-}
-
-.usb-button {
-  background-color: #1e90ff;
+.submit-procedure {
+  background-color: #00a7b6;
   color: white;
   border: none;
   padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  width: 37%;
-  border-radius: 2px;
+  margin-top: 18px;
+  width: 160px;
+  box-sizing: border-box;
+  clip-path: polygon(0 0, 87% 0, 100% 27%, 100% 100%, 13% 100%, 0 74%);
 }
 
-.button-01 {
-  background-color: #5f9ea0;
-  color: white;
+.color-95a3af {
+  color: #95A3AF;
+}
+
+.data-descrip {
+  width: 100%;
+  max-height: 150px;
+  background: #0D141A;
   border: none;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  padding: 10px 20px;
   border-radius: 2px;
-  font-weight: bold;
+  padding: 10px 15px;
+  overflow-y: auto;
 }
 
-.stand-by {
-  background-color: #0d363d;
-  padding: 10px 0;
+.color-767b7f {
+  color: #767b7f;
 }
-
