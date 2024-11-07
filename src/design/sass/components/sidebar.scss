@@ -58,40 +58,57 @@
     .date-range {
       display: flex;
       align-items: center;
-      width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
-
-      &__input {
-        background-color: #111c22;
-        color: white;
-        border: none;
-        padding: 6px 8px;
-        border-radius: unset;
-        flex: 1; // Chia đều khoảng trống cho hai input
-        max-width: calc(50% - 10px); // Đảm bảo hai input không bị tràn ra
-        box-sizing: border-box;
-        position: relative;
-        padding-left: 30px; // Chừa khoảng cho icon ở bên trái
-        font-family: inherit;
-
-        &::-webkit-calendar-picker-indicator {
-          position: absolute;
-          left: 5px; // Đưa icon sang trái
-          color: red; // Để icon không bị ảnh hưởng bởi màu chữ
-          font-size: 18px; // Kích thước của icon
-          opacity: 1;
-          &:hover{
-            cursor: pointer;
-          }
-        }
-
-        &::placeholder {
-          color: transparent; // Ẩn placeholder nếu muốn
-        }
-      }
-
+      width: 100%;
       &__separator {
         margin: 0 5px;
         color: white;
+      }
+    }
+
+    .date-range__input {
+      background-color: #111c22;
+      color: white;
+      border: none;
+      padding: 6px 8px 6px 24px;
+      border-radius: unset;
+      flex: 1;
+      max-width: calc(50% - 6px);
+      box-sizing: border-box;
+      font-family: inherit;
+      position: relative;
+
+      /* Display the default calendar icon */
+      &::-webkit-calendar-picker-indicator {
+        opacity: 0; /* Hide the default icon but keep it clickable */
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      /* Add a custom icon using a pseudo-element */
+      &::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background-color: red; /* Customize color here */
+        mask: url('./src/assets/svg/arrow_accordion.svg') no-repeat center / contain;
+        -webkit-mask: url('./src/assets/svg/arrow_accordion.svg') no-repeat center / contain;
+        pointer-events: none; /* Allow clicks to go through to the input */
+      }
+
+      &:hover::before {
+        cursor: pointer;
+      }
+
+      &::placeholder {
+        color: transparent;
       }
     }
     .search-input {
