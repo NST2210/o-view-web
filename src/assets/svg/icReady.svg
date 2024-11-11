@@ -1,13 +1,13 @@
-<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <!-- Outer circle -->
     <circle cx="50" cy="50" r="45" stroke="cyan" stroke-width="5" fill="none" />
 
     <!-- Blade 1 (0 degrees) -->
-    <path d="M50 50 L50 15 A35 35 0 0 1 50 50 Z" fill="cyan" transform="rotate(0 50 50)" />
+    <path d="M50 50 L34 24 A27 30 0 0 1 65 24 Z" fill="cyan" transform="rotate(0 50 50)" />
 
     <!-- Blade 2 (120 degrees) -->
-    <path d="M50 50 L50 15 A35 35 0 0 1 50 50 Z" fill="cyan" transform="rotate(120 50 50)" />
+    <path d="M50 50 L34 24 A27 30 0 0 1 65 24 Z" fill="cyan" transform="rotate(124 50 50)" />
 
     <!-- Blade 3 (240 degrees) -->
-    <path d="M50 50 L50 15 A35 35 0 0 1 50 50 Z" fill="cyan" transform="rotate(240 50 50)" />
+    <path d="M50 50 L34 24 A27 30 0 0 1 65 24 Z" fill="cyan" transform="rotate(236 50 50)" />
 </svg>

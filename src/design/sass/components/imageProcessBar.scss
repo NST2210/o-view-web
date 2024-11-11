@@ -77,6 +77,42 @@
     height: 190px;
     border: 2px solid #192026;
 
+    .select-custom {
+      position: relative;
+
+      select {
+        padding: 6px 20px;
+        border: 1px solid #00a7b6;
+        border-radius: 20px;
+        font-size: 14px;
+        color: #0B6E70;
+        background: #0A0F14;
+        width: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        option {
+          border: 1px solid #00a7b6 !important;
+          background-color: #fff;
+          color: #000;
+
+          &:hover {
+            background-color: #333;
+            color: #fff;
+          }
+        }
+      }
+
+      .arrow-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+    }
+
     .quick-btn {
       border: 0;
       cursor: pointer;
@@ -91,16 +127,17 @@
       background-color: #0ED4D5;
       width: 182px;
       height: 52px;
-      clip-path: polygon(0 0, 87% 0, 100% 18%, 100% 100%, 13% 100%, 0 81%);
+      clip-path: polygon(0 0, 93% 0, 100% 25%, 100% 100%, 8% 100%, 0 73%);
 
       .ready-btn {
         border-radius: unset;
+        font-weight: 600;
         background-color: #012D34;
         color: #0ED4D5;
         border: unset;
         width: 180px;
         height: 50px;
-        clip-path: polygon(0 0, 87% 0, 100% 18%, 100% 100%, 13% 100%, 0 81%);
+        clip-path: polygon(0 0, 93% 0, 100% 25%, 100% 100%, 8% 100%, 0 73%);
       }
     }
   }

@@ -11,15 +11,24 @@ import circbtn05 from '../../assets/img/acquisition/circBtn_05_default.png';
 import circbtn05hover from '../../assets/img/acquisition/circBtn_05_over.png';
 import circbtn06 from '../../assets/img/acquisition/circBtn_06_default.png';
 import circbtn06hover from '../../assets/img/acquisition/circBtn_06_over.png';
+import tempXScan from '../../assets/img/temp-x-quang.jpg';
 import {useOpenProcedureModal} from "../common/AppStore";
 import ProcedureModal from "../modal/procedureModal/ProcedureModal";
 import {Tooltip} from "react-tooltip";
 import {Button} from "react-bootstrap";
-import {ReactComponent as IconTrash} from "../../assets/svg/icTrash.svg";
+import {ReactComponent as IconReady} from "../../assets/svg/icReady.svg";
+import {ReactComponent as IcArrowDown} from "../../assets/svg/icDownArrow.svg";
+import { ReactComponent as Arrow } from "../../assets/svg/arrow_accordion.svg";
 
 const ImageProcessBar = ({isReview}) => {
 
     const [tabSelected, setTabSelected] = useState(0);
+    const [optionLst, setOptionLst] = useState([
+        {id: 1, label: 'CHEST PA'},
+        {id: 2, label: 'CHEST PA2'},
+    ]);
+    const [imgSubLst, setImgSubLst] = useState([{name: "anh1", srcImg: tempXScan}, {name: "anh1", srcImg: tempXScan}]);
+    const [optionSelected, setOptionSelected] = useState<any>({});
     const [selectedButton, setSelectedButton] = useState<string | null>(null);
     const [hoveredButton, setHoveredButton] = useState<string | null>(null);
 
@@ -48,8 +57,12 @@ const ImageProcessBar = ({isReview}) => {
         return defaultSrc;
     };
 
+    const handleChange = (event) => {
+        setOptionSelected(event.target.value);
+    };
+
     useEffect(() => {
-        setTabSelected(0)
+        setTabSelected(0);
     }, [])
 
     return (
@@ -81,18 +94,49 @@ const ImageProcessBar = ({isReview}) => {
                 <div className="content-container min-h-500px">
                     {!isReview && <div className="w-100 d-flex flex-center">
                         <div className="ready-btn-container text-center">
-                            <Button className="ready-btn">
-                                <IconTrash className="icon-trash m-l-20"/>
+                            <Button className="ready-btn d-flex flex-center gap-1">
+                                <IconReady className="icon-trash m-l-20"/>
                                 <span className="m-r-20"> Ready</span>
                             </Button>
                         </div>
                     </div>}
+                    <div className="d-grid p-t-10 p-b-10">
+                        <label className="align-items-center d-flex"><IcArrowDown
+                            className="m-r-10"/>{`Image Num: ${imgSubLst?.length || 0}`}</label>
+                        <div className="select-custom w-100">
+                        <select value={optionSelected} onChange={handleChange}>
+                            {optionLst?.map((option, index) => (
+                                <option key={index} value={option.id}>
+                                    {option.label}
+                                </option>
+                            ))}
+                        </select>
+                            <Arrow className="arrow-icon" />
+                        </div>
+                    </div>
+                    <div className="w-100 d-grid grid-col-2 p-t-10">
+                        {imgSubLst?.map((image, index) => (
+                            <img key={index} className="w-100px h-100px" src={image?.srcImg}/>
+                        ))}
+                    </div>
                 </div>
             </>}
             {tabSelected == 1 && <>
                 <div className="content-container min-h-200px border-top-none">
-                    {!isReview && <div className="w-100 text-center">
-                        <Button>Ready</Button>
+                    {!isReview && <div className="w-100 d-flex flex-center">
+                        <div className="ready-btn-container text-center">
+                            <Button className="ready-btn d-flex flex-center gap-1">
+                                <IconReady className="icon-trash m-l-20"/>
+                                <span className="m-r-20"> Ready</span>
+                            </Button>
+                        </div>
+                        <div className="w-100 d-grid">
+                            <label className="align-items-center d-flex"><IcArrowDown className="m-r-10"/>Select Status</label>
+                            <select>
+                                <option value="all">ALL</option>
+                                {/* Add other options here */}
+                            </select>
+                        </div>
                     </div>}
                 </div>
                 <div className="content-container min-h-200px border-top-none"></div>
