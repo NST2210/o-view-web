@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useNavigate } from 'react-router-dom';
 import {ReactComponent as IcWifi} from '../../assets/svg/icWifi.svg';
 import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
 import {ReactComponent as IconTrash} from '../../assets/svg/icTrash.svg';
@@ -9,7 +9,14 @@ import {ReactComponent as IconRestore} from '../../assets/svg/icRestore.svg';
 import {ReactComponent as IconAmbulance} from '../../assets/svg/icAmbulance.svg';
 import {ReactComponent as IconHdd} from '../../assets/svg/icHdd.svg';
 import LogoOView from '../../assets/img/logo.png'
-import {useOpenDeletePatient, useOpenDeleteStudy, useOpenEditPatient, useOpenNewStudy} from '../common/AppStore';
+import {
+    useOpenConfirmModal,
+    useOpenDeletePatient,
+    useOpenDeleteStudy,
+    useOpenEditPatient,
+    useOpenNewStudy
+} from '../common/AppStore';
+import ConfirmModal from "../modal/confirmModal/ConfirmModal";
 
 const Header = () => {
     const location = useLocation();
@@ -18,14 +25,37 @@ const Header = () => {
     const {openDeleteStudy, closeDeleteStudy} = useOpenDeleteStudy();
     const {openEditPatient, closeEditPatient} = useOpenEditPatient();
     const {openDeletePatient, closeDeletePatient} = useOpenDeletePatient();
+    const {openConfirmModal, isOpenConfirmModal} = useOpenConfirmModal();
     const [progress, setProgress] = useState(0);
+    const [contentModal, setContentModal] = useState('');
+    const [linkTo, setLinkTo] = useState('');
+    const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setProgress((prev) => (prev < 7 ? prev + 1 : 7));
-    //     }, 500);
-    //     return () => clearInterval(interval);
-    // }, []);
+    const onWorkList = (e) => {
+        if (currentPath === '/study-list'){
+            e.preventDefault(); // Ngăn chặn chuyển trang ngay lập tức
+            setLinkTo('/work-list');
+            setContentModal('When moving from the studylist tab to the\n' +
+                'worklist tab, the work contents of the Review tab\n' +
+                'are initialized. Please click OK to proceed.');
+            openConfirmModal(); // Hiện popup xác nhận
+        }
+    };
+
+    const onStudyList = (e) => {
+        if (currentPath === '/work-list'){
+            e.preventDefault(); // Ngăn chặn chuyển trang ngay lập tức
+            setLinkTo('/study-list');
+            setContentModal('When moving from the worklist tab to the\n' +
+                'studylist tab, the work contents of the Acquisition\n' +
+                'tab are initialized. Please click OK to proceed.');
+            openConfirmModal(); // Hiện popup xác nhận
+        }
+    };
+
+    const handleConfirm = (link) => {
+        navigate(link); // Chuyển trang khi nhấn xác nhận
+    };
     useEffect(() => {
         setProgress(7);
     }, []);
@@ -46,10 +76,11 @@ const Header = () => {
                 <div className='d-flex lh-50 w-87'>
                     <div className='d-flex justify-content-space-between w-100'>
                         <nav className="nav-links">
-                            <Link to="/work-list" className={currentPath === '/work-list' ? 'nav-link--selected' : ''}>
+                            <Link to="/work-list" onClick={onWorkList} className={currentPath === '/work-list' ? 'nav-link--selected' : ''}>
                                 <span>WORKLIST</span>
                             </Link>
                             <Link to="/study-list"
+                                  onClick={onStudyList}
                                   className={currentPath === '/study-list' ? 'nav-link--selected' : ''}>
                                 <span>STUDYLIST</span>
                             </Link>
@@ -142,6 +173,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>}
+            { isOpenConfirmModal && <ConfirmModal content={contentModal} onSubmit={() => handleConfirm(linkTo)}/> }
 
         </div>
     );

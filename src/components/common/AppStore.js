@@ -53,3 +53,9 @@ export const useOpenProcedureModal = create((set) => ({
     openProcedure: () => set({isOpenProcedure: true}),
     closeProcedure: () => set({isOpenProcedure: false}),
 }));
+
+export const useOpenConfirmModal = create((set) => ({
+    isOpenConfirmModal: false,
+    openConfirmModal: () => set({isOpenConfirmModal: true}),
+    closeConfirmModal: () => set({isOpenConfirmModal: false}),
+}));
