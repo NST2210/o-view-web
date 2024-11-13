@@ -11,8 +11,14 @@ const ProcedureModal = () => {
   const { isOpenProcedure, closeProcedure } = useOpenProcedureModal();
   const optionsList = [
     { id: 1, label: 'SKULL 1' },
-    { id: 2, label: 'SKULL 2' },
-    { id: 3, label: 'SKULL 3' }
+    { id: 2, label: 'CHEST' },
+    { id: 3, label: 'ABDOMEN' },
+    { id: 4, label: 'SHOULDER LEFT' },
+    { id: 5, label: 'SHOULDER RIGHT' },
+    { id: 6, label: 'CSPINE' },
+    { id: 7, label: 'HIP' },
+    { id: 8, label: 'KNEE LEFT' },
+    { id: 9, label: 'KNEE RIGHT' }
   ];
 
   const subOptionsList = {
@@ -20,8 +26,14 @@ const ProcedureModal = () => {
       { id: 'skull_ap', label: 'SKULL AP' }, { id: 'skull_lat', label: 'SKULL LAT' },
       { id: 'skull_lats', label: 'SKULL LATS' }, { id: 'skull_lat1', label: 'SKULL LAT1' }
     ],
-    2: [{ id: 'skull_oblique', label: 'SKULL OBLIQUE' }],
-    3: [{ id: 'skull_ct', label: 'SKULL CT' }, { id: 'skull_mri', label: 'SKULL MRI' }]
+    2: [{ id: 'CHEST', label: 'CHEST' }],
+    3: [{ id: 'ABDOMEN', label: 'ABDOMEN' }, { id: 'ABDOMEN 1', label: 'ABDOMEN 1' }],
+    4: [{ id: 'SHOULDER_L', label: 'SHOULDER LEFT' }],
+    5: [{ id: 'SHOULDER_R', label: 'SHOULDER RIGHT' }],
+    6: [{ id: 'CSPINE', label: 'CSPINE' }],
+    7: [{ id: 'HIP', label: 'HIP' }],
+    8: [{ id: 'KNEE_L', label: 'KNEE LEFT' }],
+    9: [{ id: 'KNEE_R', label: 'KNEE RIGHT' }],
   };
 
   const [selectedOption, setSelectedOption] = useState(optionsList[0].id);
@@ -42,6 +54,10 @@ const ProcedureModal = () => {
     setSelectedSubOptions(selectedSubOptions.filter(option => option.id !== subOptionId));
   };
 
+  const handleClickArea = (id) =>{
+    setSelectedOption(optionsList[id].id);
+    setSelectedSubOptions([]);
+  }
   return (
     <ReactModal
       isOpen={isOpenProcedure}
@@ -59,7 +75,18 @@ const ProcedureModal = () => {
         <div className="modal-message">
         </div>
         <div className="d-flex w-100">
-          <img src={bodyParts} />
+          <div id="bodypart" className='position-relative'>
+            <img src={bodyParts} />
+            <span className="area skull" onClick={() => handleClickArea(0)}></span>
+            <span className="area chest" onClick={() => handleClickArea(1)}></span>
+            <span className="area abdomen" onClick={() => handleClickArea(2)}></span>
+            <span className="area shoulder_l" onClick={() => handleClickArea(3)}></span>
+            <span className="area shoulder_r" onClick={() => handleClickArea(4)}></span>
+            <span className="area cspine" onClick={() => handleClickArea(5)}></span>
+            <span className="area hip" onClick={() => handleClickArea(6)}></span>
+            <span className="area knee_l" onClick={() => handleClickArea(7)}></span>
+            <span className="area knee_r" onClick={() => handleClickArea(8)}></span>
+          </div>
           <div className="m-l-40 w-100">
             <div className="w-100">
               <div className="align-items-center d-flex color-text fw-bold">
@@ -85,7 +112,7 @@ const ProcedureModal = () => {
               </div>
               <div className="data-descrip m-t-10">
                 {subOptionsList[selectedOption]?.map((subOption) => (
-                  <div key={subOption.id} className="color-767b7f" onClick={() => handleSubOptionClick(subOption)}>
+                  <div key={subOption.id} className="color-767b7f hover-cusor-pointer" onClick={() => handleSubOptionClick(subOption)}>
                     {subOption.label}
                   </div>
                 ))}

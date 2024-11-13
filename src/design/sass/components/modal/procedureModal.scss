@@ -53,6 +53,66 @@
     pointer-events: none;
     border: 1px solid #26333D;
   }
+
+  #bodypart {
+    span.area {
+      z-index: 10;
+      position: absolute;
+      display: block;
+      width: 27px;
+      height: 27px;
+      cursor: pointer;
+      //background: rgba(255, 0, 0, 0.3);
+
+      &.skull {
+        left: 170px;
+        top: 22px;
+      }
+
+      &.chest {
+        left: 170px;
+        top: 124px;
+      }
+
+      &.shoulder_l {
+        left: 88px;
+        top: 214px;
+      }
+
+      &.shoulder_r {
+        left: 251px;
+        top: 214px;
+      }
+
+      &.abdomen {
+        left: 170px;
+        top: 190px;
+      }
+
+      &.cspine {
+        left: 114px;
+        top: 231px;
+      }
+
+      &.hip {
+        left: 169px;
+        top: 239px;
+      }
+
+      &.knee_l {
+        left: 125px;
+        top: 341px;
+      }
+
+      &.knee_r {
+        left: 216px;
+        top: 341px;
+      }
+    }
+  }
+
+
+
 }
 
 
@@ -85,6 +145,29 @@
   border-radius: 2px;
   padding: 10px 15px;
   overflow-y: auto;
+
+  // Custom scrollbar
+  ::-webkit-scrollbar {
+    width: 8px; // Width of the scrollbar
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #263a47; // Track color
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #009688; // Scrollbar color
+    border-radius: 10px; // Round the corners
+    border: 2px solid #263a47; // Padding around the scrollbar thumb
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00E7FF; // Scrollbar color on hover
+  }
+
+  // Additional scrollbar styles for Firefox
+  scrollbar-width: thin; // For Firefox
+  scrollbar-color: #009688 #263a47; // For Firefox
 }
 
 .color-767b7f {
