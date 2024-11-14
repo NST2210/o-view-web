@@ -21,6 +21,21 @@
     display: flex;
     align-items: center;
     width: 100%;
+
+    &__wrapper {
+      position: relative;
+      width: 100%;
+
+      .calendar-icon {
+        position: absolute;
+        left: 6px;
+        top: calc(50% - 7px);
+        width: 14px;
+        height: 14px;
+        z-index: 1;
+        pointer-events: none;
+      }
+    }
   }
 
   .date-range__input {
@@ -51,10 +66,8 @@
       transform: translateY(-50%);
       width: 14px;
       height: 14px;
-      background-color: #7F8A95; /* Customize color here */
-      mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
-      -webkit-mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
       pointer-events: none; /* Allow clicks to go through to the input */
+      z-index: 99;
     }
 
     &:hover::before {

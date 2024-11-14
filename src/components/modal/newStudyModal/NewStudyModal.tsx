@@ -2,6 +2,7 @@ import ReactModal from 'react-modal';
 import React, {useState} from 'react';
 import {useOpenNewStudy} from '../../common/AppStore';
 import {ReactComponent as Scan} from '../../../assets/svg/scan.svg';
+import { ReactComponent as CalendarIcon } from '../../../assets/svg/ic_calendar.svg';
 
 const NewStudyModal = ({data, isEdit}) => {
     const isEditModal = isEdit == true;
@@ -95,36 +96,42 @@ const NewStudyModal = ({data, isEdit}) => {
                         </div>
                     </div>
                     <div className='form-group'>
-                        <div className='form-row date-range w-100'>
+                        <div className="form-row date-range w-100">
                             <label className="w-100">PATIENT BIRTH</label>
-                            <input
-                                type='date'
-                                name='patientBirth'
-                                className="date-range__input w-100"
-                                value={formData.patientBirth}
-                                onChange={handleChange}
-                            />
+                            <div className="date-range__wrapper">
+                                <CalendarIcon className="calendar-icon" />
+                                <input
+                                    type="date"
+                                    name="patientBirth"
+                                    className="date-range__input w-100"
+                                    value={formData.patientBirth}
+                                    onChange={handleChange}
+                                />
+                            </div>
                         </div>
                         <div className="form-row date-range w-100">
                             <label className="w-100">STUDY SCHEDULE</label>
-                            <input
-                              type="date"
-                              name="studySchedule"
-                              className="date-range__input w-100"
-                              value={formData.studySchedule}
-                              onChange={handleChange}
-                            />
+                            <div className="date-range__wrapper">
+                                <CalendarIcon className="calendar-icon" />
+                                <input
+                                    type="date"
+                                    name="studySchedule"
+                                    className="date-range__input w-100"
+                                    value={formData.studySchedule}
+                                    onChange={handleChange}
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className='form-group'>
-                        <div className='form-row'>
+                    <div className="form-group">
+                        <div className="form-row">
                             <label>PATIENT AGE</label>
                             <input
-                                type='text'
-                                name='patientAge'
+                                type="text"
+                                name="patientAge"
                                 value={formData.patientAge}
                                 onChange={handleChange}
-                                placeholder='Enter Patient Age'
+                                placeholder="Enter Patient Age"
                             />
                         </div>
                         <div className='form-row'>

@@ -2,6 +2,7 @@ import ReactModal from 'react-modal';
 import React, { useState } from 'react';
 import { useOpenEditPatient } from '../../common/AppStore';
 import {ReactComponent as Scan} from '../../../assets/svg/scan.svg';
+import { ReactComponent as CalendarIcon } from '../../../assets/svg/ic_calendar.svg';
 
 const EditPatientModal = () => {
     const [formData, setFormData] = useState({
@@ -79,24 +80,27 @@ const EditPatientModal = () => {
                         </div>
                         <div className="form-row date-range w-100">
                             <label className="w-100">PATIENT BIRTH</label>
-                            <input
-                              type="date"
-                              name="patientBirth"
-                              className="date-range__input w-100"
-                              value={formData.patientBirth}
-                              onChange={handleChange}
-                            />
+                            <div className="date-range__wrapper">
+                                <CalendarIcon className="calendar-icon" />
+                                <input
+                                    type="date"
+                                    name="patientBirth"
+                                    className="date-range__input w-100"
+                                    value={formData.patientBirth}
+                                    onChange={handleChange}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="form-row">
                             <label>PATIENT AGE</label>
                             <input
-                              type="text"
-                              name="patientAge"
-                              value={formData.patientAge}
-                              onChange={handleChange}
-                              placeholder="Enter Patient Age"
+                                type="text"
+                                name="patientAge"
+                                value={formData.patientAge}
+                                onChange={handleChange}
+                                placeholder="Enter Patient Age"
                             />
                         </div>
                         <div className='form-row'>

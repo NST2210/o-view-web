@@ -3,6 +3,7 @@ import { ReactComponent as IcSearch } from '../../assets/svg/icSearch.svg';
 import { ReactComponent as IcArrowDown } from '../../assets/svg/icDownArrow.svg';
 import { ReactComponent as IcCheck } from '../../assets/svg/ic_check.svg';
 import ToggleSwitch from '../toggleSwicth/ToggleSwicth';
+import { ReactComponent as CalendarIcon } from '../../../src/assets/svg/ic_calendar.svg';
 
 const Sidebar = () => {
     const [status, setStatus] = useState('Scheduled');
@@ -74,19 +75,25 @@ const Sidebar = () => {
                     <ToggleSwitch Name="scheduledDate" />
                 </div>
                 <div className="date-range">
-                    <input
-                        className="date-range__input"
-                        type="date"
-                        value={scheduledDate.from}
-                        onChange={(e) => setScheduledDate({ ...scheduledDate, from: e.target.value })}
-                    />
+                    <div className="date-range__wrapper">
+                        <CalendarIcon className="calendar-icon" />
+                        <input
+                            className="date-range__input"
+                            type="date"
+                            value={scheduledDate.from}
+                            onChange={(e) => setScheduledDate({ ...scheduledDate, from: e.target.value })}
+                        />
+                    </div>
                     <span className="date-range__separator">~</span>
-                    <input
-                        className="date-range__input"
-                        type="date"
-                        value={scheduledDate.to}
-                        onChange={(e) => setScheduledDate({ ...scheduledDate, to: e.target.value })}
-                    />
+                    <div className="date-range__wrapper">
+                        <CalendarIcon className="calendar-icon" />
+                        <input
+                            className="date-range__input"
+                            type="date"
+                            value={scheduledDate.to}
+                            onChange={(e) => setScheduledDate({ ...scheduledDate, to: e.target.value })}
+                        />
+                    </div>
                 </div>
             </div>
 
@@ -97,19 +104,25 @@ const Sidebar = () => {
                     <ToggleSwitch Name="birthDate" />
                 </div>
                 <div className="date-range">
-                    <input
-                        className="date-range__input"
-                        type="date"
-                        value={birthDate.from}
-                        onChange={(e) => setBirthDate({ ...birthDate, from: e.target.value })}
-                    />
+                    <div className="date-range__wrapper">
+                        <CalendarIcon className="calendar-icon" />
+                        <input
+                            className="date-range__input"
+                            type="date"
+                            value={birthDate.from}
+                            onChange={(e) => setBirthDate({ ...birthDate, from: e.target.value })}
+                        />
+                    </div>
                     <span className="date-range__separator">~</span>
-                    <input
-                        className="date-range__input"
-                        type="date"
-                        value={birthDate.to}
-                        onChange={(e) => setBirthDate({ ...birthDate, to: e.target.value })}
-                    />
+                    <div className="date-range__wrapper">
+                        <CalendarIcon className="calendar-icon" />
+                        <input
+                            className="date-range__input"
+                            type="date"
+                            value={birthDate.to}
+                            onChange={(e) => setBirthDate({ ...birthDate, to: e.target.value })}
+                        />
+                    </div>
                 </div>
 
 

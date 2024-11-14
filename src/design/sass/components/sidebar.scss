@@ -8,7 +8,8 @@
     background-color: #1e313d;
     padding: 10px 20px;
     clip-path: polygon(94% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
-    .title-search{
+
+    .title-search {
       color: #00E7FF;
     }
   }
@@ -42,7 +43,7 @@
           border: unset;
         }
 
-        .mr-5{
+        .mr-5 {
           margin-right: 5px;
         }
       }
@@ -62,9 +63,25 @@
       display: flex;
       align-items: center;
       width: 100%;
+
       &__separator {
         margin: 0 5px;
         color: white;
+      }
+
+      &__wrapper {
+        position: relative;
+        max-width: calc(50% - 6px);
+
+        .calendar-icon {
+          position: absolute;
+          left: 6px;
+          top: calc(50% - 7px);
+          width: 14px;
+          height: 14px;
+          z-index: 1;
+          pointer-events: none;
+        }
       }
     }
 
@@ -75,7 +92,7 @@
       padding: 6px 8px 6px 24px;
       border-radius: unset;
       flex: 1;
-      max-width: calc(50% - 6px);
+      max-width: 100%;
       box-sizing: border-box;
       font-family: inherit;
       position: relative;
@@ -100,10 +117,8 @@
         transform: translateY(-50%);
         width: 14px;
         height: 14px;
-        background-color: white; /* Customize color here */
-        mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
-        -webkit-mask: url('./src/assets/svg/ic_calendar.svg') no-repeat center / contain;
         pointer-events: none; /* Allow clicks to go through to the input */
+        z-index: 99;
       }
 
       &:hover::before {
@@ -114,6 +129,7 @@
         color: transparent;
       }
     }
+
     .search-input {
       margin-top: 60px;
       position: relative;
@@ -165,6 +181,7 @@
         position: absolute;
       }
     }
+
     .search-bar {
       display: flex;
       align-items: center;
@@ -194,6 +211,7 @@
         width: 100%; // Đảm bảo phần tử chiếm hết chiều rộng
         max-width: calc(100% - 40px); // Đảm bảo input không bị tràn ra
         box-sizing: border-box;
+
         &::placeholder {
           color: #1E797D; // Màu placeholder
         }
