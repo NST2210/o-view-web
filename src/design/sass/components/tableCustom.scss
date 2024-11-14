@@ -29,6 +29,10 @@
     tr:hover {
       background-color: #00E7FF; // Highlight row
     }
+
+    .active-row {
+      background-color: #00E7FF !important;
+    }
   }
 
   .pagination {

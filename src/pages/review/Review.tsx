@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ImageProcessBar from '../../components/imageProcessBar/ImageProcessBar';
-import { useOpenProcessModal } from '../../components/common/AppStore';
+import {
+  useOpenFileExport,
+  useOpenProcessModal,
+  useOpenSendToPacs,
+  useOpenUseBackup
+} from '../../components/common/AppStore';
 import ProcessModal from '../../components/modal/processModal/ProcessModal';
 import toolico01 from '../../assets/img/tools/toolico_01_default.png';
 import toolico01hover from '../../assets/img/tools/toolico_01_over.png';
@@ -48,6 +53,9 @@ import toolico21hover from '../../assets/img/tools/toolico_21_over.png';
 import { Tooltip } from 'react-tooltip';
 import { ReactComponent as IcArrowDown } from '../../assets/svg/icDownArrow.svg';
 import tempXScan from '../../assets/img/temp-x-quang.jpg';
+import FileExportModal from "../../components/modal/fileExportModal/FileExportModal";
+import UseBackupModal from "../../components/modal/useBackupModal/UseBackupModal";
+import SendToPacsModal from "../../components/modal/sendToPacsModal/SendToPacsModal";
 
 
 const Review = () => {
@@ -55,6 +63,9 @@ const Review = () => {
   const currentPath = location.pathname;
   const isReview = currentPath == '/review';
   const { isOpenProcess, openProcess, closeProcess } = useOpenProcessModal();
+  const {openFileExport, isOpenFileExport} = useOpenFileExport();
+  const {openSendToPacs, isOpenSendToPacs} = useOpenSendToPacs();
+  const {openUseBackup, isOpenUseBackup} = useOpenUseBackup();
 
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
@@ -308,7 +319,7 @@ const Review = () => {
                 src={getImageSrc('btnToolExport', toolico18, toolico18hover, toolico18hover)}
                 onMouseEnter={() => handleMouseEnter('btnToolExport')}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick('btnToolExport')}
+                onClick={() => {handleClick('btnToolExport'); openFileExport()}}
                 data-tooltip-id="tooltip-img"
                 data-tooltip-content="EXPORT" />
 
@@ -328,7 +339,7 @@ const Review = () => {
                 src={getImageSrc('btnToolPacs', toolico20, toolico20hover, toolico20hover)}
                 onMouseEnter={() => handleMouseEnter('btnToolPacs')}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick('btnToolPacs')}
+                onClick={() => {handleClick('btnToolPacs'); openSendToPacs();}}
                 data-tooltip-id="tooltip-img"
                 data-tooltip-content="PACS" />
 
@@ -338,7 +349,7 @@ const Review = () => {
                 src={getImageSrc('btnToolUsbBackup', toolico21, toolico21hover, toolico21hover)}
                 onMouseEnter={() => handleMouseEnter('btnToolUsbBackup')}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick('btnToolUsbBackup')}
+                onClick={() => {handleClick('btnToolUsbBackup'); openUseBackup();}}
                 data-tooltip-id="tooltip-img"
                 data-tooltip-content="USB BACKUP" />
             </div>
@@ -348,6 +359,9 @@ const Review = () => {
       </div>
       <Tooltip id="tooltip-img" className="img-tooltip" place={'bottom'} />
       {isOpenProcess && <ProcessModal />}
+      {isOpenFileExport && <FileExportModal/>}
+      {isOpenUseBackup && <UseBackupModal/>}
+      {isOpenSendToPacs && <SendToPacsModal/>}
     </div>
   );
 };

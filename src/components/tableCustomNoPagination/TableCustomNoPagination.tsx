@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const TableCustomNoPagination = ({ columns, data, rowsPerPage, classTable, classContainer }) => {
+const TableCustomNoPagination = ({ columns, data, rowsPerPage, classTable, classContainer, onClickRow }) => {
   const emptyRows = Math.max(0, rowsPerPage - data.length);
   const heightScroll = rowsPerPage * 45;
+
+    const [activeRow, setActiveRow] = useState(null);
+
+    const handleRowClick = (row, rowIndex) => {
+        setActiveRow(rowIndex);
+        console.log("row", rowIndex,activeRow, row)
+        onClickRow(row);
+    };
   return (
     <div className={`table-container ${classContainer}`}>
       <table className={`base-table ${classTable}`}>
@@ -21,7 +29,10 @@ const TableCustomNoPagination = ({ columns, data, rowsPerPage, classTable, class
         <table className={`base-table ${classTable}`}>
           <tbody>
             {data.map((row: any, rowIndex: any) => (
-              <tr key={rowIndex}>
+              <tr key={rowIndex}
+                  className={activeRow === rowIndex ? 'active-row' : ''}
+                  onClick={() => handleRowClick(row, rowIndex)}
+              >
                 <td>{rowIndex + 1}</td>
                 {columns.map((col: any, colIndex: any) => (
                   <td key={colIndex} style={{ width: col.width || '' }}>

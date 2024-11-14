@@ -59,3 +59,9 @@ export const useOpenConfirmModal = create((set) => ({
     openConfirmModal: () => set({isOpenConfirmModal: true}),
     closeConfirmModal: () => set({isOpenConfirmModal: false}),
 }));
+
+export const useOpenNotFound = create((set) => ({
+    isOpenNotFound: false,
+    openNotFound: () => set({isOpenNotFound: true}),
+    closeNotFound: () => set({isOpenNotFound: false}),
+}));

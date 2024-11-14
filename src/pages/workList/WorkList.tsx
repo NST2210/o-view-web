@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 
 import Sidebar from '../../components/sidebar/Sidebar';
 import NewStudyModal from '../../components/modal/newStudyModal/NewStudyModal';
 import { useOpenDeleteStudy, useOpenNewStudy } from '../../components/common/AppStore';
 import TableCustom from '../../components/tableCustom/TableCustom';
 import DeleteStudyModal from '../../components/modal/deleteStudyModal/DeleteStudyModal';
+import {AppContext} from "../../components/common/AppContext";
 
 const WorkList = () => {
 
@@ -287,12 +288,29 @@ const WorkList = () => {
     // Gọi fetchData khi page thay đổi
     useEffect(() => {
         fetchData(page, rowsPerPage);
+        setStudyData('');
+        setPatientData('');
     }, [page]);
 
     // Xử lý thay đổi trang
     const handlePageChange = (newPage: any) => {
         setPage(newPage);
     };
+
+    const context = useContext(AppContext);
+
+    if (!context) {
+        throw new Error("AppContext must be used within an AppProvider");
+    }
+
+    const { patientData, setPatientData, studyData, setStudyData } = context;
+
+
+    const handleClickRowPatient = (row) => {
+        setPatientData(row);
+        console.log("patientData", row)
+    };
+
     return (
         <div className="work-list">
 
@@ -309,6 +327,7 @@ const WorkList = () => {
                         classTable=""
                         classPagination=""
                         onPageChange={handlePageChange}
+                        onClickRow={handleClickRowPatient}
                     />
                 </div>
 

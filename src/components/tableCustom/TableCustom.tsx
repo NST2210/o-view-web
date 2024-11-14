@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../design/sass/components/tableCustom.scss';
 
 const TableCustom = ({
@@ -10,10 +10,19 @@ const TableCustom = ({
                          classTable,
                          classPagination,
                          classContainer,
-                         onPageChange
+                         onPageChange,
+                         onClickRow
                      }) => {
     const totalPages = Math.ceil(totalItems / rowsPerPage);
     const maxPageDisplay = 3; // Số trang tối đa hiển thị trong pagination
+
+    const [activeRow, setActiveRow] = useState(null);
+
+    const handleRowClick = (row, rowIndex) => {
+        setActiveRow(rowIndex);
+        console.log("row", rowIndex,activeRow, row)
+        onClickRow(row);
+    };
 
     // Xác định các trang bắt đầu và kết thúc hiển thị
     const startPage = Math.max(1, page - Math.floor(maxPageDisplay / 2));
@@ -45,7 +54,10 @@ const TableCustom = ({
                 </thead>
                 <tbody>
                 {data.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
+                    <tr key={rowIndex}
+                        className={activeRow === rowIndex ? 'active-row' : ''}
+                        onClick={() => handleRowClick(row, rowIndex)}
+                    >
                         <td>{(page - 1) * rowsPerPage + rowIndex + 1}</td>
                         {columns.map((col, colIndex) => (
                             <td key={colIndex} style={{ width: col.width || '' }}>{row[col.key]}</td>

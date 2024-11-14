@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {Link, useLocation, useNavigate } from 'react-router-dom';
+import React, {useContext, useEffect, useState} from 'react';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {ReactComponent as IcWifi} from '../../assets/svg/icWifi.svg';
 import {ReactComponent as IconPlus} from '../../assets/svg/icPlusRounded.svg';
 import {ReactComponent as IconTrash} from '../../assets/svg/icTrash.svg';
@@ -14,9 +14,12 @@ import {
     useOpenDeletePatient,
     useOpenDeleteStudy,
     useOpenEditPatient,
-    useOpenNewStudy
+    useOpenNewStudy,
+    useOpenNotFound
 } from '../common/AppStore';
 import ConfirmModal from "../modal/confirmModal/ConfirmModal";
+import {AppContext} from "../common/AppContext";
+import NotFoundModal from "../modal/notFoundModal/NotFoundModal";
 
 const Header = () => {
     const location = useLocation();
@@ -26,13 +29,21 @@ const Header = () => {
     const {openEditPatient, closeEditPatient} = useOpenEditPatient();
     const {openDeletePatient, closeDeletePatient} = useOpenDeletePatient();
     const {openConfirmModal, isOpenConfirmModal} = useOpenConfirmModal();
+    const {openNotFound, isOpenNotFound} = useOpenNotFound();
     const [progress, setProgress] = useState(0);
     const [contentModal, setContentModal] = useState('');
     const [linkTo, setLinkTo] = useState('');
     const navigate = useNavigate();
+    const context = useContext(AppContext);
+
+    if (!context) {
+        throw new Error("AppContext must be used within an AppProvider");
+    }
+
+    const {patientData, studyData} = context;
 
     const onWorkList = (e) => {
-        if (currentPath === '/study-list'){
+        if (currentPath === '/study-list') {
             e.preventDefault(); // Ngăn chặn chuyển trang ngay lập tức
             setLinkTo('/work-list');
             setContentModal('When moving from the studylist tab to the\n' +
@@ -43,7 +54,7 @@ const Header = () => {
     };
 
     const onStudyList = (e) => {
-        if (currentPath === '/work-list'){
+        if (currentPath === '/work-list') {
             e.preventDefault(); // Ngăn chặn chuyển trang ngay lập tức
             setLinkTo('/study-list');
             setContentModal('When moving from the worklist tab to the\n' +
@@ -76,7 +87,8 @@ const Header = () => {
                 <div className='d-flex lh-50 w-87'>
                     <div className='d-flex justify-content-space-between w-100'>
                         <nav className="nav-links">
-                            <Link to="/work-list" onClick={onWorkList} className={currentPath === '/work-list' ? 'nav-link--selected' : ''}>
+                            <Link to="/work-list" onClick={onWorkList}
+                                  className={currentPath === '/work-list' ? 'nav-link--selected' : ''}>
                                 <span>WORKLIST</span>
                             </Link>
                             <Link to="/study-list"
@@ -120,14 +132,22 @@ const Header = () => {
                     </button>
                     <button className="edit-btn d-flex align-items-center align-content-center w-auto gap-1"
                             onClick={() => {
-                                openEditPatient()
+                                if (patientData == '' || patientData == null || patientData == undefined) {
+                                    openNotFound()
+                                } else {
+                                    openEditPatient()
+                                }
                             }}>
                         <IconCheckBox className="m-l-10"/>
                         <span className="m-r-16"> EDIT</span>
                     </button>
                     <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1"
                             onClick={() => {
-                                openDeletePatient()
+                                if (patientData == '' || patientData == null || patientData == undefined) {
+                                    openNotFound()
+                                } else {
+                                    openDeletePatient()
+                                }
                             }}>
                         <IconTrash2 className="icon-trash m-l-10"/>
                         <span className="m-r-16"> DELETE</span>
@@ -146,34 +166,41 @@ const Header = () => {
                             }}>NEW STUDY</span></button>
                         <button
                             className="delete-study-btn left-134px position-absolute d-flex align-items-center align-content-center w-auto gap-1">
-                            <IconTrash
-                                className="icon-trash m-l-20"/><span className="m-r-20" onClick={() => {
-                            openDeleteStudy()
-                        }}> DELETE STUDY</span>
+                            <IconTrash className="icon-trash m-l-20"/>
+                            <span className="m-r-20"
+                                  onClick={() => {
+                                      if (patientData == '' || patientData == null || patientData == undefined) {
+                                          openNotFound()
+                                      } else {
+                                          openDeleteStudy()
+                                      }
+                                  }}> DELETE STUDY</span>
                         </button>
                         <button
                             className="emergency-btn left-278px position-absolute d-flex align-items-center align-content-center w-auto gap-1">
                             <IconAmbulance
                                 className="icon-trash m-l-20"/><span className="m-r-20">EMERGENCY</span></button>
                     </div>
-                    <div className="d-flex left-70 loading-bar position-absolute text-white justify-content-center align-items-center gap-2">
+                    <div
+                        className="d-flex left-70 loading-bar position-absolute text-white justify-content-center align-items-center gap-2">
                         Worklist stanby
 
                         <div style={styles.progressContainer}>
-                            {Array.from({ length: 14 }).map((_, index) => (
-                              <div
-                                key={index}
-                                style={{
-                                    ...styles.square,
-                                    backgroundColor: index < progress ? '#13D0CA' : '#0D6B70'
-                                }}
-                              />
+                            {Array.from({length: 14}).map((_, index) => (
+                                <div
+                                    key={index}
+                                    style={{
+                                        ...styles.square,
+                                        backgroundColor: index < progress ? '#13D0CA' : '#0D6B70'
+                                    }}
+                                />
                             ))}
                         </div>
                     </div>
                 </div>
             </div>}
-            { isOpenConfirmModal && <ConfirmModal content={contentModal} onSubmit={() => handleConfirm(linkTo)}/> }
+            {isOpenConfirmModal && <ConfirmModal content={contentModal} onSubmit={() => handleConfirm(linkTo)}/>}
+            {isOpenNotFound && <NotFoundModal />}
 
         </div>
     );

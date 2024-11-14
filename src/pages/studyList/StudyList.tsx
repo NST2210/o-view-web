@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import '../../design/sass/pages/studyList.scss';
 import {
     useOpenDeletePatient,
     useOpenDeleteStudy,
     useOpenEditPatient,
     useOpenFileExport,
-    useOpenNewStudy,
+    useOpenNewStudy, useOpenNotFound,
     useOpenSendToPacs,
     useOpenUseBackup
 } from '../../components/common/AppStore';
@@ -22,6 +22,7 @@ import UseBackupModal from '../../components/modal/useBackupModal/UseBackupModal
 import SendToPacsModal from '../../components/modal/sendToPacsModal/SendToPacsModal';
 import {ReactComponent as IconCheckBox} from '../../assets/svg/icCheckbox.svg';
 import {ReactComponent as IconTrash2} from '../../assets/svg/icTrash2.svg';
+import {AppContext} from "../../components/common/AppContext";
 
 const StudyList = () => {
 
@@ -29,6 +30,7 @@ const StudyList = () => {
     const {openDeleteStudy, isOpenDeleteStudy} = useOpenDeleteStudy();
     const {isOpenEditPatient} = useOpenEditPatient();
     const {isOpenDeletePatient} = useOpenDeletePatient();
+    const {openNotFound} = useOpenNotFound();
     const {openFileExport, isOpenFileExport} = useOpenFileExport();
     const {openSendToPacs, isOpenSendToPacs} = useOpenSendToPacs();
     const {openUseBackup, isOpenUseBackup} = useOpenUseBackup();
@@ -329,14 +331,49 @@ const StudyList = () => {
 
     // Gọi fetchData khi page thay đổi
     useEffect(() => {
-        fetchDataPatient(1, rawListdata.length)
+        fetchDataPatient(1, rawListdata.length);
         fetchDataStudy(page, rowsPerPage);
+        setStudyData('');
+        setPatientData('');
     }, [page]);
 
     // Xử lý thay đổi trang
     const handlePageChange = (newPage: any) => {
         setPage(newPage);
     };
+
+    const context = useContext(AppContext);
+
+    if (!context) {
+        throw new Error("AppContext must be used within an AppProvider");
+    }
+
+    const { patientData, setPatientData, studyData, setStudyData } = context;
+
+
+    const handleClickRowPatient = (row) => {
+        setPatientData(row);
+        console.log("patientData", row)
+    };
+
+    const handleClickRowStudy = (row) => {
+        setStudyData(row);
+        console.log("studyData", row)
+    };
+
+    useEffect(() => {
+        fetchDataPatient(1, rawListdata.length)
+        fetchDataStudy(page, rowsPerPage);
+        setStudyData('');
+        setPatientData('');
+    }, []);
+
+    const isEmty = (data) =>{
+        if (data == '' || data == null || data == undefined){
+            return true
+        }
+        return false;
+    }
 
     return (
         <div className="study-list">
@@ -349,18 +386,27 @@ const StudyList = () => {
                         rowsPerPage={rowsPerPage}
                         classContainer=""
                         classTable=""
+                        onClickRow={handleClickRowPatient}
                     />
                     <div className="w-100 d-flex flex-end p-t-6 p-b-6">
                         <div className="d-flex gap-2 justify-content-center study-button">
                             <button className="edit-btn  d-flex align-items-center align-content-center w-auto gap-1"
                                     onClick={() => {
-                                        openNewStudy()
+                                        if (isEmty(studyData)){
+                                            openNotFound()
+                                        }else {
+                                            openNewStudy()
+                                        }
                                     }}><IconCheckBox className="m-l-10"/>
                                 <span className="m-r-16"> EDIT</span>
                             </button>
                             <button className="delete-btn d-flex align-items-center align-content-center w-auto gap-1"
                                     onClick={() => {
-                                        openDeleteStudy()
+                                        if (isEmty(studyData)){
+                                            openNotFound()
+                                        }else {
+                                            openDeleteStudy()
+                                        }
                                     }}><IconTrash2 className="icon-trash m-l-10"/>
                                 <span className="m-r-16"> DELETE</span>
                             </button>
@@ -376,6 +422,7 @@ const StudyList = () => {
                         classTable=""
                         classPagination=""
                         onPageChange={handlePageChange}
+                        onClickRow={handleClickRowStudy}
                     />
                 </div>
                 <div className="d-flex flex-column gap-1 study-list-function">
@@ -392,15 +439,27 @@ const StudyList = () => {
                     <div className="function-content-2 h-80px"></div>
                     <div className="action-container d-flex flex-column gap-2 function-button m-b-10">
                         <button onClick={() => {
-                            openFileExport()
+                            if (isEmty(studyData)){
+                                openNotFound()
+                            }else {
+                                openFileExport()
+                            }
                         }}>FILE EXPORT
                         </button>
                         <button onClick={() => {
-                            openUseBackup()
+                            if (isEmty(studyData)){
+                                openNotFound()
+                            }else {
+                                openUseBackup()
+                            }
                         }}>USE BACKUP
                         </button>
                         <button onClick={() => {
-                            openSendToPacs()
+                            if (isEmty(studyData)){
+                                openNotFound()
+                            }else {
+                                openSendToPacs()
+                            }
                         }}>SAVE TO PACS
                         </button>
                     </div>
