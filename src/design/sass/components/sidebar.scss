@@ -29,7 +29,6 @@
     .toggle {
       button {
         padding: 10px 20px;
-        border: none;
         cursor: pointer;
         border-radius: 20px;
         margin-right: 10px;
@@ -41,6 +40,10 @@
         &.active {
           background-color: #009688;
           border: unset;
+        }
+
+        .mr-5{
+          margin-right: 5px;
         }
       }
     }

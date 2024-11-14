@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { ReactComponent as IcSearch } from '../../assets/svg/icSearch.svg';
 import { ReactComponent as IcArrowDown } from '../../assets/svg/icDownArrow.svg';
+import { ReactComponent as IcCheck } from '../../assets/svg/ic_check.svg';
 import ToggleSwitch from '../toggleSwicth/ToggleSwicth';
 
 const Sidebar = () => {
     const [status, setStatus] = useState('Scheduled');
     const [modality, setModality] = useState([]);
-    const [scheduledDate, setScheduledDate] = useState({from: '', to: ''});
-    const [birthDate, setBirthDate] = useState({from: '', to: ''});
+    const [scheduledDate, setScheduledDate] = useState({ from: '', to: '' });
+    const [birthDate, setBirthDate] = useState({ from: '', to: '' });
 
     const handleStatusChange = (newStatus) => {
         setStatus(newStatus);
@@ -28,16 +29,18 @@ const Sidebar = () => {
             {/* Select Status */}
             <div className="filter-section">
                 <div className="d-flex w-100 justify-content-space-between m-b-16">
-                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10"/>Select Status</label>
-                    <ToggleSwitch Name='selectStatus'/>
+                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10" />Select Status</label>
+                    <ToggleSwitch Name="selectStatus" />
                 </div>
                 <div className="toggle d-flex m-b-20">
                     <button onClick={() => handleStatusChange('Scheduled')}
                             className={status === 'Scheduled' ? 'active' : ''}>
+                        {status === 'Scheduled' && <IcCheck width={16} height={16} className="mr-5" />}
                         Scheduled
                     </button>
                     <button onClick={() => handleStatusChange('In Progress')}
                             className={status === 'In Progress' ? 'active' : ''}>
+                        {status === 'In Progress' && <IcCheck width={16} height={16} className="mr-5" />}
                         In Progress
                     </button>
                 </div>
@@ -46,8 +49,8 @@ const Sidebar = () => {
             {/* Modality */}
             <div className="filter-section">
                 <div className="d-flex w-100 justify-content-space-between m-b-16">
-                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10"/>Modality</label>
-                    <ToggleSwitch Name='modality'/>
+                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10" />Modality</label>
+                    <ToggleSwitch Name="modality" />
                 </div>
                 <div className="checkbox-group d-flex justify-content-space-between">
                     {['All', 'DX', 'CR'].map((option) => (
@@ -66,22 +69,23 @@ const Sidebar = () => {
             {/* Scheduled Date */}
             <div className="filter-section">
                 <div className="d-flex w-100 justify-content-space-between m-b-16">
-                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10"/>Scheduled Date</label>
-                    <ToggleSwitch Name='scheduledDate'/>
+                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10" />Scheduled
+                        Date</label>
+                    <ToggleSwitch Name="scheduledDate" />
                 </div>
                 <div className="date-range">
                     <input
                         className="date-range__input"
                         type="date"
                         value={scheduledDate.from}
-                        onChange={(e) => setScheduledDate({...scheduledDate, from: e.target.value})}
+                        onChange={(e) => setScheduledDate({ ...scheduledDate, from: e.target.value })}
                     />
                     <span className="date-range__separator">~</span>
                     <input
                         className="date-range__input"
                         type="date"
                         value={scheduledDate.to}
-                        onChange={(e) => setScheduledDate({...scheduledDate, to: e.target.value})}
+                        onChange={(e) => setScheduledDate({ ...scheduledDate, to: e.target.value })}
                     />
                 </div>
             </div>
@@ -89,22 +93,22 @@ const Sidebar = () => {
             {/* Birth Date */}
             <div className="filter-section">
                 <div className="d-flex w-100 justify-content-space-between m-b-16">
-                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10"/>Birth Date</label>
-                    <ToggleSwitch Name='birthDate'/>
+                    <label className="align-items-center d-flex"><IcArrowDown className="m-r-10" />Birth Date</label>
+                    <ToggleSwitch Name="birthDate" />
                 </div>
                 <div className="date-range">
                     <input
                         className="date-range__input"
                         type="date"
                         value={birthDate.from}
-                        onChange={(e) => setBirthDate({...birthDate, from: e.target.value})}
+                        onChange={(e) => setBirthDate({ ...birthDate, from: e.target.value })}
                     />
                     <span className="date-range__separator">~</span>
                     <input
                         className="date-range__input"
                         type="date"
                         value={birthDate.to}
-                        onChange={(e) => setBirthDate({...birthDate, to: e.target.value})}
+                        onChange={(e) => setBirthDate({ ...birthDate, to: e.target.value })}
                     />
                 </div>
 
@@ -116,7 +120,7 @@ const Sidebar = () => {
                             <option value="all">ALL</option>
                             {/* Add other options here */}
                         </select>
-                        <input type="text" placeholder="Insert Keyword"/>
+                        <input type="text" placeholder="Insert Keyword" />
                         <button><IcSearch /></button>
                     </div>
                     <div className="top-right"></div>
@@ -132,6 +136,6 @@ const Sidebar = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Sidebar;
