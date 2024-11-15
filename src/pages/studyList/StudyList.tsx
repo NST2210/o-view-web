@@ -42,20 +42,20 @@ const StudyList = () => {
     const rowsPerPage = 6;
     const columnsPatient = [
 
-        {title: 'Patient ID', key: 'patientId', width: ''},
-        {title: 'Patient Name', key: 'patientName', width: ''},
-        {title: 'Birthday', key: 'birthday', width: ''},
-        {title: 'Age', key: 'age', width: ''},
-        {title: 'Sex', key: 'sex', width: ''},
-        {title: 'Telephone', key: 'telephone', width: ''},
-        {title: 'Adrress', key: 'adrres', width: ''},
+        {title: 'Patient ID', key: 'patientId', width: '172px'},
+        {title: 'Patient Name', key: 'patientName', width: '218px'},
+        {title: 'Birthday', key: 'birthday', width: '154px'},
+        {title: 'Age', key: 'age', width: '96px'},
+        {title: 'Sex', key: 'sex', width: '91px'},
+        {title: 'Telephone', key: 'telephone', width: '176px'},
+        {title: 'Adrress', key: 'adrres', width: '141px'},
     ];
 
     const columnsStudy = [
-        {title: 'Study ID', key: 'studyId', width: ''},
-        {title: 'ACC. NO.', key: 'accNo', width: ''},
-        {title: 'Study Description', key: 'studyDescription', width: ''},
-        {title: 'StudyDate', key: 'studyDate', width: ''},
+        {title: 'Study ID', key: 'studyId', width: '232px'},
+        {title: 'ACC. NO.', key: 'accNo', width: '298px'},
+        {title: 'Study Description', key: 'studyDescription', width: '306px'},
+        {title: 'StudyDate', key: 'studyDate', width: '200px'},
     ];
 
     const rawListdata = [
